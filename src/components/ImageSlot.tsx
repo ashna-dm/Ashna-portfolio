@@ -5,12 +5,35 @@
  * placeholder box (so the layout/aspect is preserved until Ashna drops the
  * real Figma export / photo in).
  */
+const S = "/assets/images/sorta/screens";
 const SLOT_SRC: Record<string, string> = {
-  // Sorta case study
+  // Sorta case study — media
   "sc-journey": "/assets/images/sorta/sc-journey.png",
   "sc-market": "/assets/images/sorta/sc-market.png",
   "sc-opp": "/assets/images/sorta/sc-opp.webp",
   "ds-logo": "/assets/images/sorta/ds-logo.png",
+  // Sorta — solution feature screens (pulled from Figma "essential flow")
+  "sc-f1a": `${S}/home-page.png`,
+  "sc-f1b": `${S}/take-photo.png`,
+  "sc-f2a": `${S}/select-goal-1.png`,
+  "sc-f2b": `${S}/start-session-1.png`,
+  "sc-f3a": `${S}/preview.png`,
+  "sc-f3b": `${S}/change-plan.png`,
+  "sc-f4a": `${S}/start-session-0.png`,
+  "sc-f4b": `${S}/after-photo.png`,
+  // Sorta — onboarding
+  "sc-onb1": `${S}/splash.png`,
+  "sc-onb2": `${S}/select-goal-1.png`,
+  "sc-onb3": `${S}/select-goal-2.png`,
+  "sc-onb4": `${S}/select-time-1.png`,
+  "sc-onb5": `${S}/select-time-2.png`,
+  // Sorta — build gallery
+  "sc-g1": `${S}/home-page.png`,
+  "sc-g2": `${S}/take-photo.png`,
+  "sc-g3": `${S}/start-session-1.png`,
+  "sc-g4": `${S}/preview.png`,
+  "sc-g5": `${S}/start-session-0.png`,
+  "sc-g6": `${S}/after-photo.png`,
   // Story board
   "story-portrait": "/assets/images/story/story-portrait.webp",
   "story-snap-1": "/assets/images/story/offduty.jpg", // "me, off duty"
