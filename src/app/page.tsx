@@ -74,7 +74,16 @@ export default function Home() {
                 <div className="idlabel-top">
                   <span>AI Native Product Designer</span>
                 </div>
-                <img className="idphoto" src="/assets/images/homepage/ashna-photo.webp" alt="Ashna Damani" />
+                <video
+                  className="idphoto"
+                  src="/assets/video/ashna-wave.mp4"
+                  poster="/assets/images/homepage/ashna-photo.webp"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  aria-label="Ashna Damani waving"
+                />
                 <div className="idname">Ashna Damani</div>
                 <div className="idrole">
                   <span className="live" />
