@@ -482,8 +482,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* pivot from the top anchor (where the lanyard "hangs" from) */
   transform-origin: top center;
   transform: rotate(2deg);
+  /* gentle pendulum sway — small amplitude, slow, sinusoidal, continuous */
+  animation: idsway 5.5s ease-in-out infinite;
+}
+@keyframes idsway {
+  0%,
+  100% {
+    transform: rotate(-0.5deg);
+  }
+  50% {
+    transform: rotate(4.5deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home .idhang {
+    animation: none;
+    transform: rotate(2deg);
+  }
 }
 .home .idhang .lanyard {
   width: 14px;
@@ -557,10 +575,12 @@
 .home .idphoto {
   display: block;
   width: 100%;
-  height: 152px;
+  height: 186px;
   border-radius: 8px;
   overflow: hidden;
   object-fit: cover;
+  /* portrait clip → frame the face near the top, not the sweater */
+  object-position: 50% 12%;
   background: #f5f4fc;
   border: 1px solid color-mix(in srgb, var(--violet) 9%, transparent);
 }
