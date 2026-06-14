@@ -13,7 +13,10 @@ const SLOT_SRC: Record<string, string> = {
   "ds-logo": "/assets/images/sorta/ds-logo.png",
   // Story board
   "story-portrait": "/assets/images/story/story-portrait.webp",
-  "story-snap-3": "/assets/images/story/story-snap-3.webp",
+  "story-snap-1": "/assets/images/story/offduty.jpg", // "me, off duty"
+  "story-snap-2": "/assets/images/story/studio-chaos.jpg", // "the studio chaos"
+  "story-snap-3": "/assets/images/story/pour-over.jpg", // "pour-over #47"
+  "story-snap-4": "/assets/images/story/good-find.jpg", // "a good find"
 };
 
 export default function ImageSlot({
