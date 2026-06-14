@@ -12,28 +12,30 @@ const SLOT_SRC: Record<string, string> = {
   "sc-market": "/assets/images/sorta/sc-market.png",
   "sc-opp": "/assets/images/sorta/sc-opp.webp",
   "ds-logo": "/assets/images/sorta/ds-logo.png",
-  // Sorta — solution feature screens (pulled from Figma "essential flow")
-  "sc-f1a": `${S}/home-page.png`,
-  "sc-f1b": `${S}/take-photo.png`,
-  "sc-f2a": `${S}/select-goal-1.png`,
-  "sc-f2b": `${S}/start-session-1.png`,
-  "sc-f3a": `${S}/preview.png`,
-  "sc-f3b": `${S}/change-plan.png`,
-  "sc-f4a": `${S}/start-session-0.png`,
-  "sc-f4b": `${S}/after-photo.png`,
-  // Sorta — onboarding
+  // Sorta — solution feature screens (curated UI exports; captions now match)
+  "sc-f1a": `${S}/home.png`, // Scan the mess: home
+  "sc-f1b": `${S}/take-photo.png`, // + scan
+  "sc-f2a": `${S}/preview.png`, // One decision at a time: keep/relocate/discard plan
+  "sc-f2b": `${S}/session1.png`, // + active session
+  "sc-f3a": `${S}/donate1.png`, // It leaves the house: donate / pickup
+  "sc-f3b": `${S}/donate2.png`, // + pickup confirm
+  "sc-f4a": `${S}/search.png`, // Never lose it again: item finder
+  "sc-f4b": `${S}/after-photo.png`, // + result
+  // Sorta — onboarding (UNCHANGED per request)
   "sc-onb1": `${S}/splash.png`,
   "sc-onb2": `${S}/select-goal-1.png`,
   "sc-onb3": `${S}/select-goal-2.png`,
   "sc-onb4": `${S}/select-time-1.png`,
   "sc-onb5": `${S}/select-time-2.png`,
-  // Sorta — build gallery
-  "sc-g1": `${S}/home-page.png`,
-  "sc-g2": `${S}/take-photo.png`,
-  "sc-g3": `${S}/start-session-1.png`,
-  "sc-g4": `${S}/preview.png`,
-  "sc-g5": `${S}/start-session-0.png`,
-  "sc-g6": `${S}/after-photo.png`,
+  // Sorta — build gallery (screens NOT shown elsewhere, for breadth)
+  "sc-g1": `${S}/change-plan.png`,
+  "sc-g2": `${S}/offer.png`,
+  "sc-g3": `${S}/session0.png`,
+  "sc-g4": `${S}/rate.png`,
+  "sc-g5": `${S}/finish-session.png`,
+  "sc-g6": `${S}/loading.png`,
+  // Sorta — design system
+  "ds-nav": `${S}/navbar.png`,
   // Story board
   "story-portrait": "/assets/images/story/story-portrait.webp",
   "story-snap-1": "/assets/images/story/offduty.jpg", // "me, off duty"
