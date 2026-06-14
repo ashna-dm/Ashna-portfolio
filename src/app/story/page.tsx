@@ -44,16 +44,6 @@ export default function StoryPage() {
         <span className="av" style={{ background: "#28a36d" }}>YOU</span>
         <span className="av" style={{ background: "#E5677A" }}>?</span>
       </div>
-      <div className="fchrome toolbar">
-        <div className="tool on" title="Move"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 7-6 1.5L10 18z" /></svg></div>
-        <div className="tool" title="Hand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M8 12V6.5a1.5 1.5 0 0 1 3 0V11" /><path d="M11 11V5.5a1.5 1.5 0 0 1 3 0V11" /><path d="M14 11V6.5a1.5 1.5 0 0 1 3 0V13c0 4-2.5 7-6.5 7S5 17 5 14l-.8-2.2a1.4 1.4 0 0 1 2.3-1.5L8 12" /></svg></div>
-        <div className="sep" />
-        <div className="tool" title="Sticky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 4h14v10l-5 5H5z" /><path d="M14 19v-5h5" /></svg></div>
-        <div className="tool" title="Text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M6 6h12M12 6v12" /></svg></div>
-        <div className="tool" title="Pen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 19l2-6L17 3l4 4L11 17z" /><path d="M14 6l4 4" /></svg></div>
-        <div className="sep" />
-        <div className="tool" title="Comment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 5h14v11H9l-4 4z" /></svg></div>
-      </div>
       <div className="fchrome zoom">
         <button id="zoomOut" aria-label="Zoom out">−</button>
         <span className="val" id="zoomVal">100%</span>
@@ -285,7 +275,8 @@ export default function StoryPage() {
                 <p className="big">Long&#8209;walk thinker</p>
                 <p style={{ marginTop: "7px" }}>Best ideas arrive somewhere around kilometre four.</p>
               </div>
-              <div className="polaroid sm" style={{ left: "70px", top: "430px", transform: "rotate(5deg)" }}>
+              <div className="polaroid sm" style={{ left: "70px", top: "496px", transform: "rotate(5deg)" }}>
+                <span className="tape" style={{ left: "58px", top: "-12px", transform: "rotate(-6deg)" }} />
                 <ImageSlot id="story-snap-3" className="ph" placeholder="DROP A PHOTO" />
                 <div className="cap">pour&#8209;over #47</div>
               </div>
