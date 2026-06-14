@@ -743,7 +743,7 @@
 
 /* ===================== WORK ===================== */
 .home .work {
-  padding: 54px 0 110px;
+  padding: 54px 0 60px;
   position: relative;
   border-top: 1px solid color-mix(in srgb, var(--violet) 14%, transparent);
   background-image: radial-gradient(circle, var(--dot) 1.1px, transparent 1.6px);
@@ -910,12 +910,25 @@
 /* ===================== CRAFT STATEMENT ===================== */
 .home .craft {
   text-align: center;
-  padding: 120px 0 140px;
+  padding: 70px 0 96px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 26px;
   position: relative;
+  /* soft brand gradient fills the white space without hurting readability */
+  background:
+    radial-gradient(
+      120% 86% at 50% 40%,
+      color-mix(in srgb, var(--peri) 13%, transparent) 0%,
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      #fff 0%,
+      color-mix(in srgb, var(--lav) 70%, #fff) 48%,
+      #fff 100%
+    );
 }
 .home .craft .lead {
   font-family: var(--mono);
@@ -928,9 +941,15 @@
   font-size: clamp(40px, 6.2vw, 82px);
   font-weight: 800;
   line-height: 1.02;
-  color: var(--violet);
   letter-spacing: -0.02em;
   max-width: 16ch;
+  /* gradient text + a fading mirror reflection beneath it */
+  background: linear-gradient(180deg, var(--violet) 28%, var(--peri) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-box-reflect: below 10px
+    linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.05) 42%, transparent 72%);
 }
 
 /* ===================== FOOTER ===================== */
