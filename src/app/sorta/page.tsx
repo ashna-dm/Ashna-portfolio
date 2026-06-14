@@ -222,7 +222,7 @@ export default function SortaPage() {
           <div className="sec-head reveal"><h2 className="sec-title">The build</h2></div>
           <p className="build-sub reveal">High-fidelity screens from the Sorta prototype — discover, triage, plan a pickup, and find anything in seconds.</p>
           <div className="buildgrid reveal">
-            {[["sc-g1", "sc-g2"], ["sc-g3", "sc-g4"], ["sc-g5", "sc-g6"]].map((col, ci) => (
+            {[["sc-g1", "sc-g2", "sc-g3"], ["sc-g4", "sc-g5", "sc-g6"], ["sc-g7", "sc-g8"]].map((col, ci) => (
               <div className="buildcol" key={ci}>
                 {col.map((id) => (
                   <div className="iphone" key={id}><span className="ip-island" /><div className="ip-screen"><ImageSlot id={id} placeholder="Screen" /></div></div>
@@ -244,7 +244,7 @@ export default function SortaPage() {
                 <div className="dscar-slide">
                   <div className="dscar-card"><div className="bookpage"><span className="bp-deco" />
                     <div className="bp-main"><div className="bp-num">SECTION 01</div><h3 className="bp-title">1.0<br />Logo</h3><p className="bp-desc">The Sorta cube mark and wordmark — a calm, rounded identity that signals order without feeling clinical.</p></div>
-                    <div className="bp-content"><div className="bp-frame"><ImageSlot id="ds-logo" placeholder="Logo" /></div></div>
+                    <div className="bp-content"><div className="bp-frame"><ImageSlot id="ds-logo" className="ds-img" placeholder="Logo" fit="contain" /></div></div>
                     <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">01</span></div>
                   </div></div>
                 </div>
@@ -261,15 +261,15 @@ export default function SortaPage() {
                 </div>
                 <div className="dscar-slide">
                   <div className="dscar-card"><div className="bookpage"><span className="bp-deco" />
-                    <div className="bp-main"><div className="bp-num">SECTION 03</div><h3 className="bp-title">3.0<br />Type</h3><p className="bp-desc">Nunito Sans and Lato carry the product — friendly, highly legible, and quietly confident across every screen.</p></div>
-                    <div className="bp-content"><div className="bp-frame"><ImageSlot id="ds-type" placeholder="Typography" /></div></div>
+                    <div className="bp-main"><div className="bp-num">SECTION 03</div><h3 className="bp-title">3.0<br />Compo&shy;nents</h3><p className="bp-desc">The kit behind every screen — status chips (keep / discard / relocate), segmented controls, tags, and option cards, mapped to each state.</p></div>
+                    <div className="bp-content"><div className="bp-frame"><ImageSlot id="ds-components" className="ds-img" placeholder="Components" fit="cover" /></div></div>
                     <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">03</span></div>
                   </div></div>
                 </div>
                 <div className="dscar-slide">
                   <div className="dscar-card"><div className="bookpage cream"><span className="bp-deco" />
                     <div className="bp-main"><div className="bp-num">SECTION 04</div><h3 className="bp-title">4.0<br />Nav</h3><p className="bp-desc">A four-tab bar — Discover, Connect, Community, Profile — keeps the whole app one thumb-tap away, always calm, never crowded.</p></div>
-                    <div className="bp-content"><div className="bp-frame"><ImageSlot id="ds-nav" placeholder="Navigation bar" fit="contain" /></div></div>
+                    <div className="bp-content"><div className="bp-frame"><ImageSlot id="ds-nav" className="ds-img" placeholder="Navigation bar" fit="contain" /></div></div>
                     <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">04</span></div>
                   </div></div>
                 </div>

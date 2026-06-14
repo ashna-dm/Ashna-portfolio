@@ -161,6 +161,13 @@ img {
   }
 }
 
+/* design-system carousel frame images — consistent height across slides */
+.ds-img {
+  display: block;
+  width: 100%;
+  height: clamp(230px, 27vw, 340px);
+}
+
 /* placeholder shown where a real image hasn't been supplied yet (image-slot) */
 .imgslot-ph {
   display: flex;

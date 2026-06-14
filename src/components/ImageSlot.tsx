@@ -34,8 +34,11 @@ const SLOT_SRC: Record<string, string> = {
   "sc-g4": `${S}/rate.png`,
   "sc-g5": `${S}/finish-session.png`,
   "sc-g6": `${S}/loading.png`,
+  "sc-g7": `${S}/pattern.png`, // AI "found a pattern" insight
+  "sc-g8": `${S}/resell.png`, // resell marketplace
   // Sorta — design system
   "ds-nav": `${S}/navbar.png`,
+  "ds-components": `${S}/ds-components.png`,
   // Story board
   "story-portrait": "/assets/images/story/story-portrait.webp",
   "story-snap-1": "/assets/images/story/offduty.jpg", // "me, off duty"
