@@ -32,14 +32,12 @@ export default function ImageSlot({
 }) {
   const src = id ? SLOT_SRC[id] : undefined;
   if (src) {
-    return (
-      <img
-        className={className}
-        src={src}
-        alt={placeholder || id || ""}
-        style={{ width: "100%", height: "100%", objectFit: fit, display: "block" }}
-      />
-    );
+    // When a sizing className (e.g. the polaroid ".ph") is provided, let its CSS
+    // own the height; otherwise fill the parent container (e.g. ".glass").
+    const style: React.CSSProperties = className
+      ? { width: "100%", objectFit: fit, display: "block" }
+      : { width: "100%", height: "100%", objectFit: fit, display: "block" };
+    return <img className={className} src={src} alt={placeholder || id || ""} style={style} />;
   }
   return (
     <div className={className ? `${className} imgslot-ph` : "imgslot-ph"}>
