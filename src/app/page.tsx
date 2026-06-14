@@ -60,7 +60,7 @@ export default function Home() {
         <section className="hero" id="top">
           <svg className="puzzle-assemble" id="puzzleSvg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" />
           <div className="wrap hero-wrap">
-            <div className="hero-glow" />
+            {/* hero glow is off by default in the handoff (tweaks default glow:false) */}
 
             <span className="mark cross annot" style={{ top: "128px", left: "8px" }} />
             <span className="mark cross annot" style={{ bottom: "150px", right: "8px" }} />
