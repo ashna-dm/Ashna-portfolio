@@ -76,11 +76,11 @@ export default function Home() {
                 <video
                   className="idphoto"
                   src="/assets/video/ashna-wave.mp4"
-                  poster="/assets/images/homepage/ashna-photo.webp"
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="auto"
                   aria-label="Ashna Damani waving"
                 />
                 <div className="idname">Ashna Damani</div>
