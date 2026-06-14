@@ -1,65 +1,393 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
+import HomeInteractions from "./HomeInteractions";
+import "./home.css";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="home">
+      <div className="page">
+        {/* ===================== HEADER ===================== */}
+        <header>
+          <div className="wrap">
+            <nav className="nav">
+              <a className="brand active" href="#top" data-spy="top">
+                Ashna
+              </a>
+              <div className="nav-pills">
+                <a className="np" href="#work" data-spy="work">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 21v-8" />
+                    <path d="M12 13c-1.1-3-3.7-3.7-6-3.1.1 2.7 2.2 4.2 6 3.1Z" />
+                    <path d="M12 11.5c.9-2.7 3.2-3.3 5.4-2.8-.1 2.4-2.1 3.7-5.4 2.8Z" />
+                    <path d="M7 16h10l-1.1 4.2a1 1 0 0 1-1 .8H9.1a1 1 0 0 1-1-.8Z" />
+                  </svg>
+                  <span className="lbl">work</span>
+                </a>
+                <Link className="np" href="/story#play">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="8.5" />
+                    <path d="M3.5 12h17" />
+                    <path d="M12 3.5c2.6 2.3 4 5.3 4 8.5s-1.4 6.2-4 8.5c-2.6-2.3-4-5.3-4-8.5s1.4-6.2 4-8.5Z" />
+                  </svg>
+                  <span className="lbl">play</span>
+                </Link>
+                <a className="np" href="/assets/Ashna-Resume.pdf" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 3.5h7L18 7.5V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20Z" />
+                    <path d="M13.5 3.5V8h4.5" />
+                    <path d="M9.5 12.5h5" />
+                    <path d="M9.5 16h5" />
+                  </svg>
+                  <span className="lbl">résumé</span>
+                </a>
+                <Link className="np" href="/story" data-spy="about">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="15.5" cy="5" r="1.9" />
+                    <path d="M14.5 8.6l-3.2 2.4 2.4 2.3-1 5.2" />
+                    <path d="M11.3 11l-4 .4" />
+                    <path d="M13.7 13.3l3.6 1.4" />
+                    <path d="M5.5 20.5l3.2-3.6" />
+                  </svg>
+                  <span className="lbl">story</span>
+                </Link>
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        {/* ===================== HERO ===================== */}
+        <section className="hero" id="top">
+          <svg className="puzzle-assemble" id="puzzleSvg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" />
+          <div className="wrap hero-wrap">
+            <div className="hero-glow" />
+
+            <span className="mark cross annot" style={{ top: "128px", left: "8px" }} />
+            <span className="mark cross annot" style={{ bottom: "150px", right: "8px" }} />
+            <span className="mark dash annot" style={{ top: "330px", left: 0, width: "104px", height: "58px" }} />
+
+            {/* hanging ID badge */}
+            <div className="idhang">
+              <div className="lanyard" />
+              <div className="clip" />
+              <div className="idlabel">
+                <div className="idlabel-top">
+                  <span>AI Native Product Designer</span>
+                </div>
+                <img className="idphoto" src="/assets/images/homepage/ashna-photo.webp" alt="Ashna Damani" />
+                <div className="idname">Ashna Damani</div>
+                <div className="idrole">
+                  <span className="live" />
+                  Currently working at MapChat Social
+                </div>
+                <div className="idbar">
+                  <div className="bars" />
+                  <div className="barnum">SCAN ME</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="hero-center">
+              <div className="name-wrap">
+                <div className="redline top annot">
+                  <span className="ln" />
+                  <span className="cap a" />
+                  <span className="cap b" />
+                  <span className="rl-lbl">324</span>
+                </div>
+                <div className="redline left annot">
+                  <span className="ln" />
+                  <span className="cap a" />
+                  <span className="cap b" />
+                  <span className="rl-lbl">132</span>
+                </div>
+                <div className="sel annot">
+                  <span className="h tl" />
+                  <span className="h tr" />
+                  <span className="h bl" />
+                  <span className="h br" />
+                  <span className="dim">324 × 132</span>
+                </div>
+                <img className="hero-script" src="/assets/images/homepage/ashna-name.png" alt="आशना — Ashna" />
+              </div>
+
+              <div className="dict">
+                <div className="row1">
+                  <span className="ipa">pronunciation</span>
+                  <span className="sep">•</span>
+                  <span className="rom">a-sh-na</span>
+                </div>
+                <div className="def">
+                  <b>(n.)</b> a familiar one — someone you know by heart.
+                </div>
+              </div>
+            </div>
+
+            <div className="hero-corners">
+              <div className="hero-tagline">
+                <span>Running on coffee</span>
+                <br />
+                <span>&amp; “what ifs.”</span>
+              </div>
+              <div className="hero-role">
+                <div className="big">Product Designer</div>
+                <div className="small">+ storyteller</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===================== WORK ===================== */}
+        <section className="work" id="work">
+          <div className="wrap">
+            <div className="sec-label">
+              <span className="t">Work projects</span>
+              <span className="ln" />
+            </div>
+            <div className="work-grid">
+              {/* FRAME 01 — MAPCHAT */}
+              <a className="frame" href="#">
+                <div className="frame-tab">
+                  <span className="n">01</span>
+                </div>
+                <div className="artboard">
+                  <svg viewBox="0 0 280 210" preserveAspectRatio="xMidYMid slice">
+                    <rect width="280" height="210" fill="#eef1f4" />
+                    <rect x="18" y="30" width="74" height="58" rx="6" fill="#dce9e0" />
+                    <rect x="196" y="112" width="70" height="50" rx="6" fill="#dce9e0" />
+                    <path d="M0 158 Q72 142 150 160 T280 150 L280 210 L0 210 Z" fill="#cdddec" />
+                    <g stroke="#fff" strokeWidth="6" strokeLinecap="round">
+                      <path d="M-6 74 L286 92" />
+                      <path d="M-6 128 L286 138" />
+                      <path d="M104 -6 L120 216" />
+                      <path d="M206 -6 L192 216" />
+                    </g>
+                    <g stroke="#f4f6f8" strokeWidth="2.6" strokeLinecap="round">
+                      <path d="M-6 48 L286 60" />
+                      <path d="M52 -6 L60 216" />
+                      <path d="M158 -6 L150 216" />
+                    </g>
+                    <circle cx="150" cy="150" r="16" fill="#5067EB" opacity="0.16" />
+                    <circle cx="150" cy="150" r="6" fill="#5067EB" stroke="#fff" strokeWidth="2.4" />
+                    <path d="M86 96 C74 96 68 87 68 78 C68 66 86 50 86 50 C86 50 104 66 104 78 C104 87 98 96 86 96 Z" fill="#a9b3f0" />
+                    <circle cx="86" cy="75" r="6.5" fill="#fff" />
+                    <path d="M214 118 C202 118 196 109 196 100 C196 88 214 72 214 72 C214 72 232 88 232 100 C232 109 226 118 214 118 Z" fill="#5067EB" />
+                    <circle cx="214" cy="97" r="6.5" fill="#fff" />
+                    <path d="M150 110 C136 110 129 99 129 89 C129 75 150 56 150 56 C150 56 171 75 171 89 C171 99 164 110 150 110 Z" fill="#5B27E5" />
+                    <circle cx="150" cy="86" r="7.5" fill="#fff" />
+                    <g>
+                      <rect x="120" y="16" width="110" height="40" rx="10" fill="#fff" stroke="#e0e3f7" />
+                      <path d="M150 56 L143 50 L157 50 Z" fill="#fff" />
+                      <circle cx="139" cy="36" r="11" fill="#5B27E5" />
+                      <circle cx="139" cy="32" r="4" fill="#fff" />
+                      <path d="M132 43 a7 7 0 0 1 14 0" fill="#fff" />
+                      <rect x="158" y="27" width="58" height="6" rx="3" fill="#cdd3f7" />
+                      <rect x="158" y="39" width="40" height="6" rx="3" fill="#e4e7fb" />
+                    </g>
+                  </svg>
+                  <span className="tok-chip annot">
+                    <i style={{ background: "#5B27E5" }} />
+                    <i style={{ background: "#5067EB" }} />
+                    <i style={{ background: "#cdddec" }} />
+                  </span>
+                  <span className="dim-chip annot">390 × 844</span>
+                  <span className="hh tl" />
+                  <span className="hh tr" />
+                  <span className="hh bl" />
+                  <span className="hh br" />
+                </div>
+                <div className="frame-foot">
+                  <div>
+                    <div className="f-title">MapChat</div>
+                    <div className="f-cat">Social · maps × messaging</div>
+                  </div>
+                  <span className="open">open ↗</span>
+                </div>
+              </a>
+
+              {/* FRAME 02 — AURA */}
+              <Link className="frame" href="/aura">
+                <div className="frame-tab">
+                  <span className="n">02</span>
+                </div>
+                <div className="artboard">
+                  <svg viewBox="0 0 280 210" preserveAspectRatio="xMidYMid slice">
+                    <rect width="280" height="210" fill="#f3f1fb" />
+                    <rect x="20" y="26" width="170" height="158" rx="8" fill="#fff" stroke="#e0d9f6" />
+                    <rect x="20" y="26" width="170" height="20" rx="8" fill="#efeafb" />
+                    <rect x="34" y="58" width="142" height="74" rx="6" fill="#cdbdf3" />
+                    <rect x="34" y="58" width="71" height="74" fill="#b49ef0" />
+                    <rect x="34" y="142" width="60" height="8" rx="4" fill="#cac0ef" />
+                    <rect x="34" y="156" width="40" height="8" rx="4" fill="#ddd6f4" />
+                    <rect x="118" y="142" width="14" height="22" rx="2" fill="#7B2D8B" />
+                    <rect x="136" y="142" width="14" height="22" rx="2" fill="#C9A227" />
+                    <rect x="154" y="142" width="14" height="22" rx="2" fill="#1A1430" />
+                    <rect x="176" y="64" width="84" height="124" rx="16" fill="#fff" stroke="#d8cef4" strokeWidth="2" />
+                    <rect x="184" y="74" width="68" height="104" rx="10" fill="#5067EB" />
+                    <rect x="194" y="86" width="48" height="40" rx="7" fill="#fff" opacity="0.9" />
+                    <rect x="194" y="134" width="34" height="7" rx="3.5" fill="#fff" opacity="0.85" />
+                    <rect x="194" y="146" width="48" height="7" rx="3.5" fill="#fff" opacity="0.5" />
+                    <rect x="194" y="162" width="48" height="9" rx="4.5" fill="#C9A227" />
+                  </svg>
+                  <span className="tok-chip annot">
+                    <i style={{ background: "#7B2D8B" }} />
+                    <i style={{ background: "#C9A227" }} />
+                    <i style={{ background: "#5067EB" }} />
+                  </span>
+                  <span className="dim-chip annot">390 × 844</span>
+                  <span className="hh tl" />
+                  <span className="hh tr" />
+                  <span className="hh bl" />
+                  <span className="hh br" />
+                </div>
+                <div className="frame-foot">
+                  <div>
+                    <div className="f-title">AURA</div>
+                    <div className="f-cat">Fashion-skin · UI/UX</div>
+                  </div>
+                  <span className="open">open ↗</span>
+                </div>
+              </Link>
+
+              {/* FRAME 03 — NDA */}
+              <a className="frame" href="#">
+                <div className="frame-tab">
+                  <span className="n">03</span>
+                </div>
+                <div className="artboard">
+                  <svg viewBox="0 0 280 210" preserveAspectRatio="xMidYMid slice">
+                    <rect width="280" height="210" fill="#f5f6fe" />
+                    <rect x="26" y="24" width="228" height="162" rx="9" fill="#fff" stroke="#dfe2fb" />
+                    <rect x="26" y="24" width="228" height="26" rx="9" fill="#eef0fd" />
+                    <circle cx="42" cy="37" r="3.2" fill="#c7cdf4" />
+                    <circle cx="53" cy="37" r="3.2" fill="#c7cdf4" />
+                    <circle cx="64" cy="37" r="3.2" fill="#c7cdf4" />
+                    <rect x="44" y="66" width="120" height="13" rx="4" fill="#cdd3f7" />
+                    <rect x="44" y="86" width="190" height="13" rx="4" fill="#dfe3fb" />
+                    <rect x="44" y="106" width="150" height="13" rx="4" fill="#dfe3fb" />
+                    <rect x="44" y="132" width="86" height="13" rx="4" fill="#cdd3f7" />
+                    <rect x="44" y="152" width="120" height="13" rx="4" fill="#dfe3fb" />
+                    <circle cx="200" cy="138" r="30" fill="#5B27E5" />
+                    <rect x="189" y="135" width="22" height="17" rx="3" fill="#fff" />
+                    <path d="M193 135 v-4 a7 7 0 0 1 14 0 v4" fill="none" stroke="#fff" strokeWidth="2.6" />
+                    <circle cx="200" cy="143" r="2.6" fill="#5B27E5" />
+                  </svg>
+                  <span className="tok-chip annot">
+                    <i style={{ background: "#5B27E5" }} />
+                    <i style={{ background: "#cdd3f7" }} />
+                    <i style={{ background: "#1A1430" }} />
+                  </span>
+                  <span className="dim-chip annot">under nda</span>
+                  <span className="hh tl" />
+                  <span className="hh tr" />
+                  <span className="hh bl" />
+                  <span className="hh br" />
+                </div>
+                <div className="frame-foot">
+                  <div>
+                    <div className="f-title">Moonshot idea</div>
+                    <div className="f-cat">Real client · Product</div>
+                  </div>
+                  <span className="open">open ↗</span>
+                </div>
+              </a>
+
+              {/* FRAME 04 — SORTA */}
+              <Link className="frame" href="/sorta">
+                <div className="frame-tab">
+                  <span className="n">04</span>
+                </div>
+                <div className="artboard">
+                  <svg viewBox="0 0 280 210" preserveAspectRatio="xMidYMid slice">
+                    <rect width="280" height="210" fill="#ECEBFB" />
+                    <rect x="92" y="22" width="96" height="180" rx="18" fill="#fff" stroke="#5067EB" strokeWidth="2" />
+                    <rect x="100" y="30" width="80" height="40" rx="10" fill="#5B27E5" />
+                    <rect x="110" y="42" width="40" height="6" rx="3" fill="#fff" opacity="0.9" />
+                    <rect x="110" y="54" width="28" height="5" rx="2.5" fill="#fff" opacity="0.55" />
+                    <rect x="100" y="82" width="80" height="20" rx="6" fill="#F2F1FC" />
+                    <rect x="106" y="89" width="34" height="6" rx="3" fill="#5B27E5" opacity="0.55" />
+                    <rect x="150" y="86" width="24" height="12" rx="6" fill="#5067EB" />
+                    <rect x="100" y="108" width="80" height="20" rx="6" fill="#F2F1FC" />
+                    <rect x="106" y="115" width="30" height="6" rx="3" fill="#5B27E5" opacity="0.55" />
+                    <rect x="150" y="112" width="24" height="12" rx="6" fill="#5B27E5" />
+                    <rect x="100" y="134" width="80" height="20" rx="6" fill="#F2F1FC" />
+                    <rect x="106" y="141" width="26" height="6" rx="3" fill="#5B27E5" opacity="0.55" />
+                    <rect x="150" y="138" width="24" height="12" rx="6" fill="#5B27E5" opacity="0.2" />
+                    <g fontFamily="JetBrains Mono, monospace" fontSize="8" fontWeight="500">
+                      <rect x="18" y="64" width="40" height="16" rx="8" fill="#fff" stroke="#5067EB" />
+                      <text x="38" y="75" fill="#5067EB" textAnchor="middle">keep</text>
+                      <rect x="210" y="92" width="54" height="16" rx="8" fill="#5B27E5" />
+                      <text x="237" y="103" fill="#fff" textAnchor="middle">relocate</text>
+                      <rect x="22" y="150" width="50" height="16" rx="8" fill="#fff" stroke="#5B27E5" strokeOpacity="0.3" />
+                      <text x="47" y="161" fill="#5B27E5" textAnchor="middle">discard</text>
+                    </g>
+                  </svg>
+                  <span className="tok-chip annot">
+                    <i style={{ background: "#5B27E5" }} />
+                    <i style={{ background: "#5067EB" }} />
+                    <i style={{ background: "#ECEBFB" }} />
+                  </span>
+                  <span className="dim-chip annot">live beta</span>
+                  <span className="hh tl" />
+                  <span className="hh tr" />
+                  <span className="hh bl" />
+                  <span className="hh br" />
+                </div>
+                <div className="frame-foot">
+                  <div>
+                    <div className="f-title">Sorta</div>
+                    <div className="f-cat">AI · home organization</div>
+                  </div>
+                  <span className="open">open ↗</span>
+                </div>
+              </Link>
+            </div>
+
+            <div className="work-cta">
+              <a className="fig-btn" href="#work">
+                View my work{" "}
+                <svg className="ar" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ===================== CRAFT STATEMENT ===================== */}
+        <section className="craft" id="about">
+          <span className="mark cross annot" style={{ top: "64px", left: "14%" }} />
+          <span className="mark dash annot" style={{ bottom: "70px", right: "12%", width: "90px", height: "54px" }} />
+          <div className="wrap" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px" }}>
+            <div className="lead">I design —</div>
+            <div className="big">Where the runway meets the roadmap.</div>
+          </div>
+        </section>
+      </div>
+
+      {/* ===================== FOOTER ===================== */}
+      <footer id="contact">
+        <div className="footer-inner">
+          <div className="footer-huge">
+            GET IN
+            <br />
+            TOUCH
+          </div>
+          <div className="footer-links">
+            <a href="mailto:damaniashna@gmail.com">damaniashna@gmail.com</a>
+            <span className="d">·</span>
+            <a href="#">LinkedIn</a>
+            <span className="d">·</span>
+            <a href="#">Read.cv</a>
+          </div>
+          <div className="footer-meta">
+            <span>© 2026 Ashna</span>
+            <span>Product Designer + Storyteller</span>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </footer>
+
+      <HomeInteractions />
     </div>
   );
 }
