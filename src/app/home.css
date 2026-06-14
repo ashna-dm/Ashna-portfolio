@@ -910,11 +910,11 @@
 /* ===================== CRAFT STATEMENT ===================== */
 .home .craft {
   text-align: center;
-  padding: 70px 0 96px;
+  padding: 108px 0 128px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 26px;
+  gap: 32px;
   position: relative;
 }
 /* jigsaw watermark — the hero's motif — masked to a soft pool behind the text */
