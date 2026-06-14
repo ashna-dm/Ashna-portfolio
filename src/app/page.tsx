@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
 import HomeInteractions from "./HomeInteractions";
 import "./home.css";
 
@@ -24,14 +23,14 @@ export default function Home() {
                   </svg>
                   <span className="lbl">work</span>
                 </a>
-                <Link className="np" href="/story#play">
+                <a className="np" href="/story#play">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="8.5" />
                     <path d="M3.5 12h17" />
                     <path d="M12 3.5c2.6 2.3 4 5.3 4 8.5s-1.4 6.2-4 8.5c-2.6-2.3-4-5.3-4-8.5s1.4-6.2 4-8.5Z" />
                   </svg>
                   <span className="lbl">play</span>
-                </Link>
+                </a>
                 <a className="np" href="/assets/Ashna-Resume.pdf" target="_blank" rel="noopener">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M7 3.5h7L18 7.5V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20Z" />
@@ -41,7 +40,7 @@ export default function Home() {
                   </svg>
                   <span className="lbl">résumé</span>
                 </a>
-                <Link className="np" href="/story" data-spy="about">
+                <a className="np" href="/story" data-spy="about">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="15.5" cy="5" r="1.9" />
                     <path d="M14.5 8.6l-3.2 2.4 2.4 2.3-1 5.2" />
@@ -50,7 +49,7 @@ export default function Home() {
                     <path d="M5.5 20.5l3.2-3.6" />
                   </svg>
                   <span className="lbl">story</span>
-                </Link>
+                </a>
               </div>
             </nav>
           </div>
@@ -225,7 +224,7 @@ export default function Home() {
               </a>
 
               {/* FRAME 02 — AURA */}
-              <Link className="frame" href="/aura">
+              <a className="frame" href="/aura">
                 <div className="frame-tab">
                   <span className="n">02</span>
                 </div>
@@ -266,7 +265,7 @@ export default function Home() {
                   </div>
                   <span className="open">open ↗</span>
                 </div>
-              </Link>
+              </a>
 
               {/* FRAME 03 — NDA */}
               <a className="frame" href="#">
@@ -312,7 +311,7 @@ export default function Home() {
               </a>
 
               {/* FRAME 04 — SORTA */}
-              <Link className="frame" href="/sorta">
+              <a className="frame" href="/sorta">
                 <div className="frame-tab">
                   <span className="n">04</span>
                 </div>
@@ -359,7 +358,7 @@ export default function Home() {
                   </div>
                   <span className="open">open ↗</span>
                 </div>
-              </Link>
+              </a>
             </div>
 
             <div className="work-cta">

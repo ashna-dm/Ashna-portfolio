@@ -160,3 +160,22 @@ img {
     scroll-behavior: auto;
   }
 }
+
+/* placeholder shown where a real image hasn't been supplied yet (image-slot) */
+.imgslot-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  min-height: 64px;
+  padding: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--violet) 45%, #fff);
+  background: color-mix(in srgb, var(--violet) 5%, #fff);
+}
