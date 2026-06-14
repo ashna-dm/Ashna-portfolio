@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ASHNA — Product Designer + Storyteller</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Baloo+2:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* ============================================================
+     TYPE — Hagrid (Zetafonts, trial). A grotesque display halfbreed.
+     Latin-only, so the Devanagari hero name stays in Baloo 2.
+     Trials supply Regular (400) + Text Extrabold (800) + italics, so
+     the system is two real weights (no faux synthesis): Regular for
+     UI/body, Extrabold for big display. Spec / tech-pack micro-labels
+     stay in JetBrains Mono on purpose.
+     ============================================================ */
+  @font-face{font-family:"Hagrid";font-style:normal;font-weight:400;font-display:swap;
+    src:url("assets/fonts/Hagrid-Regular-trial.ttf") format("truetype");}
+  @font-face{font-family:"Hagrid";font-style:italic;font-weight:400;font-display:swap;
+    src:url("assets/fonts/Hagrid-Italic-trial.ttf") format("truetype");}
+  @font-face{font-family:"Hagrid";font-style:normal;font-weight:800;font-display:swap;
+    src:url("assets/fonts/Hagrid-Text-Extrabold-trial.ttf") format("truetype");}
+  @font-face{font-family:"Hagrid";font-style:italic;font-weight:800;font-display:swap;
+    src:url("assets/fonts/Hagrid-Text-Extrabold-Italic-trial.ttf") format("truetype");}
+  @font-face{font-family:"Gajraj One";font-style:normal;font-weight:400;font-display:swap;
+    src:url("assets/fonts/GajrajOne-Regular.ttf") format("truetype");}
+  :root{
+    --font: "Hagrid", "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+    --violet: #5B27E5;
+    --peri:   #5067EB;
+    --lav:    #ECEBFB;
+    --ink:    #1A1430;
+    --dot: color-mix(in srgb, var(--violet) 16%, transparent);
+    --line: color-mix(in srgb, var(--peri) 55%, transparent);
+    --faint: color-mix(in srgb, var(--peri) 22%, transparent);
+    --nav-blue: #1E3FCF;
+    --maxw: 1320px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font);font-weight:400;color:var(--violet);
+    background:#fff;-webkit-font-smoothing:antialiased;font-synthesis:none;
+    text-rendering:optimizeLegibility;overflow-x:hidden;
+  }
+  /* hero rides the jigsaw puzzle watermark; work rides the figma dot-grid canvas */
+  body.no-annot .annot{display:none !important;}
+  .btn{
+    display:inline-flex;align-items:center;gap:11px;cursor:pointer;
+    font-family:var(--font);font-weight:800;font-size:16px;letter-spacing:.01em;
+    color:#fff;background:var(--violet);border:none;border-radius:40px;
+    padding:15px 28px;transition:background .2s ease, transform .2s ease;
+  }
+  .btn:hover{background:color-mix(in srgb, var(--violet) 86%, #000);transform:translateY(-1px);}
+  .btn .ar{display:inline-flex;align-items:center;}
+  /* Figma-style primary button: compact, 6px radius, periwinkle, medium */
+  .work-cta{display:flex;justify-content:center;margin-top:68px;}
+  .fig-btn{
+    display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+    font-family:var(--font);font-weight:800;font-size:14px;letter-spacing:.01em;
+    color:#fff;background:var(--peri);border:1px solid color-mix(in srgb,var(--peri) 70%, #000);
+    border-radius:6px;padding:11px 18px;line-height:1;
+    box-shadow:0 1px 2px rgba(26,20,48,.18);
+    transition:background .15s ease, box-shadow .15s ease;
+  }
+  .fig-btn:hover{background:color-mix(in srgb,var(--peri) 88%, #000);}
+  .fig-btn:focus-visible{outline:2px solid color-mix(in srgb,var(--peri) 50%, #fff);outline-offset:2px;}
+  .fig-btn .ar{display:inline-flex;align-items:center;}
+
+  .page{position:relative;z-index:1;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 56px;}
+  a{color:inherit;text-decoration:none;}
+
+  /* mono annotation label, shared "spec / tech-pack" voice */
+  .tag{
+    font-family:var(--mono);font-size:10.5px;font-weight:500;
+    letter-spacing:.06em;color:var(--peri);white-space:nowrap;
+  }
+
+  /* ===================== HEADER (floating) ===================== */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    background:transparent;
+    padding:4px 0 0;pointer-events:none;
+  }
+  /* frosted band — strongest at the very top, masked to nothing below the tab names */
+  header::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to bottom, rgba(255,255,255,.72), rgba(255,255,255,0));
+    -webkit-backdrop-filter:blur(14px) saturate(1.35);
+    backdrop-filter:blur(14px) saturate(1.35);
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 65%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 0%,#000 65%,transparent 100%);
+    opacity:0;transition:opacity .28s ease;
+  }
+  header.scrolled::before{opacity:1;}
+  header .nav{pointer-events:none;position:relative;z-index:1;}
+  .brand,.nav-pills{pointer-events:auto;}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:78px;}
+  /* left wordmark pill */
+  .brand{display:inline-flex;align-items:center;line-height:1;text-transform:none;
+    font-family:var(--font);font-size:15px;font-weight:600;letter-spacing:.005em;color:#26233a;
+    background:#fff;border:1px solid #e4e3ea;border-radius:999px;padding:10px 22px;
+    transition:border-color .2s ease, box-shadow .2s ease;}
+  .brand:hover{border-color:#cfccda;box-shadow:0 5px 16px -10px rgba(26,20,48,.4);}
+  /* right pill group */
+  .nav-pills{display:flex;align-items:center;gap:9px;}
+  .np{display:inline-flex;align-items:center;gap:8px;line-height:1;white-space:nowrap;
+    font-family:var(--font);font-size:15px;font-weight:600;letter-spacing:.005em;color:#2b2838;
+    background:#fff;border:1px solid #e4e3ea;border-radius:999px;padding:10px 17px;
+    transition:background .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease;}
+  .np svg{width:16px;height:16px;flex:none;}
+  .np:hover{border-color:#cfccda;box-shadow:0 5px 16px -10px rgba(26,20,48,.45);}
+  .np.active{background:var(--nav-blue);border-color:var(--nav-blue);color:#fff;}
+  .np.active:hover{box-shadow:0 7px 20px -9px color-mix(in srgb,var(--nav-blue) 65%,transparent);}
+  .brand.active{background:var(--nav-blue);border-color:var(--nav-blue);color:#fff;}
+  .brand.active:hover{box-shadow:0 7px 20px -9px color-mix(in srgb,var(--nav-blue) 65%,transparent);}
+
+  /* ===================== HERO ===================== */
+  section[id]{scroll-margin-top:104px;}
+  .hero{position:relative;min-height:100vh;}
+  /* puzzle pieces assemble here (built by JS); also the static final watermark */
+  .puzzle-assemble{position:absolute;inset:0;width:100%;height:100%;z-index:0;overflow:hidden;pointer-events:none;}
+  .puzzle-assemble .pc{transform-box:fill-box;transform-origin:center;}
+  .hero-wrap{position:relative;display:flex;flex-direction:column;min-height:100vh;}
+  .hero-glow{
+    position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);
+    width:115%;height:72%;z-index:0;pointer-events:none;filter:blur(10px);
+    background:radial-gradient(closest-side, color-mix(in srgb, var(--peri) 25%, transparent), transparent 72%);
+  }
+  body.no-glow .hero-glow{display:none;}
+
+  .hero-center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:58px;position:relative;z-index:2;padding:104px 0 40px;}
+
+  /* the placed "layer": name + selection chrome */
+  .name-wrap{position:relative;display:inline-block;padding:6px 10px;}
+  .hero-script{
+    display:block;width:min(760px, 76vw);height:auto;position:relative;z-index:1;
+    /* custom-lettered graphic already carries white fill + periwinkle
+       extrusion + glow; multiply drops its near-white ground against the
+       page so it blends over the puzzle watermark with no box. */
+    mix-blend-mode:multiply;
+  }
+  /* Figma selection box */
+  .sel{position:absolute;inset:-14px -10px;border:1px solid var(--peri);pointer-events:none;z-index:3;}
+  .sel .h{position:absolute;width:9px;height:9px;background:#fff;border:1.5px solid var(--peri);border-radius:1px;}
+  .sel .h.tl{top:-5px;left:-5px;} .sel .h.tr{top:-5px;right:-5px;}
+  .sel .h.bl{bottom:-5px;left:-5px;} .sel .h.br{bottom:-5px;right:-5px;}
+  .sel .dim{
+    position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);
+    background:var(--peri);color:#fff;font-family:var(--mono);font-size:11px;font-weight:500;
+    padding:3px 8px;border-radius:3px;letter-spacing:.04em;white-space:nowrap;
+  }
+  .cursor{position:absolute;top:-30px;right:-30px;z-index:4;display:flex;align-items:flex-start;gap:0;}
+  .cursor .lbl{margin-top:14px;margin-left:-2px;background:var(--peri);color:#fff;
+    font-family:var(--mono);font-size:10px;padding:2px 6px;border-radius:3px;letter-spacing:.04em;}
+  /* redline call-outs (double as garment measurements) */
+  .redline{position:absolute;z-index:3;color:var(--line);}
+  .redline.top{left:-10px;right:-10px;top:-46px;height:10px;}
+  .redline.left{top:-14px;bottom:-14px;left:-46px;width:10px;}
+  .redline .ln{position:absolute;background:var(--line);}
+  .redline.top .ln{left:0;right:0;top:5px;height:1px;}
+  .redline.top .cap{position:absolute;top:0;width:1px;height:11px;background:var(--line);}
+  .redline.top .cap.a{left:0;} .redline.top .cap.b{right:0;}
+  .redline.left .ln{top:0;bottom:0;left:5px;width:1px;}
+  .redline.left .cap{position:absolute;left:0;height:1px;width:11px;background:var(--line);}
+  .redline.left .cap.a{top:0;} .redline.left .cap.b{bottom:0;}
+  .redline .rl-lbl{position:absolute;font-family:var(--mono);font-size:10px;color:var(--peri);background:#fff;padding:0 4px;}
+  .redline.top .rl-lbl{top:-8px;left:50%;transform:translateX(-50%);}
+  .redline.left .rl-lbl{left:-6px;top:50%;transform:translate(-100%,-50%);}
+
+  /* dictionary treatment */
+  .dict{text-align:center;position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:13px;}
+  .dict .row1{display:flex;align-items:baseline;gap:13px;flex-wrap:nowrap;white-space:nowrap;justify-content:center;color:var(--violet);}
+  .dict .dv{font-family:"Baloo 2",var(--font);font-weight:700;font-size:26px;line-height:1;}
+  .dict .ipa{font-family:var(--mono);font-size:15px;color:color-mix(in srgb,var(--violet) 72%,#fff);white-space:nowrap;}
+  .dict .sep{color:color-mix(in srgb,var(--violet) 45%,#fff);}
+  .dict .rom{font-size:16px;font-weight:500;letter-spacing:.18em;text-transform:lowercase;}
+  .dict .def{font-size:16px;font-weight:500;color:color-mix(in srgb,var(--violet) 78%,#fff);max-width:42ch;line-height:1.5;}
+  .dict .def b{font-style:italic;font-weight:500;color:var(--violet);}
+  .dict .btn{margin-top:24px;}
+
+  /* barcode ID label (replaces the swatch/token chips) */
+  /* hanging ID badge — lanyard + clip + card */
+  .idhang{position:absolute;top:0;right:49px;z-index:3;
+    display:flex;flex-direction:column;align-items:center;
+    transform-origin:top center;transform:rotate(2deg);}
+  .idhang .lanyard{width:14px;height:188px;position:relative;
+    background:linear-gradient(180deg,
+      color-mix(in srgb,var(--peri) 55%,#fff),
+      color-mix(in srgb,var(--violet) 45%,#fff));
+    border-radius:0 0 3px 3px;box-shadow:0 1px 2px rgba(26,20,48,.1);}
+  .idhang .lanyard::after{content:"";position:absolute;left:50%;top:7px;
+    transform:translateX(-50%);width:1.5px;height:172px;background:rgba(255,255,255,.5);}
+  .idhang .clip{width:30px;height:14px;margin-top:-1px;margin-bottom:-7px;z-index:4;
+    position:relative;border-radius:4px;border:1px solid #d4d6e2;
+    background:linear-gradient(180deg,#f6f7fb,#dcdeea);
+    box-shadow:0 1px 4px rgba(26,20,48,.16);}
+  .idhang .clip::before{content:"";position:absolute;left:50%;top:4px;
+    transform:translateX(-50%);width:13px;height:6px;border-radius:3px;
+    background:#c4c7d6;box-shadow:inset 0 1px 1px rgba(0,0,0,.15);}
+  /* barcode ID card */
+  .idlabel{position:relative;width:212px;
+    background:#fff;border:1px solid color-mix(in srgb,var(--violet) 13%,transparent);
+    border-radius:12px;padding:14px 13px 13px;
+    display:flex;flex-direction:column;gap:10px;
+    box-shadow:0 18px 40px -26px color-mix(in srgb,var(--peri) 45%,transparent),
+      0 2px 8px -4px color-mix(in srgb,var(--violet) 18%,transparent);}
+  .idlabel-top{display:flex;justify-content:space-between;font-family:var(--mono);
+    font-size:8.5px;letter-spacing:.1em;color:color-mix(in srgb,var(--peri) 70%,#fff);text-transform:uppercase;white-space:nowrap;}
+  .idphoto{display:block;width:100%;height:152px;border-radius:8px;overflow:hidden;
+    background:#f5f4fc;border:1px solid color-mix(in srgb,var(--violet) 9%,transparent);}
+  .idname{font-family:var(--font);font-weight:800;font-size:19px;line-height:1;
+    letter-spacing:-.01em;color:var(--violet);}
+  .idrole{font-family:var(--font);font-weight:500;font-size:11.5px;line-height:1.35;
+    color:color-mix(in srgb,var(--violet) 72%,#fff);display:flex;gap:7px;align-items:flex-start;}
+  .idrole .live{width:5px;height:5px;border-radius:50%;background:#3bb273;
+    margin-top:4px;flex:0 0 auto;box-shadow:0 0 0 3px color-mix(in srgb,#3bb273 16%,transparent);}
+  .idbar{margin-top:3px;padding-top:11px;border-top:1px solid color-mix(in srgb,var(--violet) 9%,transparent);}
+  .idbar .bars{height:30px;width:100%;border-radius:1px;opacity:.62;
+    background:repeating-linear-gradient(90deg,
+      var(--violet) 0 2px, transparent 2px 4px,
+      var(--violet) 4px 5px, transparent 5px 8px,
+      var(--violet) 8px 11px, transparent 11px 12px,
+      var(--violet) 12px 13px, transparent 13px 16px);}
+  .idbar .barnum{margin-top:6px;font-family:var(--mono);font-size:9px;font-weight:700;
+    letter-spacing:.26em;text-align:center;color:color-mix(in srgb,var(--violet) 78%,#fff);}
+
+  /* hero corners */
+  .hero-corners{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:60px;gap:40px;}
+  .hero-tagline{font-size:46px;font-weight:800;line-height:1.05;color:var(--violet);letter-spacing:-.015em;max-width:11ch;}
+  .hero-role{text-align:right;line-height:1.12;}
+  .hero-role .big{font-size:21px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--violet);}
+  .hero-role .small{font-size:21px;font-weight:500;color:var(--violet);}
+
+  /* scattered canvas marks */
+  .mark{position:absolute;pointer-events:none;z-index:0;}
+  .mark.cross{width:14px;height:14px;}
+  .mark.cross::before,.mark.cross::after{content:"";position:absolute;background:var(--faint);}
+  .mark.cross::before{left:6px;top:0;width:1px;height:14px;}
+  .mark.cross::after{top:6px;left:0;height:1px;width:14px;}
+  .mark.dash{border:1px dashed var(--faint);border-radius:3px;}
+
+  /* ===================== WORK ===================== */
+  .work{padding:54px 0 110px;position:relative;
+    border-top:1px solid color-mix(in srgb, var(--violet) 14%, transparent);
+    background-image:radial-gradient(circle, var(--dot) 1.1px, transparent 1.6px);
+    background-size:26px 26px;background-position:13px 13px;}
+  body.no-dots .work{background-image:none;}
+  .sec-label{display:flex;align-items:center;gap:24px;margin-bottom:64px;}
+  .sec-label .t{font-family:var(--font);font-weight:500;font-size:21px;letter-spacing:-.018em;color:var(--violet);line-height:1;}
+  .sec-label .ln{flex:1;height:1px;background:color-mix(in srgb,var(--violet) 22%,transparent);}
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:64px 40px;}
+
+  .frame{position:relative;display:block;color:inherit;}
+  .frame-tab{position:absolute;top:-26px;left:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--peri);display:flex;align-items:center;gap:7px;}
+  .frame-tab .n{font-weight:500;color:var(--violet);}
+  .artboard{
+    position:relative;background:#fff;border:1px solid var(--faint);border-radius:3px;
+    aspect-ratio:4/3;overflow:hidden;
+    box-shadow:0 24px 44px -30px color-mix(in srgb,var(--peri) 60%,transparent);
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .frame:hover .artboard{border-color:var(--peri);box-shadow:0 28px 50px -28px color-mix(in srgb,var(--peri) 70%,transparent);}
+  .artboard svg{position:absolute;inset:0;width:100%;height:100%;}
+  /* selection handles on hover (peer chrome) */
+  .artboard .hh{position:absolute;width:8px;height:8px;background:#fff;border:1.5px solid var(--peri);border-radius:1px;opacity:0;transition:opacity .2s ease;}
+  .frame:hover .artboard .hh{opacity:1;}
+  .hh.tl{top:-4px;left:-4px;}.hh.tr{top:-4px;right:-4px;}.hh.bl{bottom:-4px;left:-4px;}.hh.br{bottom:-4px;right:-4px;}
+  .dim-chip{position:absolute;bottom:8px;left:8px;white-space:nowrap;background:color-mix(in srgb,var(--peri) 92%,#fff);color:#fff;font-family:var(--mono);font-size:9.5px;padding:2px 6px;border-radius:3px;letter-spacing:.03em;}
+  .tok-chip{position:absolute;top:8px;right:8px;display:flex;gap:3px;}
+  .tok-chip i{width:11px;height:11px;border-radius:2px;display:block;box-shadow:0 1px 2px rgba(26,20,48,.2);}
+
+  .frame-foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:18px;}
+  .f-title{font-size:24px;font-weight:800;color:var(--violet);letter-spacing:-.01em;line-height:1.05;}
+  .f-cat{font-family:var(--mono);font-size:11.5px;color:color-mix(in srgb,var(--violet) 62%,#fff);margin-top:7px;letter-spacing:.04em;}
+  .open{font-family:var(--mono);font-size:12px;color:var(--peri);display:inline-flex;align-items:center;gap:4px;white-space:nowrap;}
+  .frame:hover .open{text-decoration:underline;text-underline-offset:3px;}
+
+  /* ===================== CRAFT STATEMENT ===================== */
+  .craft{text-align:center;padding:120px 0 140px;display:flex;flex-direction:column;align-items:center;gap:20px;position:relative;}
+  .craft .lead{font-family:var(--mono);font-weight:500;font-size:24px;letter-spacing:.1em;color:color-mix(in srgb,var(--violet) 82%,#fff);}
+  .craft .big{font-size:clamp(40px,6.2vw,82px);font-weight:800;line-height:1.02;color:var(--violet);letter-spacing:-.02em;max-width:16ch;}
+
+  /* ===================== FOOTER ===================== */
+  footer{background:var(--violet);color:#fff;position:relative;z-index:1;}
+  .footer-inner{max-width:var(--maxw);margin:0 auto;padding:92px 56px 52px;}
+  .footer-huge{font-size:clamp(44px,7vw,100px);font-weight:800;line-height:.94;letter-spacing:-.02em;color:#fff;}
+  .footer-links{display:flex;gap:14px 40px;flex-wrap:wrap;align-items:center;margin-top:44px;padding-top:30px;border-top:1px solid rgba(255,255,255,.25);}
+  .footer-links a{font-size:19px;font-weight:500;color:#fff;position:relative;padding-bottom:2px;}
+  .footer-links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .25s ease;}
+  .footer-links a:hover::after{transform:scaleX(1);}
+  .footer-links .d{opacity:.5;}
+  .footer-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:60px;font-size:14px;color:rgba(255,255,255,.7);}
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width:1080px){
+    .work-grid{grid-template-columns:1fr;gap:64px;}
+    .sec-label .t{font-size:21px;}
+    .idhang{display:none;}
+    .craft .big{font-size:48px;}
+  }
+  @media (max-width:680px){
+    .wrap{padding:0 24px;}
+    .nav{height:64px;gap:10px;}
+    .np{padding:9px 12px;}
+    .np .lbl{display:none;}
+    .brand{font-size:14px;padding:8px 15px;}
+    .hero-script{font-size:23vw;}
+    .redline,.cursor{display:none;}
+    .hero-corners{flex-direction:column;align-items:flex-start;gap:22px;padding-bottom:40px;}
+    .hero-role{text-align:left;}
+    .hero-tagline{font-size:34px;}
+    .footer-inner{padding:64px 24px 40px;}
+  }
+</style>
+
+</head>
+<body>
+<div class="page">
+  <!-- ===================== HEADER ===================== -->
+  <header>
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand active" href="#top" id="tw-brand" data-spy="top">Ashna</a>
+        <div class="nav-pills">
+          <a class="np" href="#work" data-spy="work">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-8"/><path d="M12 13c-1.1-3-3.7-3.7-6-3.1.1 2.7 2.2 4.2 6 3.1Z"/><path d="M12 11.5c.9-2.7 3.2-3.3 5.4-2.8-.1 2.4-2.1 3.7-5.4 2.8Z"/><path d="M7 16h10l-1.1 4.2a1 1 0 0 1-1 .8H9.1a1 1 0 0 1-1-.8Z"/></svg>
+            <span class="lbl">work</span>
+          </a>
+          <a class="np" href="Story.html#play">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.3 4 5.3 4 8.5s-1.4 6.2-4 8.5c-2.6-2.3-4-5.3-4-8.5s1.4-6.2 4-8.5Z"/></svg>
+            <span class="lbl">play</span>
+          </a>
+          <a class="np" href="assets/Ashna-Resume.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7L18 7.5V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20Z"/><path d="M13.5 3.5V8h4.5"/><path d="M9.5 12.5h5"/><path d="M9.5 16h5"/></svg>
+            <span class="lbl">résumé</span>
+          </a>
+          <a class="np" href="Story.html" data-spy="about">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="15.5" cy="5" r="1.9"/><path d="M14.5 8.6l-3.2 2.4 2.4 2.3-1 5.2"/><path d="M11.3 11l-4 .4"/><path d="M13.7 13.3l3.6 1.4"/><path d="M5.5 20.5l3.2-3.6"/></svg>
+            <span class="lbl">story</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="top">
+    <svg class="puzzle-assemble" id="puzzleSvg" aria-hidden="true" preserveAspectRatio="xMidYMid slice"></svg>
+    <div class="wrap hero-wrap">
+      <div class="hero-glow"></div>
+
+      <!-- scattered canvas marks -->
+      <span class="mark cross annot" style="top:128px;left:8px;"></span>
+      <span class="mark cross annot" style="bottom:150px;right:8px;"></span>
+      <span class="mark dash annot" style="top:330px;left:0;width:104px;height:58px;"></span>
+
+      <!-- hanging ID badge -->
+      <div class="idhang">
+        <div class="lanyard"></div>
+        <div class="clip"></div>
+        <div class="idlabel">
+          <div class="idlabel-top"><span>AI Native Product Designer</span></div>
+          <image-slot id="ashna-photo" class="idphoto" shape="rounded" radius="5"
+            placeholder="DROP YOUR PHOTO"></image-slot>
+          <div class="idname">Ashna Damani</div>
+          <div class="idrole"><span class="live"></span>Currently working at MapChat Social</div>
+          <div class="idbar">
+            <div class="bars"></div>
+            <div class="barnum">SCAN ME</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-center">
+        <div class="name-wrap">
+          <!-- redline / tech-pack measurements -->
+          <div class="redline top annot"><span class="ln"></span><span class="cap a"></span><span class="cap b"></span><span class="rl-lbl">324</span></div>
+          <div class="redline left annot"><span class="ln"></span><span class="cap a"></span><span class="cap b"></span><span class="rl-lbl">132</span></div>
+          <!-- selection box -->
+          <div class="sel annot">
+            <span class="h tl"></span><span class="h tr"></span><span class="h bl"></span><span class="h br"></span>
+            <span class="dim">324 × 132</span>
+          </div>
+          <img class="hero-script" id="tw-script" src="assets/ashna-name.png" alt="आशना — Ashna" />
+        </div>
+
+        <!-- dictionary treatment -->
+        <div class="dict">
+          <div class="row1">
+            <span class="ipa" id="tw-ipa">pronunciation</span>
+            <span class="sep">•</span>
+            <span class="rom" id="tw-rom">a-sh-na</span>
+          </div>
+          <div class="def" id="tw-def"><b>(n.)</b> a familiar one — someone you know by heart.</div>
+        </div>
+      </div>
+
+      <div class="hero-corners">
+        <div class="hero-tagline"><span id="tw-tag1">Running on coffee</span><br/><span id="tw-tag2">&amp; “what ifs.”</span></div>
+        <div class="hero-role">
+          <div class="big" id="tw-role">Product Designer</div>
+          <div class="small">+ storyteller</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WORK ===================== -->
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="sec-label"><span class="t">Work projects</span><span class="ln"></span></div>
+      <div class="work-grid">
+
+        <!-- FRAME 01 — MAPCHAT (social map) -->
+        <a class="frame" href="#">
+          <div class="frame-tab"><span class="n">01</span></div>
+          <div class="artboard">
+            <svg viewBox="0 0 280 210" preserveAspectRatio="xMidYMid slice">
+              <!-- map base -->
+              <rect width="280" height="210" fill="#eef1f4"/>
+              <!-- park + water blocks -->
+              <rect x="18" y="30" width="74" height="58" rx="6" fill="#dce9e0"/>
+              <rect x="196" y="112" width="70" height="50" rx="6" fill="#dce9e0"/>
+              <path d="M0 158 Q72 142 150 160 T280 150 L280 210 L0 210 Z" fill="#cdddec"/>
+              <!-- streets -->
+              <g stroke="#fff" stroke-width="6" stroke-linecap="round">
+                <path d="M-6 74 L286 92"/>
+                <path d="M-6 128 L286 138"/>
+                <path d="M104 -6 L120 216"/>
+                <path d="M206 -6 L192 216"/>
+              </g>
+              <g stroke="#f4f6f8" stroke-width="2.6" stroke-linecap="round">
+                <path d="M-6 48 L286 60"/>
+                <path d="M52 -6 L60 216"/>
+                <path d="M158 -6 L150 216"/>
+              </g>
+              <!-- you-are-here dot -->
+              <circle cx="150" cy="150" r="16" fill="#5067EB" opacity="0.16"/>
+              <circle cx="150" cy="150" r="6" fill="#5067EB" stroke="#fff" stroke-width="2.4"/>
+              <!-- pins -->
+              <path d="M86 96 C74 96 68 87 68 78 C68 66 86 50 86 50 C86 50 104 66 104 78 C104 87 98 96 86 96 Z" fill="#a9b3f0"/>
+              <circle cx="86" cy="75" r="6.5" fill="#fff"/>
+              <path d="M214 118 C202 118 196 109 196 100 C196 88 214 72 214 72 C214 72 232 88 232 100 C232 109 226 118 214 118 Z" fill="#5067EB"/>
+              <circle cx="214" cy="97" r="6.5" fill="#fff"/>
+              <!-- active pin w/ chat bubble -->
+              <path d="M150 110 C136 110 129 99 129 89 C129 75 150 56 150 56 C150 56 171 75 171 89 C171 99 164 110 150 110 Z" fill="#5B27E5"/>
+              <circle cx="150" cy="86" r="7.5" fill="#fff"/>
+              <!-- chat popup -->
+              <g>
+                <rect x="120" y="16" width="110" height="40" rx="10" fill="#fff" stroke="#e0e3f7"/>
+                <path d="M150 56 L143 50 L157 50 Z" fill="#fff"/>
+                <circle cx="139" cy="36" r="11" fill="#5B27E5"/>
+                <circle cx="139" cy="32" r="4" fill="#fff"/>
+                <path d="M132 43 a7 7 0 0 1 14 0" fill="#fff"/>
+                <rect x="158" y="27" width="58" height="6" rx="3" fill="#cdd3f7"/>
+                <rect x="158" y="39" width="40" height="6" rx="3" fill="#e4e7fb"/>
+              </g>
+            </svg>
+            <span class="tok-chip annot"><i style="background:#5B27E5;"></i><i style="background:#5067EB;"></i><i style="background:#cdddec;"></i></span>
+            <span class="dim-chip annot">390 × 844</span>
+            <span class="hh tl"></span><span class="hh tr"></span><span class="hh bl"></span><span class="hh br"></span>
+          </div>
+          <div class="frame-foot">
+            <div><div class="f-title">MapChat</div><div class="f-cat">Social · maps × messaging</div></div>
+            <span class="open">open ↗</span>
+          </div>
+        </a>
+
+        <!-- FRAME 02 — AURA (fashion-forward) -->
+        <a class="frame" href="AURA.html">
+          <div class="frame-tab"><span class="n">02</span></div>
+          <div class="artboard">
+            <svg viewBox="0 0 280 210" preserveAspectRatio="xMidYMid slice">
+              <rect width="280" height="210" fill="#f3f1fb"/>
+              <!-- browser lookbook -->
+              <rect x="20" y="26" width="170" height="158" rx="8" fill="#fff" stroke="#e0d9f6"/>
+              <rect x="20" y="26" width="170" height="20" rx="8" fill="#efeafb"/>
+              <rect x="34" y="58" width="142" height="74" rx="6" fill="#cdbdf3"/>
+              <rect x="34" y="58" width="71" height="74" fill="#b49ef0"/>
+              <rect x="34" y="142" width="60" height="8" rx="4" fill="#cac0ef"/>
+              <rect x="34" y="156" width="40" height="8" rx="4" fill="#ddd6f4"/>
+              <!-- fashion swatch tokens -->
+              <rect x="118" y="142" width="14" height="22" rx="2" fill="#7B2D8B"/>
+              <rect x="136" y="142" width="14" height="22" rx="2" fill="#C9A227"/>
+              <rect x="154" y="142" width="14" height="22" rx="2" fill="#1A1430"/>
+              <!-- phone overlay -->
+              <rect x="176" y="64" width="84" height="124" rx="16" fill="#fff" stroke="#d8cef4" stroke-width="2"/>
+              <rect x="184" y="74" width="68" height="104" rx="10" fill="#5067EB"/>
+              <rect x="194" y="86" width="48" height="40" rx="7" fill="#fff" opacity="0.9"/>
+              <rect x="194" y="134" width="34" height="7" rx="3.5" fill="#fff" opacity="0.85"/>
+              <rect x="194" y="146" width="48" height="7" rx="3.5" fill="#fff" opacity="0.5"/>
+              <rect x="194" y="162" width="48" height="9" rx="4.5" fill="#C9A227"/>
+            </svg>
+            <span class="tok-chip annot"><i style="background:#7B2D8B;"></i><i style="background:#C9A227;"></i><i style="background:#5067EB;"></i></span>
+            <span class="dim-chip annot">390 × 844</span>
+            <span class="hh tl"></span><span class="hh tr"></span><span class="hh bl"></span><span class="hh br"></span>
+          </div>
+          <div class="frame-foot">
+            <div><div class="f-title">AURA</div><div class="f-cat">Fashion-skin · UI/UX</div></div>
+            <span class="open">open ↗</span>
+          </div>
+        </a>
+
+        <!-- FRAME 03 — NDA -->
+        <a class="frame" href="#">
+          <div class="frame-tab"><span class="n">03</span></div>
+          <div class="artboard">
+            <svg viewBox="0 0 280 210" preserveAspectRatio="xMidYMid slice">
+              <rect width="280" height="210" fill="#f5f6fe"/>
+              <rect x="26" y="24" width="228" height="162" rx="9" fill="#fff" stroke="#dfe2fb"/>
+              <rect x="26" y="24" width="228" height="26" rx="9" fill="#eef0fd"/>
+              <circle cx="42" cy="37" r="3.2" fill="#c7cdf4"/><circle cx="53" cy="37" r="3.2" fill="#c7cdf4"/><circle cx="64" cy="37" r="3.2" fill="#c7cdf4"/>
+              <!-- redacted bars -->
+              <rect x="44" y="66" width="120" height="13" rx="4" fill="#cdd3f7"/>
+              <rect x="44" y="86" width="190" height="13" rx="4" fill="#dfe3fb"/>
+              <rect x="44" y="106" width="150" height="13" rx="4" fill="#dfe3fb"/>
+              <rect x="44" y="132" width="86" height="13" rx="4" fill="#cdd3f7"/>
+              <rect x="44" y="152" width="120" height="13" rx="4" fill="#dfe3fb"/>
+              <!-- lock badge -->
+              <circle cx="200" cy="138" r="30" fill="#5B27E5"/>
+              <rect x="189" y="135" width="22" height="17" rx="3" fill="#fff"/>
+              <path d="M193 135 v-4 a7 7 0 0 1 14 0 v4" fill="none" stroke="#fff" stroke-width="2.6"/>
+              <circle cx="200" cy="143" r="2.6" fill="#5B27E5"/>
+            </svg>
+            <span class="tok-chip annot"><i style="background:#5B27E5;"></i><i style="background:#cdd3f7;"></i><i style="background:#1A1430;"></i></span>
+            <span class="dim-chip annot">under nda</span>
+            <span class="hh tl"></span><span class="hh tr"></span><span class="hh bl"></span><span class="hh br"></span>
+          </div>
+          <div class="frame-foot">
+            <div><div class="f-title">Moonshot idea</div><div class="f-cat">Real client · Product</div></div>
+            <span class="open">open ↗</span>
+          </div>
+        </a>
+
+        <!-- FRAME 04 — SORTA (case study) -->
+        <a class="frame" href="Sorta.html">
+          <div class="frame-tab"><span class="n">04</span></div>
+          <div class="artboard">
+            <svg viewBox="0 0 280 210" preserveAspectRatio="xMidYMid slice">
+              <rect width="280" height="210" fill="#ECEBFB"/>
+              <!-- phone with sort UI -->
+              <rect x="92" y="22" width="96" height="180" rx="18" fill="#fff" stroke="#5067EB" stroke-width="2"/>
+              <rect x="100" y="30" width="80" height="40" rx="10" fill="#5B27E5"/>
+              <rect x="110" y="42" width="40" height="6" rx="3" fill="#fff" opacity="0.9"/>
+              <rect x="110" y="54" width="28" height="5" rx="2.5" fill="#fff" opacity="0.55"/>
+              <!-- triage rows -->
+              <rect x="100" y="82" width="80" height="20" rx="6" fill="#F2F1FC"/>
+              <rect x="106" y="89" width="34" height="6" rx="3" fill="#5B27E5" opacity="0.55"/>
+              <rect x="150" y="86" width="24" height="12" rx="6" fill="#5067EB"/>
+              <rect x="100" y="108" width="80" height="20" rx="6" fill="#F2F1FC"/>
+              <rect x="106" y="115" width="30" height="6" rx="3" fill="#5B27E5" opacity="0.55"/>
+              <rect x="150" y="112" width="24" height="12" rx="6" fill="#5B27E5"/>
+              <rect x="100" y="134" width="80" height="20" rx="6" fill="#F2F1FC"/>
+              <rect x="106" y="141" width="26" height="6" rx="3" fill="#5B27E5" opacity="0.55"/>
+              <rect x="150" y="138" width="24" height="12" rx="6" fill="#5B27E5" opacity="0.2"/>
+              <!-- floating keep / relocate / discard pills -->
+              <g font-family="JetBrains Mono, monospace" font-size="8" font-weight="500">
+                <rect x="18" y="64" width="40" height="16" rx="8" fill="#fff" stroke="#5067EB"/><text x="38" y="75" fill="#5067EB" text-anchor="middle">keep</text>
+                <rect x="210" y="92" width="54" height="16" rx="8" fill="#5B27E5"/><text x="237" y="103" fill="#fff" text-anchor="middle">relocate</text>
+                <rect x="22" y="150" width="50" height="16" rx="8" fill="#fff" stroke="#5B27E5" stroke-opacity="0.3"/><text x="47" y="161" fill="#5B27E5" text-anchor="middle">discard</text>
+              </g>
+            </svg>
+            <span class="tok-chip annot"><i style="background:#5B27E5;"></i><i style="background:#5067EB;"></i><i style="background:#ECEBFB;"></i></span>
+            <span class="dim-chip annot">live beta</span>
+            <span class="hh tl"></span><span class="hh tr"></span><span class="hh bl"></span><span class="hh br"></span>
+          </div>
+          <div class="frame-foot">
+            <div><div class="f-title">Sorta</div><div class="f-cat">AI · home organization</div></div>
+            <span class="open">open ↗</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="work-cta">
+        <a class="fig-btn" href="#">View my work <svg class="ar" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CRAFT STATEMENT ===================== -->
+  <section class="craft" id="about">
+    <span class="mark cross annot" style="top:64px;left:14%;"></span>
+    <span class="mark dash annot" style="bottom:70px;right:12%;width:90px;height:54px;"></span>
+    <div class="wrap" style="display:flex;flex-direction:column;align-items:center;gap:20px;">
+      <div class="lead">I design —</div>
+      <div class="big">Where the runway meets the roadmap.</div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-huge">GET IN<br/>TOUCH</div>
+    <div class="footer-links">
+      <a href="mailto:damaniashna@gmail.com" id="tw-email">damaniashna@gmail.com</a>
+      <span class="d">·</span>
+      <a href="#">LinkedIn</a>
+      <span class="d">·</span>
+      <a href="#">Read.cv</a>
+    </div>
+    <div class="footer-meta">
+      <span id="tw-copy">© 2026 Ashna</span>
+      <span id="tw-meta">Product Designer + Storyteller</span>
+    </div>
+  </div>
+</footer>
+
+<script src="image-slot.js"></script>
+
+<!-- ===================== NAV SCROLLSPY ===================== -->
+<script>
+(function(){
+  var navEls = Array.prototype.slice.call(document.querySelectorAll('.brand, .nav-pills .np'));
+  function setActive(el){
+    navEls.forEach(function(n){ n.classList.toggle('active', n === el); });
+  }
+  // clicking any pill moves the highlight immediately
+  navEls.forEach(function(n){
+    n.addEventListener('click', function(){ setActive(n); });
+  });
+  // scrollspy: highlight follows the section currently in view
+  var tracked = navEls
+    .filter(function(n){ return n.dataset.spy; })
+    .map(function(n){ return { el: n, sec: document.getElementById(n.dataset.spy) }; })
+    .filter(function(t){ return t.sec; });
+  var headerEl = document.querySelector('header');
+  function onScroll(){
+    if (headerEl) headerEl.classList.toggle('scrolled', window.scrollY > 6);
+    var line = window.scrollY + window.innerHeight * 0.32;
+    var current = tracked[0];
+    tracked.forEach(function(t){
+      if (t.sec.offsetTop <= line) current = t;
+    });
+    if (current) setActive(current.el);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+
+<!-- ===================== PUZZLE ASSEMBLE ANIMATION ===================== -->
+<script>
+(function(){
+  var svg = document.getElementById('puzzleSvg');
+  var hero = document.getElementById('top');
+  if(!svg || !hero) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  // uniform interlock-tileable piece: top OUT, right OUT, bottom IN, left IN
+  var PC = "M20,20 H40 C40,10 60,10 60,20 H80 V40 C90,40 90,60 80,60 V80 H60 C60,70 40,70 40,80 H20 V60 C30,60 30,40 20,40 Z";
+  var pitch = 120, f = 2;
+  var motion = !window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function build(animate){
+    var W = hero.clientWidth, H = hero.clientHeight;
+    if(!W || !H) return;
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    var cols = Math.ceil(W/pitch) + 2, rows = Math.ceil(H/pitch) + 2;
+    var pcs = [];
+    for(var r = -1; r < rows; r++){
+      for(var c = -1; c < cols; c++){
+        var tx = c*pitch, ty = r*pitch;
+        var g = document.createElementNS(NS, 'g');
+        g.setAttribute('transform', 'translate(' + tx + ',' + ty + ') scale(' + f + ')');
+        var inner = document.createElementNS(NS, 'g');
+        inner.setAttribute('class', 'pc');
+        var p = document.createElementNS(NS, 'path');
+        p.setAttribute('d', PC);
+        p.setAttribute('fill', 'none');
+        p.setAttribute('stroke', '#E6E9FB');
+        p.setAttribute('stroke-width', '1.2');
+        p.setAttribute('vector-effect', 'non-scaling-stroke');
+        p.setAttribute('stroke-linejoin', 'round');
+        inner.appendChild(p); g.appendChild(inner); svg.appendChild(g);
+        pcs.push({ el: inner, px: tx + 100, py: ty + 100 });
+      }
+    }
+    if(animate) play(pcs, W/2, H/2);
+  }
+
+  // deterministic pseudo-random per index
+  function rnd(i){ var n = Math.sin(i * 99.913) * 43758.5453; return n - Math.floor(n); }
+
+  function play(pcs, cx, cy){
+    // every piece starts scattered/exploded outward, then converges and snaps
+    // into its slot — neighbours meeting until the whole board comes together.
+    var maxd = Math.hypot(cx, cy) || 1;
+    pcs.forEach(function(o, i){
+      var dx = o.px - cx, dy = o.py - cy;
+      var nd = Math.min(1, Math.hypot(dx, dy) / maxd);
+      var ang = Math.atan2(dy, dx) + (rnd(i) - 0.5) * 0.9;   // mostly outward + scatter
+      var mag = 120 + nd * 150;                              // outer pieces fly in farther
+      var ox = Math.cos(ang) * mag, oy = Math.sin(ang) * mag;
+      var rot = (rnd(i + 7) - 0.5) * 16;                     // slight tumble
+      var delay = nd * 620 + rnd(i + 3) * 120;               // builds from centre outward
+      o.el.animate([
+        { opacity: 0, transform: 'translate(' + ox.toFixed(1) + 'px,' + oy.toFixed(1) + 'px) rotate(' + rot.toFixed(1) + 'deg) scale(0.6)' },
+        { opacity: 1, transform: 'translate(0px,0px) rotate(0deg) scale(1)' }
+      ], { duration: 740, delay: delay, easing: 'cubic-bezier(.2,1.15,.3,1)', fill: 'both' });
+    });
+  }
+
+  build(false);    // render the puzzle watermark statically — no assemble animation
+  var t;
+  window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(function(){ build(false); }, 160); });
+})();
+</script>
+
+<!-- ===================== TWEAKS ===================== -->
+<div id="tweaks-root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel">
+const { useEffect } = React;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "brand": "Ashna",
+  "script": "आशना",
+  "rom": "a-sh-na",
+  "def": "a familiar one — someone you know by heart.",
+  "role": "Product Designer",
+  "tag1": "Running on coffee",
+  "tag2": "& “what ifs.”",
+  "violet": "#5B27E5",
+  "peri": "#5067EB",
+  "glow": false,
+  "annot": true,
+  "dots": true
+}/*EDITMODE-END*/;
+
+const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+
+function apply(t){
+  const root = document.documentElement;
+  root.style.setProperty('--violet', t.violet);
+  root.style.setProperty('--peri', t.peri);
+  setText('tw-brand', t.brand);
+  setText('tw-rom', t.rom);
+  setText('tw-role', t.role);
+  setText('tw-tag1', t.tag1);
+  setText('tw-tag2', t.tag2);
+  const def = document.getElementById('tw-def');
+  if (def) def.innerHTML = '<b>(n.)</b> ' + t.def;
+  setText('tw-meta', t.role + ' + Storyteller');
+  const nm = (t.brand || '').trim();
+  setText('tw-copy', '© 2026 ' + (nm ? nm.charAt(0) + nm.slice(1).toLowerCase() : ''));
+  document.body.classList.toggle('no-glow', !t.glow);
+  document.body.classList.toggle('no-annot', !t.annot);
+  document.body.classList.toggle('no-dots', !t.dots);
+}
+
+function Panel(){
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  useEffect(() => { apply(t); }, [t]);
+  return (
+    <TweaksPanel>
+      <TweakSection label="Identity" />
+      <TweakText label="Wordmark" value={t.brand} onChange={(v)=>setTweak('brand',v)} />
+      <TweakText label="Role" value={t.role} onChange={(v)=>setTweak('role',v)} />
+      <TweakText label="Tagline line 1" value={t.tag1} onChange={(v)=>setTweak('tag1',v)} />
+      <TweakText label="Tagline line 2" value={t.tag2} onChange={(v)=>setTweak('tag2',v)} />
+      <TweakSection label="Hero name" />
+      <TweakText label="Romanization" value={t.rom} onChange={(v)=>setTweak('rom',v)} />
+      <TweakText label="Definition" value={t.def} onChange={(v)=>setTweak('def',v)} />
+      <TweakSection label="Design canvas" />
+      <TweakToggle label="Redline annotations" value={t.annot} onChange={(v)=>setTweak('annot',v)} />
+      <TweakToggle label="Dot grid" value={t.dots} onChange={(v)=>setTweak('dots',v)} />
+      <TweakToggle label="Hero glow" value={t.glow} onChange={(v)=>setTweak('glow',v)} />
+      <TweakSection label="Color" />
+      <TweakColor label="Brand violet" value={t.violet}
+        options={["#5B27E5","#6D28D9","#4338CA","#1D4ED8","#0F172A"]}
+        onChange={(v)=>setTweak('violet',v)} />
+      <TweakColor label="Accent / glow" value={t.peri}
+        options={["#5067EB","#7C3AED","#2563EB","#0EA5E9","#EC4899"]}
+        onChange={(v)=>setTweak('peri',v)} />
+    </TweaksPanel>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<Panel />);
+</script>
+
+</body>
+</html>

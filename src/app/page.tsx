@@ -87,10 +87,20 @@ export default function Home() {
                 <div className="idname">Ashna Damani</div>
                 <div className="idrole">
                   <span className="live" />
-                  Currently working at MapChat Social
+                  <span>
+                    Currently working at <strong>MapChat Social</strong>
+                  </span>
                 </div>
                 <div className="idbar">
-                  <div className="bars" />
+                  <a
+                    className="idqr"
+                    href="https://mapchat.social/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Scan or tap to visit MapChat Social"
+                  >
+                    <img src="/assets/images/homepage/mapchat-qr.svg" alt="QR code linking to mapchat.social" />
+                  </a>
                   <div className="barnum">SCAN ME</div>
                 </div>
               </div>

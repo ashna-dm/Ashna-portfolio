@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AURA: Web Interactive Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --sage:#A8CDB0; --sage-deep:#4F7D5E; --ink:#16170F; --cream:#F4F7F0; --mist:#EBEFEC;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+    --font:"Poppins",system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{font-family:var(--font);background:var(--mist);overflow:hidden;-webkit-font-smoothing:antialiased;}
+
+  .webdeck{position:absolute;inset:0;}
+  .wslide{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateX(20px);
+    transition:opacity .36s ease, transform .36s ease, visibility .36s;}
+  .wslide.active{opacity:1;visibility:visible;transform:none;}
+  .wslide.back{transform:translateX(-20px);}
+  .wslide image-slot{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  .wslide .w-tag{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);text-align:center;
+    font-family:var(--mono);font-size:13px;color:#8aa18f;letter-spacing:.04em;pointer-events:none;z-index:1;}
+
+  .wtap{position:absolute;top:0;bottom:0;z-index:30;cursor:pointer;}
+  .wtap.next{right:0;left:30%;}
+  .wtap.prev{left:0;width:30%;}
+
+  .wdots{position:absolute;left:0;right:0;bottom:14px;z-index:40;display:flex;justify-content:center;gap:6px;pointer-events:none;}
+  .wdots i{width:6px;height:6px;border-radius:50%;background:rgba(22,23,15,.22);transition:all .25s ease;}
+  .wdots i.on{width:18px;border-radius:6px;background:var(--sage-deep);}
+
+  .whint{position:absolute;right:16px;bottom:30px;z-index:45;display:flex;align-items:center;gap:7px;
+    font-family:var(--mono);font-size:11px;color:var(--ink);background:rgba(255,255,255,.86);backdrop-filter:blur(6px);
+    border:1px solid rgba(22,23,15,.1);border-radius:30px;padding:7px 12px;pointer-events:none;
+    animation:bob 1.6s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateX(0);}50%{transform:translateX(4px);}}
+  .whint.gone{opacity:0;transition:opacity .4s ease;}
+
+  .wrestart{position:absolute;top:14px;right:14px;z-index:46;font-family:var(--mono);font-size:10px;color:#6b7a6e;
+    background:rgba(255,255,255,.82);border:1px solid rgba(22,23,15,.1);border-radius:30px;padding:5px 11px;
+    cursor:pointer;display:flex;align-items:center;gap:6px;opacity:0;transition:opacity .25s ease;}
+  .wrestart svg{width:12px;height:12px;}
+  .wrestart.show{opacity:1;}
+  .wrestart:hover{color:var(--ink);}
+</style>
+</head>
+<body>
+<div class="wrestart" id="wrestart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>restart</div>
+
+<div class="webdeck" id="wdeck">
+  <div class="wslide active"><span class="w-tag">1 · Dashboard</span><image-slot id="awprot-1" placeholder="Web 1: Home dashboard" shape="rect"></image-slot></div>
+  <div class="wslide"><span class="w-tag">2 · Wardrobe</span><image-slot id="awprot-2" placeholder="Web 2: Wardrobe / closet" shape="rect"></image-slot></div>
+  <div class="wslide"><span class="w-tag">3 · Fabric scan</span><image-slot id="awprot-3" placeholder="Web 3: Fabric risk analysis" shape="rect"></image-slot></div>
+  <div class="wslide"><span class="w-tag">4 · Reports</span><image-slot id="awprot-4" placeholder="Web 4: Skin & fabric reports" shape="rect"></image-slot></div>
+  <div class="wslide"><span class="w-tag">5 · Insights</span><image-slot id="awprot-5" placeholder="Web 5: Weekly skin insights" shape="rect"></image-slot></div>
+  <div class="wslide"><span class="w-tag">6 · Calendar</span><image-slot id="awprot-6" placeholder="Web 6: Skin risk calendar" shape="rect"></image-slot></div>
+</div>
+
+<div class="wtap prev" id="wtapPrev"></div>
+<div class="wtap next" id="wtapNext"></div>
+
+<div class="wdots" id="wdots"></div>
+<div class="whint" id="whint">click to advance →</div>
+
+<script src="image-slot.js"></script>
+<script>
+(function(){
+  const slides = [...document.querySelectorAll('.wslide')];
+  const dotsBox = document.getElementById('wdots');
+  const hint = document.getElementById('whint');
+  const restart = document.getElementById('wrestart');
+  let i = 0, touched = false;
+
+  slides.forEach((_,n)=>{ const d=document.createElement('i'); if(n===0) d.className='on'; dotsBox.appendChild(d); });
+  const dots = [...dotsBox.children];
+
+  function go(n, back){
+    n = Math.max(0, Math.min(slides.length-1, n));
+    if(n===i) return;
+    slides.forEach(s=>{ s.classList.remove('active'); s.classList.toggle('back', back); });
+    slides[n].classList.add('active'); slides[n].classList.remove('back');
+    dots.forEach((d,k)=> d.classList.toggle('on', k===n));
+    i = n;
+    restart.classList.toggle('show', i>0);
+    if(!touched){ touched=true; hint.classList.add('gone'); }
+  }
+  document.getElementById('wtapNext').addEventListener('click', ()=> go(i+1, false));
+  document.getElementById('wtapPrev').addEventListener('click', ()=> go(i-1, true));
+  restart.addEventListener('click', (e)=>{ e.stopPropagation(); go(0, true); });
+  window.addEventListener('keydown', e=>{ if(e.key==='ArrowRight') go(i+1,false); if(e.key==='ArrowLeft') go(i-1,true); });
+})();
+</script>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#A8CDB0"/>
+    <text x="50" y="58" text-anchor="middle" font-family="Poppins, sans-serif" font-size="18" font-weight="700" fill="#16170F">AURA</text>
+  </svg>
+</template>
+</body>
+</html>

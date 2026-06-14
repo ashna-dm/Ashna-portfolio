@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AURA: Interactive Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --sage:#A8CDB0; --sage-deep:#4F7D5E; --ink:#16170F; --cream:#F4F7F0;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+    --font:"Poppins",system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{font-family:var(--font);background:transparent;display:flex;align-items:center;justify-content:center;
+    -webkit-font-smoothing:antialiased;}
+  .phone{position:relative;width:390px;height:844px;flex:none;background:#0e0f0a;border-radius:52px;padding:11px;
+    box-shadow:0 30px 60px -34px rgba(22,23,15,.45), inset 0 0 0 2px #26271c;}
+  .screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:var(--cream);}
+  .notch{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:118px;height:30px;background:#0e0f0a;border-radius:0 0 18px 18px;z-index:50;}
+
+  .deck{position:absolute;inset:0;}
+  .slide{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateX(22px);
+    transition:opacity .36s ease, transform .36s ease, visibility .36s;}
+  .slide.active{opacity:1;visibility:visible;transform:none;}
+  .slide.back{transform:translateX(-22px);}
+  .slide image-slot{position:absolute;inset:0;width:100%;height:100%;display:block;}
+  .slide .ph-tag{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);text-align:center;
+    font-family:var(--mono);font-size:12px;color:#8aa18f;letter-spacing:.04em;pointer-events:none;z-index:1;}
+
+  .tap{position:absolute;top:0;bottom:0;z-index:30;cursor:pointer;}
+  .tap.next{right:0;left:32%;}
+  .tap.prev{left:0;width:32%;}
+
+  .dots{position:absolute;left:0;right:0;bottom:16px;z-index:40;display:flex;justify-content:center;gap:6px;pointer-events:none;}
+  .dots i{width:6px;height:6px;border-radius:50%;background:rgba(22,23,15,.22);transition:all .25s ease;}
+  .dots i.on{width:18px;border-radius:6px;background:var(--sage-deep);}
+
+  .hint{position:absolute;right:18px;bottom:34px;z-index:45;display:flex;align-items:center;gap:7px;
+    font-family:var(--mono);font-size:11px;color:var(--ink);background:rgba(255,255,255,.86);backdrop-filter:blur(6px);
+    border:1px solid rgba(22,23,15,.1);border-radius:30px;padding:7px 12px;pointer-events:none;
+    animation:bob 1.6s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateX(0);}50%{transform:translateX(4px);}}
+  .hint.gone{opacity:0;transition:opacity .4s ease;}
+
+  .restart{position:absolute;top:58px;right:18px;z-index:46;font-family:var(--mono);font-size:10px;color:#6b7a6e;
+    background:rgba(255,255,255,.82);border:1px solid rgba(22,23,15,.1);border-radius:30px;padding:5px 11px;
+    cursor:pointer;display:flex;align-items:center;gap:6px;opacity:0;transition:opacity .25s ease;}
+  .restart svg{width:12px;height:12px;}
+  .restart.show{opacity:1;}
+  .restart:hover{color:var(--ink);}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="restart" id="restart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>restart</div>
+
+    <div class="deck" id="deck">
+      <div class="slide active"><span class="ph-tag">1 · Splash</span><image-slot id="aprot-1" placeholder="Screen 1: Splash / launch" shape="rect"></image-slot></div>
+      <div class="slide"><span class="ph-tag">2 · Skin profile</span><image-slot id="aprot-2" placeholder="Screen 2: Sensitivity onboarding" shape="rect"></image-slot></div>
+      <div class="slide"><span class="ph-tag">3 · Allergens</span><image-slot id="aprot-3" placeholder="Screen 3: Allergens / fabric history" shape="rect"></image-slot></div>
+      <div class="slide"><span class="ph-tag">4 · Home</span><image-slot id="aprot-4" placeholder="Screen 4: Home dashboard" shape="rect"></image-slot></div>
+      <div class="slide"><span class="ph-tag">5 · Scan</span><image-slot id="aprot-5" placeholder="Screen 5: AI fabric risk scan" shape="rect"></image-slot></div>
+      <div class="slide"><span class="ph-tag">6 · Result</span><image-slot id="aprot-6" placeholder="Screen 6: Scan result / risk score" shape="rect"></image-slot></div>
+      <div class="slide"><span class="ph-tag">7 · Garment</span><image-slot id="aprot-7" placeholder="Screen 7: Garment detail & score" shape="rect"></image-slot></div>
+      <div class="slide"><span class="ph-tag">8 · Insights</span><image-slot id="aprot-8" placeholder="Screen 8: Weekly skin insights" shape="rect"></image-slot></div>
+      <div class="slide"><span class="ph-tag">9 · Calendar</span><image-slot id="aprot-9" placeholder="Screen 9: Skin risk calendar" shape="rect"></image-slot></div>
+    </div>
+
+    <div class="tap prev" id="tapPrev"></div>
+    <div class="tap next" id="tapNext"></div>
+
+    <div class="dots" id="dots"></div>
+    <div class="hint" id="hint">tap to advance →</div>
+  </div>
+</div>
+
+<script src="image-slot.js"></script>
+<script>
+(function(){
+  const slides = [...document.querySelectorAll('.slide')];
+  const dotsBox = document.getElementById('dots');
+  const hint = document.getElementById('hint');
+  const restart = document.getElementById('restart');
+  let i = 0, touched = false;
+
+  slides.forEach((_,n)=>{ const d=document.createElement('i'); if(n===0) d.className='on'; dotsBox.appendChild(d); });
+  const dots = [...dotsBox.children];
+
+  function go(n, back){
+    n = Math.max(0, Math.min(slides.length-1, n));
+    if(n===i) return;
+    slides.forEach(s=>{ s.classList.remove('active'); s.classList.toggle('back', back); });
+    slides[n].classList.add('active'); slides[n].classList.remove('back');
+    dots.forEach((d,k)=> d.classList.toggle('on', k===n));
+    i = n;
+    restart.classList.toggle('show', i>0);
+    if(!touched){ touched=true; hint.classList.add('gone'); }
+  }
+  document.getElementById('tapNext').addEventListener('click', ()=> go(i+1, false));
+  document.getElementById('tapPrev').addEventListener('click', ()=> go(i-1, true));
+  restart.addEventListener('click', (e)=>{ e.stopPropagation(); go(0, true); });
+  window.addEventListener('keydown', e=>{ if(e.key==='ArrowRight') go(i+1,false); if(e.key==='ArrowLeft') go(i-1,true); });
+})();
+</script>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#A8CDB0"/>
+    <text x="50" y="58" text-anchor="middle" font-family="Poppins, sans-serif" font-size="20" font-weight="700" fill="#16170F">AURA</text>
+  </svg>
+</template>
+</body>
+</html>

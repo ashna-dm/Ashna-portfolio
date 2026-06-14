@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ashna Damani · Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="story.css" />
+</head>
+<body>
+
+<!-- ===================== FLOATING NAV ===================== -->
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="Ashna Portfolio.html#top">Ashna</a>
+      <div class="nav-pills">
+        <a class="np" href="Ashna Portfolio.html#work">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-8"/><path d="M12 13c-1.1-3-3.7-3.7-6-3.1.1 2.7 2.2 4.2 6 3.1Z"/><path d="M12 11.5c.9-2.7 3.2-3.3 5.4-2.8-.1 2.4-2.1 3.7-5.4 2.8Z"/><path d="M7 16h10l-1.1 4.2a1 1 0 0 1-1 .8H9.1a1 1 0 0 1-1-.8Z"/></svg>
+          <span class="lbl">work</span>
+        </a>
+        <a class="np" href="Ashna Portfolio.html#play">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.6 2.3 4 5.3 4 8.5s-1.4 6.2-4 8.5c-2.6-2.3-4-5.3-4-8.5s1.4-6.2 4-8.5Z"/></svg>
+          <span class="lbl">play</span>
+        </a>
+        <a class="np" href="assets/Ashna-Resume.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7L18 7.5V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20Z"/><path d="M13.5 3.5V8h4.5"/><path d="M9.5 12.5h5"/><path d="M9.5 16h5"/></svg>
+          <span class="lbl">résumé</span>
+        </a>
+        <a class="np active" href="#top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="15.5" cy="5" r="1.9"/><path d="M14.5 8.6l-3.2 2.4 2.4 2.3-1 5.2"/><path d="M11.3 11l-4 .4"/><path d="M13.7 13.3l3.6 1.4"/><path d="M5.5 20.5l3.2-3.6"/></svg>
+          <span class="lbl">story</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== FIGMA CHROME ===================== -->
+<div class="fchrome presence">
+  <span class="av" style="background:#5067EB;">AD</span>
+  <span class="av" style="background:#28a36d;">YOU</span>
+  <span class="av" style="background:#E5677A;">?</span>
+</div>
+<div class="fchrome toolbar">
+  <div class="tool on" title="Move"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 7-6 1.5L10 18z"/></svg></div>
+  <div class="tool" title="Hand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12V6.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 11V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M14 11V6.5a1.5 1.5 0 0 1 3 0V13c0 4-2.5 7-6.5 7S5 17 5 14l-.8-2.2a1.4 1.4 0 0 1 2.3-1.5L8 12"/></svg></div>
+  <div class="sep"></div>
+  <div class="tool" title="Sticky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14v10l-5 5H5z"/><path d="M14 19v-5h5"/></svg></div>
+  <div class="tool" title="Text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h12M12 6v12"/></svg></div>
+  <div class="tool" title="Pen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l2-6L17 3l4 4L11 17z"/><path d="M14 6l4 4"/></svg></div>
+  <div class="sep"></div>
+  <div class="tool" title="Comment"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v11H9l-4 4z"/></svg></div>
+</div>
+<div class="fchrome zoom">
+  <button id="zoomOut" aria-label="Zoom out">−</button>
+  <span class="val" id="zoomVal">100%</span>
+  <button id="zoomIn" aria-label="Zoom in">+</button>
+</div>
+
+<!-- ===================== CANVAS ===================== -->
+<div class="stage" id="top">
+  <div class="board" id="board">
+
+    <!-- ============ FRAME 1 - INTRO ============ -->
+    <section class="frame">
+      <div class="frame-head"><span class="frame-name">About · Ashna</span><span class="frame-dim">1280 × 600</span></div>
+      <div class="frame-body" style="height:600px;">
+
+        <div class="titleobj" style="left:34px;top:64px;">
+          <div class="t" style="font-size:54px;">My personal<br/>FigJam board</div>
+          <div class="sel"></div>
+          <span class="h tl"></span><span class="h tr"></span><span class="h bl"></span><span class="h br"></span>
+          <div class="dim">my-board · layer</div>
+        </div>
+        <div class="scribble peri" style="left:40px;top:20px;transform:rotate(-4deg);">hi there!</div>
+
+        <div class="sticky wide s-yellow" style="left:36px;top:206px;transform:rotate(-2deg);">
+          <span class="k">// intro.txt</span>
+          <p>I design products where the <b>runway meets the roadmap</b>. Fashion school taught me fit; product design taught me ship. These days I'm <b>AI‑native</b> at MapChat Social.</p>
+        </div>
+
+        <div class="polaroid tall" style="left:486px;top:64px;transform:rotate(3deg);">
+          <span class="tape" style="left:84px;top:-12px;transform:rotate(-7deg);"></span>
+          <image-slot id="story-portrait" class="ph" shape="rounded" radius="4" placeholder="DROP YOUR PHOTO"></image-slot>
+          <div class="cap">the designer, allegedly</div>
+        </div>
+        <div class="comment" style="left:724px;top:84px;">1
+          <div class="pop"><span class="who">Ashna</span><span class="msg">this is me on a good, well‑lit day.</span></div>
+        </div>
+
+        <div class="cursortag peri float" style="left:372px;top:150px;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 7-6 1.5L10 18z"/></svg>
+          <span class="flag">Ashna</span>
+        </div>
+
+        <div class="sticky sm s-peri" style="left:772px;top:128px;transform:rotate(-3deg);">
+          <p>Originally from <b>Mumbai, India.</b><br/>Based in <b>Boston, MA.</b></p>
+        </div>
+        <div class="sticky sm s-mint" style="left:1012px;top:74px;transform:rotate(4deg);">
+          <p>coffee &gt; everything.<br/>non‑negotiable.</p>
+        </div>
+        <div class="sticky sm s-coral" style="left:728px;top:296px;transform:rotate(3deg);">
+          <p>ENFP, and<br/>yes, it shows.</p>
+        </div>
+        <div class="sticky sm s-lav" style="left:1002px;top:250px;transform:rotate(-4deg);">
+          <p>fluent in Figma<br/>&amp; light sarcasm.</p>
+        </div>
+        <div class="sticky sm s-peach" style="left:884px;top:430px;transform:rotate(2deg);">
+          <p><b>MBA in Design Strategy</b> from CCA, because two degrees weren't enough.</p>
+        </div>
+
+        <svg class="doodle" style="left:300px;top:360px;width:150px;height:150px;" viewBox="0 0 150 150" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 20 C 60 50, 70 90, 60 120"/>
+          <path d="M48 104 L60 124 L76 110"/>
+        </svg>
+        <div class="scribble" style="left:506px;top:512px;transform:rotate(-4deg);">my journal's down here ↓</div>
+
+      </div>
+    </section>
+
+    <!-- ============ FRAME 2 - THE JOURNAL ============ -->
+    <section class="frame" id="book-frame">
+      <div class="frame-head"><span class="frame-name">The Journal · field notes</span><span class="frame-dim">flip-through · 4 spreads</span></div>
+      <div class="frame-body" style="height:720px;">
+
+        <div class="sticky s-yellow" style="left:18px;top:236px;transform:rotate(-5deg);z-index:20;">
+          <span class="k">// hint</span>
+          <p class="big">Please flip<br/>through the<br/>book →</p>
+        </div>
+
+        <div class="book-host" style="position:absolute;left:230px;top:108px;width:820px;">
+          <div class="book-wrap">
+            <div class="book closed" id="book">
+              <div class="base left"></div>
+              <div class="base right"></div>
+
+              <div class="leaf" data-i="0">
+                <div class="face front">
+                  <div class="cover">
+                    <div><div class="ctitle">The Long<br/>Version</div><div class="cby">by Ashna Damani</div></div>
+                    <div class="cstamp">EST.<br/>2016</div>
+                  </div>
+                </div>
+                <div class="face back">
+                  <div class="pg chL ruled">
+                    <div class="num">01</div><div class="chlbl">Chapter one</div>
+                    <div class="ttl">Cut &amp; Sew</div><div class="meta">2016–2020 · pattern-paper era</div>
+                    <div class="doodle2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 50c8-22 24-34 38-38"/><circle cx="50" cy="14" r="4"/><path d="M16 52l-6 2 2-6"/><path d="M30 30l8 8"/></svg></div>
+                    <div class="pnum">p. 02</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="leaf" data-i="1">
+                <div class="face front">
+                  <div class="pg chR ruled">
+                    <div class="chlbl">Where it started</div>
+                    <p class="lede">Before wireframes there were <b>pattern blocks</b>. A dual degree, fashion design <b>and a B.Com</b>, taught me that a garment lives or dies on the seam allowance, and that "almost fits" is just a polite word for <b>"doesn't."</b></p>
+                    <div class="pull">Turns out onboarding flows feel exactly the same.</div>
+                    <span class="chip">tools: needle, thread, stubbornness</span>
+                    <div class="pnum">p. 03</div>
+                  </div>
+                </div>
+                <div class="face back">
+                  <div class="pg chL ruled">
+                    <div class="num">02</div><div class="chlbl">Chapter two</div>
+                    <div class="ttl">Runway → Roadmap</div><div class="meta">2022 · moved to the USA</div>
+                    <div class="doodle2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 44h44"/><path d="M16 44V22l10-8 10 8v22"/><path d="M40 30l12-4-2 12"/></svg></div>
+                    <div class="pnum">p. 04</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="leaf" data-i="2">
+                <div class="face front">
+                  <div class="pg chR ruled">
+                    <div class="chlbl">The plot twist</div>
+                    <p class="lede">Somewhere between a Figma trial and a <b>3am prototype</b>, I realized I'd been doing product design all along, just with thread. The medium changed; the obsession with <b>how it feels to use</b> didn't.</p>
+                    <div class="pull">I opened Figma "just to try it." Never closed it.</div>
+                    <span class="chip">tools: figma, caffeine, audacity</span>
+                    <div class="pnum">p. 05</div>
+                  </div>
+                </div>
+                <div class="face back">
+                  <div class="pg chL ruled">
+                    <div class="num">03</div><div class="chlbl">Chapter three</div>
+                    <div class="ttl">Going Native</div><div class="meta">2024–now · MapChat Social</div>
+                    <div class="doodle2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 54s16-14 16-26a16 16 0 1 0-32 0c0 12 16 26 16 26Z"/><circle cx="32" cy="28" r="6"/></svg></div>
+                    <div class="pnum">p. 06</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="leaf" data-i="3">
+                <div class="face front">
+                  <div class="pg chR ruled">
+                    <div class="chlbl">Present day</div>
+                    <p class="lede">Now I design with <b>AI in the loop</b>, not on the sidelines. At MapChat Social I'm building the places people actually want to meet, half cartographer, half matchmaker, <b>fully caffeinated</b>.</p>
+                    <div class="pull">The runway finally met the roadmap.</div>
+                    <span class="chip">tools: ai, maps, good intentions</span>
+                    <div class="pnum">p. 07</div>
+                  </div>
+                </div>
+                <div class="face back">
+                  <div class="pg endp">
+                    <div class="big">To be continued…</div>
+                    <div class="small">the best chapters haven't shipped yet.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment" style="left:1052px;top:150px;">2
+          <div class="pop"><span class="who">you</span><span class="msg">start at the cover, then click the right page.</span></div>
+        </div>
+        <div class="cursortag green float" style="left:96px;top:486px;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 7-6 1.5L10 18z"/></svg>
+          <span class="flag">you</span>
+        </div>
+        <div class="cursortag coral float b" style="left:1066px;top:454px;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 7-6 1.5L10 18z"/></svg>
+          <span class="flag">recruiter</span>
+        </div>
+        <div class="scribble peri" style="left:548px;top:648px;transform:rotate(-3deg);">(yes, it really flips)</div>
+
+      </div>
+    </section>
+
+    <!-- ============ FRAME 3 - TIMELINE ============ -->
+    <section class="frame">
+      <div class="frame-head"><span class="frame-name">The Timeline · minus the fluff</span><span class="frame-dim">2016 → now</span></div>
+      <div class="frame-body" style="height:420px;">
+        <svg class="doodle" style="left:0;top:0;width:1280px;height:420px;" viewBox="0 0 1280 420" fill="none" stroke="currentColor" stroke-width="2.2" stroke-dasharray="2 9" stroke-linecap="round">
+          <path d="M150 150 C 240 230, 300 250, 380 250 C 470 250, 520 150, 630 150 C 740 150, 770 250, 880 250 C 980 250, 1010 160, 1130 150"/>
+        </svg>
+
+        <div class="tlcard" style="left:46px;top:70px;transform:rotate(-2deg);">
+          <span class="yr">2016</span><div class="h">Enrolled · fashion + B.Com</div>
+          <div class="d">Started a dual undergraduate degree: Fashion Design and a B.Com. Two worlds, one very full timetable.</div>
+        </div>
+        <div class="tlcard" style="left:296px;top:190px;transform:rotate(2deg);">
+          <span class="yr">2022</span><div class="h">Moved to the USA</div>
+          <div class="d">Did my UX Design certification and discovered Figma. The pivot began here.</div>
+        </div>
+        <div class="tlcard" style="left:546px;top:70px;transform:rotate(-1deg);">
+          <span class="yr">2024</span><div class="h">Started an MBA in Design Strategy</div>
+          <div class="d">At California College of the Arts, connecting design to the bigger business picture.</div>
+        </div>
+        <div class="tlcard" style="left:796px;top:190px;transform:rotate(2deg);">
+          <span class="yr">2026</span><div class="h">Graduated with an MBA</div>
+          <div class="d">…and a mind full of ideas. Traded croqui sketches for a design system.</div>
+        </div>
+        <div class="tlcard now" style="left:1046px;top:70px;transform:rotate(-2deg);">
+          <span class="yr"><span class="livedot"></span>currently</span><div class="h">Shipping MapChat Social</div>
+          <div class="d">Building the places people actually want to meet. Currently caffeinated.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FRAME 4 - OFF THE CLOCK ============ -->
+    <section class="frame" id="play">
+      <div class="frame-head"><span class="frame-name">Off the clock</span><span class="frame-dim">the fun stuff</span></div>
+      <div class="frame-body" style="height:840px;">
+
+        <div class="polaroid tall" style="left:36px;top:56px;transform:rotate(-4deg);">
+          <span class="tape coral" style="left:78px;top:-12px;transform:rotate(6deg);"></span>
+          <image-slot id="story-snap-1" class="ph" shape="rounded" radius="4" placeholder="DROP A PHOTO"></image-slot>
+          <div class="cap">me, off duty</div>
+        </div>
+
+        <div class="sticky s-yellow" style="left:330px;top:44px;transform:rotate(3deg);">
+          <span class="k">// hobby 01</span>
+          <p class="big">Thrift archaeologist</p>
+          <p style="margin-top:7px;">I rework vintage finds into things I'll actually wear.</p>
+        </div>
+        <div class="sticky s-peri" style="left:590px;top:96px;transform:rotate(-3deg);">
+          <span class="k">// hobby 02</span>
+          <p class="big">Coffee cartographer</p>
+          <p style="margin-top:7px;">Mapping the city one café at a time. It's research, technically.</p>
+        </div>
+
+        <div class="polaroid wide" style="left:858px;top:48px;transform:rotate(3deg);">
+          <span class="tape" style="left:104px;top:-12px;transform:rotate(-6deg);"></span>
+          <image-slot id="story-snap-2" class="ph" shape="rounded" radius="4" placeholder="DROP A PHOTO"></image-slot>
+          <div class="cap">the studio chaos</div>
+        </div>
+
+        <div class="sticky s-mint" style="left:330px;top:316px;transform:rotate(-4deg);">
+          <span class="k">// hobby 03</span>
+          <p class="big">Board‑game menace</p>
+          <p style="margin-top:7px;">Catan, but make it competitive friendships.</p>
+        </div>
+        <div class="sticky s-coral" style="left:600px;top:356px;transform:rotate(4deg);">
+          <span class="k">// hobby 04</span>
+          <p class="big">Serial wanderer</p>
+          <p style="margin-top:7px;">I collect places, not things, always plotting the next trip somewhere new.</p>
+        </div>
+        <div class="sticky s-lav" style="left:872px;top:332px;transform:rotate(-3deg);">
+          <span class="k">// hobby 05</span>
+          <p class="big">Long‑walk thinker</p>
+          <p style="margin-top:7px;">Best ideas arrive somewhere around kilometre four.</p>
+        </div>
+
+        <div class="polaroid sm" style="left:70px;top:430px;transform:rotate(5deg);">
+          <image-slot id="story-snap-3" class="ph" shape="rounded" radius="4" placeholder="DROP A PHOTO"></image-slot>
+          <div class="cap">pour‑over #47</div>
+        </div>
+
+        <div class="sticky wide s-peri" style="left:372px;top:592px;transform:rotate(-2deg);">
+          <span class="k">// currently</span>
+          <p><b>Reading:</b> too many romance books at once.<br/><b>Listening:</b> lo‑fi + bollywood songs.<br/><b>Building:</b> MapChat Social, obviously.</p>
+        </div>
+
+        <div class="polaroid sm" style="left:1006px;top:540px;transform:rotate(6deg);">
+          <span class="tape yellow" style="left:62px;top:-12px;transform:rotate(-8deg);"></span>
+          <image-slot id="story-snap-4" class="ph" shape="rounded" radius="4" placeholder="DROP A PHOTO"></image-slot>
+          <div class="cap">a good find</div>
+        </div>
+
+        <div class="scribble peri" style="left:726px;top:622px;transform:rotate(-5deg);">say hi! ↘</div>
+        <svg class="doodle" style="left:760px;top:660px;width:120px;height:120px;" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 24 C 70 40, 96 70, 92 100"/>
+          <path d="M76 86 L94 104 L104 84"/>
+        </svg>
+
+      </div>
+    </section>
+
+  </div>
+  <div class="board-spacer" id="spacer"></div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-huge">GET IN<br/>TOUCH</div>
+    <div class="footer-links">
+      <a href="mailto:damaniashna@gmail.com">damaniashna@gmail.com</a>
+      <span class="d">·</span>
+      <a href="#">LinkedIn</a>
+      <span class="d">·</span>
+      <a href="#">Read.cv</a>
+    </div>
+    <div class="footer-meta">
+      <span>© 2026 Ashna</span>
+      <span>Product Designer + Storyteller</span>
+    </div>
+  </div>
+</footer>
+
+<script src="image-slot.js"></script>
+<script src="story.js"></script>
+</body>
+</html>
