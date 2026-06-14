@@ -916,19 +916,24 @@
   align-items: center;
   gap: 26px;
   position: relative;
-  /* soft brand gradient fills the white space without hurting readability */
-  background:
-    radial-gradient(
-      120% 86% at 50% 40%,
-      color-mix(in srgb, var(--peri) 13%, transparent) 0%,
-      transparent 60%
-    ),
-    linear-gradient(
-      180deg,
-      #fff 0%,
-      color-mix(in srgb, var(--lav) 70%, #fff) 48%,
-      #fff 100%
-    );
+}
+/* jigsaw watermark — the hero's motif — masked to a soft pool behind the text */
+.home .craft::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/assets/puzzle.svg");
+  background-repeat: repeat;
+  background-size: 150px;
+  opacity: 0.8;
+  -webkit-mask-image: radial-gradient(120% 78% at 50% 46%, #000 36%, transparent 78%);
+  mask-image: radial-gradient(120% 78% at 50% 46%, #000 36%, transparent 78%);
+}
+.home .craft .wrap {
+  position: relative;
+  z-index: 1;
 }
 .home .craft .lead {
   font-family: var(--mono);
@@ -943,13 +948,7 @@
   line-height: 1.02;
   letter-spacing: -0.02em;
   max-width: 16ch;
-  /* gradient text + a fading mirror reflection beneath it */
-  background: linear-gradient(180deg, var(--violet) 28%, var(--peri) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-box-reflect: below 10px
-    linear-gradient(rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.05) 42%, transparent 72%);
+  color: var(--violet);
 }
 
 /* ===================== FOOTER ===================== */
