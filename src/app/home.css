@@ -443,8 +443,8 @@
   line-height: 1;
 }
 .home .dict .ipa {
-  font-family: var(--mono);
-  font-size: 15px;
+  font-family: var(--font);
+  font-size: 16px;
   color: color-mix(in srgb, var(--violet) 72%, #fff);
   white-space: nowrap;
 }
