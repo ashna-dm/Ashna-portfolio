@@ -1026,6 +1026,11 @@
   letter-spacing: -0.03em;
   line-height: 1;
   color: var(--violet);
+  transition: color 0.45s var(--ease-out);
+}
+/* On hover the wordmark shifts to Sorta's lime-green brand colour */
+.home .frame:hover .mm-word {
+  color: #5fae2e;
 }
 /* Real thin-bezel iPhone frame (same look as the case-study build section,
    scaled proportionally so the bezel stays thin at thumbnail size). */
