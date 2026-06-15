@@ -296,7 +296,7 @@ export default function Home() {
                 <div className="frame-foot">
                   <div>
                     <div className="f-title">Moonshot idea</div>
-                    <div className="f-cat">Real client · Product</div>
+                    <div className="f-cat">Health care · Health-tech product</div>
                   </div>
                   <span className="open">Coming soon</span>
                 </div>
