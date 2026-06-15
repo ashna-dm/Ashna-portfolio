@@ -1,5 +1,6 @@
 /* ============================================================
-   REFRESH INTRO - solid violet that pixel-dissolves diagonally to reveal
+   REFRESH INTRO - violet screen, sparse white pixels dissolving diagonally,
+   then slide-up reveal.
    ============================================================ */
 html.intro-lock,
 html.intro-lock body {
@@ -10,27 +11,31 @@ html.intro-lock body {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: var(--violet); /* covers the page on first paint (no flash) */
+  background: var(--violet);
   overflow: hidden;
+  will-change: transform;
+  transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
 }
-/* once dissolving, the page shows through cleared pixels */
-.intro.go {
-  background: transparent;
+.intro.leaving {
+  transform: translateY(-100%);
 }
 
+/* sparse small white pixels that dissolve out on a diagonal delay */
 .intro .cell {
   position: absolute;
-  background: var(--violet);
-  will-change: opacity, transform;
+  background: #fff;
+  opacity: 0;
+  border-radius: 1px;
+  animation: px-dissolve 0.55s cubic-bezier(0.4, 0, 0.6, 1) both;
 }
-/* each pixel clears on a diagonal delay (+ jitter) -> scattered dissolving edge */
-.intro.go .cell {
-  animation: cell-out 0.44s cubic-bezier(0.4, 0, 0.6, 1) forwards;
-}
-@keyframes cell-out {
-  to {
+@keyframes px-dissolve {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  100% {
     opacity: 0;
-    transform: scale(0.6);
+    transform: scale(0.35);
   }
 }
 
