@@ -223,34 +223,34 @@
   transform-box: fill-box;
   transform-origin: center;
   fill: none;
-  stroke: #dfe3fb;
-  stroke-width: 1.1;
-  opacity: 0.34; /* faint, near-complete puzzle sits still */
+  stroke: #c3cbf0; /* one soft periwinkle for the whole puzzle */
+  stroke-width: 1.2;
+  opacity: 0.4; /* near-complete puzzle sits still */
 }
-/* the few "missing" pieces: drop in from above and settle into their gap */
+/* the few "missing" pieces are set into their gap: a piece is lowered, a soft
+   highlight as it seats, then it eases flush and blends with the rest */
 .home .puzzle-assemble .pc.drop {
-  stroke: #6f80e6; /* clearly visible periwinkle, vs the faint grid */
-  stroke-width: 1.7;
   opacity: 0;
-  animation: pc-drop 0.72s cubic-bezier(0.34, 1.5, 0.5, 1) both;
+  animation: pc-place 0.9s cubic-bezier(0.22, 0.9, 0.28, 1) both;
 }
-@keyframes pc-drop {
+@keyframes pc-place {
   0% {
     opacity: 0;
-    transform: translateY(-130px);
+    transform: scale(1.14);
   }
-  28% {
-    opacity: 0.95;
+  55% {
+    opacity: 0.85; /* brief soft highlight as it seats */
+    transform: scale(0.99);
   }
   100% {
-    opacity: 0.62;
-    transform: translateY(0);
+    opacity: 0.4; /* settles to match the rest -> blends in */
+    transform: scale(1);
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .home .puzzle-assemble .pc.drop {
     animation: none;
-    opacity: 0.62;
+    opacity: 0.4;
   }
 }
 .home .hero-wrap {
