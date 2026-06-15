@@ -304,8 +304,8 @@ export default function Home() {
                 <div className="artboard">
                   <div className="tile-mock movia-mock">
                     <span className="mm-word">Sorta</span>
-                    <div className="tm-phone mm-right"><span className="tm-isle" /><img src="/assets/images/sorta/screens/select-goal-1.png" alt="Sorta select goal" /></div>
-                    <div className="tm-phone mm-left"><span className="tm-isle" /><img src="/assets/images/sorta/screens/home.png" alt="Sorta home" /></div>
+                    <div className="iphone mm-right"><span className="ip-island" /><div className="ip-screen"><img src="/assets/images/sorta/screens/home.png" alt="Sorta home" /></div></div>
+                    <div className="iphone mm-left"><span className="ip-island" /><div className="ip-screen"><img src="/assets/images/sorta/screens/select-goal-2.png" alt="Sorta onboarding, your goal" /></div></div>
                   </div>
                   <span className="dim-chip annot">live beta</span>
                   <span className="hh tl" />
