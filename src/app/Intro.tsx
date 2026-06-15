@@ -27,7 +27,7 @@ export default function Intro() {
 
     const W = window.innerWidth;
     const H = window.innerHeight;
-    const size = Math.ceil(W / 20); // ~20 columns of chunky pixels
+    const size = Math.ceil(W / 48); // ~48 columns of small pixels
     const cols = Math.ceil(W / size);
     const rows = Math.ceil(H / size);
     const SWEEP = 1400; // ms across the diagonal
