@@ -3,11 +3,11 @@
  * in one at a time (snake order) and snap onto the piece already placed next
  * to them, until the whole grid is connected. Pure CSS animation.
  */
-const COLS = 5;
-const ROWS = 3;
+const COLS = 10;
+const ROWS = 6;
 const S = 100; // piece size in viewBox units
 const BH = 22; // tab bump height
-const STEP = 0.16; // seconds between pieces (sequential feel)
+const STEP = 0.045; // seconds between pieces (connecting cascade)
 
 // deterministic +/-1 per shared edge, so adjacent pieces interlock
 const sgn = (a: number, b: number, salt: number) =>
@@ -60,7 +60,7 @@ export default function PuzzleField() {
     for (const c of cols) order.push({ c, r });
   }
 
-  const OFF = 108; // slide-in distance (~one piece) toward the placed neighbour
+  const OFF = 70; // slide-in distance toward the placed neighbour
   const pieces = order.map(({ c, r }, i) => {
     const prev = order[i - 1];
     // enter from the side away from the already-placed neighbour, then snap in
