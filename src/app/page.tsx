@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import HomeInteractions from "./HomeInteractions";
 import PuzzleField from "@/components/PuzzleField";
+import Intro from "./Intro";
 import "./home.css";
 
 export default function Home() {
   return (
     <div className="home">
+      <Intro />
       <div className="page">
         {/* ===================== HEADER ===================== */}
         <header>

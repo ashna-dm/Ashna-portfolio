@@ -1,0 +1,74 @@
+/* ============================================================
+   REFRESH INTRO - violet panel, 0->100% counter, slide-up reveal
+   ============================================================ */
+html.intro-lock,
+html.intro-lock body {
+  overflow: hidden;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--violet);
+  color: #fff;
+  will-change: transform;
+  transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.intro.leaving {
+  transform: translateY(-100%);
+}
+
+.intro-name {
+  position: absolute;
+  top: clamp(28px, 5vw, 48px);
+  left: clamp(24px, 5vw, 56px);
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: clamp(18px, 2vw, 24px);
+  letter-spacing: -0.02em;
+}
+
+.intro-count {
+  position: absolute;
+  right: clamp(24px, 5vw, 56px);
+  bottom: clamp(34px, 4.5vw, 56px);
+  display: flex;
+  align-items: flex-start;
+  font-family: var(--font);
+  font-weight: 800;
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+}
+.intro-count .n {
+  font-size: clamp(72px, 16vw, 196px);
+}
+.intro-count .pct {
+  font-size: clamp(24px, 4vw, 52px);
+  margin-top: 0.35em;
+  margin-left: 0.08em;
+  opacity: 0.65;
+}
+
+.intro-bar {
+  position: absolute;
+  left: clamp(24px, 5vw, 56px);
+  right: clamp(24px, 5vw, 56px);
+  bottom: clamp(20px, 3vw, 30px);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+}
+.intro-bar i {
+  display: block;
+  height: 100%;
+  background: #fff;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    display: none;
+  }
+}

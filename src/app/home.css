@@ -228,10 +228,15 @@
   opacity: 0.34;
 }
 /* the few "missing" pieces fly in from a side glowing in colour, then fade
-   to the faint grid tone once they connect into place */
+   to the faint grid tone once they connect into place. Gated on the intro
+   so they assemble only after the refresh overlay reveals the page. */
 .home .puzzle-assemble .pc.drop {
   opacity: 0;
-  animation: pc-place 0.85s cubic-bezier(0.26, 1.04, 0.32, 1) both;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html.intro-done .home .puzzle-assemble .pc.drop {
+    animation: pc-place 0.85s cubic-bezier(0.26, 1.04, 0.32, 1) both;
+  }
 }
 @keyframes pc-place {
   0% {
