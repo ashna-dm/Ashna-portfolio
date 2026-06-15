@@ -445,7 +445,7 @@ export default function AuraPage() {
           <div className="footer-links">
             <a href="mailto:damaniashna@gmail.com">damaniashna@gmail.com</a>
             <span className="d">·</span>
-            <a href="#">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/ashnadamani" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
           <div className="footer-meta">
             <span>© 2026 Ashna · AURA · AI for skin-safe dressing</span>

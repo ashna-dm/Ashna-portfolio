@@ -334,7 +334,7 @@ export default function SortaPage() {
             <span className="d">·</span>
             <a href="https://www.letsorta.ai/" target="_blank" rel="noopener">letsorta.ai</a>
             <span className="d">·</span>
-            <a href="#">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/ashnadamani" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
           <div className="footer-meta">
             <span>© 2026 Ashna · Sorta · AI home organizing</span>
