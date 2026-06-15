@@ -215,6 +215,34 @@
   white-space: nowrap;
 }
 
+/* ---- BEFORE / AFTER collage card ---- */
+.playpage .pcard.ba .ba-img {
+  position: relative;
+}
+.playpage .pcard.ba .ba-img + .ba-img {
+  margin-top: 3px;
+}
+.playpage .pcard.ba img {
+  width: 100%;
+  display: block;
+}
+.playpage .ba-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(26, 20, 48, 0.72);
+  padding: 5px 9px;
+  border-radius: 20px;
+}
+.playpage .ba-tag.after {
+  background: var(--violet);
+}
+
 /* ---- FASHION STYLING (featured) ---- */
 .playpage .play-fashion {
   margin-top: 40px;

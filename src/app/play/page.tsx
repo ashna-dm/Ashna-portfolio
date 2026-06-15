@@ -11,11 +11,17 @@ export const metadata: Metadata = {
 const P = "/assets/images/play";
 
 type Item = { src: string; title: string; meta: string };
-type Section = { n: string; eyebrow: string; title: string; desc: string; items: Item[] };
+type Section = { n: string; eyebrow: string; title: string; desc: string; items: Item[]; soon?: string };
+
+const FASHION: Item[] = [
+  { src: `${P}/photo-pinkwall.png`, title: "Editorial look", meta: "Styling" },
+  { src: `${P}/photo-coffee.jpg`, title: "Coffee run", meta: "Styling" },
+  { src: `${P}/photo-sitting.jpg`, title: "On location", meta: "Styling" },
+];
 
 const SECTIONS: Section[] = [
   {
-    n: "01",
+    n: "02",
     eyebrow: "Graphic · social · identity",
     title: "Design & Identity",
     desc: "Posters, social campaigns, a personal mark, and the odd product mockup — design purely for the joy of it.",
@@ -29,29 +35,27 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    n: "02",
+    n: "03",
     eyebrow: "Generative AI",
     title: "AI Experiments",
-    desc: "Prompting my way through fashion editorials, imagined worlds, and characters with generative tools.",
+    desc: "Prompting my way through fashion editorials, imagined worlds, and a real photo reimagined as a comic-book crew.",
     items: [
       { src: `${P}/ai-denim-bag.png`, title: "Denim editorial", meta: "AI · fashion" },
       { src: `${P}/ai-orange-bag.png`, title: "Street editorial", meta: "AI · fashion" },
       { src: `${P}/ai-dome.png`, title: "Worldbuilding", meta: "AI · scene" },
-      { src: `${P}/ai-crew.png`, title: "The crew", meta: "AI · characters" },
       { src: `${P}/ai-still.png`, title: "Still life", meta: "AI · render" },
+      { src: `${P}/ai-crew.png`, before: `${P}/photo-steps.jpg`, title: "The crew, reimagined", meta: "AI · before / after" },
     ],
   },
   {
-    n: "03",
-    eyebrow: "Photography",
-    title: "Through My Lens",
-    desc: "Places I've collected and people I love — mostly on a phone, always chasing the light.",
+    n: "04",
+    eyebrow: "Painting & photography",
+    title: "Canvas & Camera",
+    desc: "Hand-painted canvases and photographs — colour I make, and colour I find.",
     items: [
       { src: `${P}/photo-mural.jpg`, title: "Street colour", meta: "Photo" },
-      { src: `${P}/photo-coffee.jpg`, title: "Coffee run", meta: "Photo" },
-      { src: `${P}/photo-steps.jpg`, title: "The crew, IRL", meta: "Photo" },
-      { src: `${P}/photo-sitting.jpg`, title: "Off duty", meta: "Photo" },
     ],
+    soon: "More canvas paintings coming soon",
   },
 ];
 
@@ -97,21 +101,23 @@ export default function PlayPage() {
       {/* FASHION STYLING — featured, the origin story */}
       <section className="play-fashion">
         <div className="wrap">
-          <div className="pf-grid">
-            <div className="pf-copy">
-              <span className="ps-eyebrow">Where it started · the runway years</span>
-              <h2 className="ps-title">Fashion Styling</h2>
-              <p className="ps-desc">Before product design, I styled for a living — a fashion-design training, editorial shoots, and a stylist&apos;s eye for fit, fabric, and story. It&apos;s the lens I still design with today.</p>
-              <span className="pf-soon">More styling work coming soon</span>
-            </div>
-            <figure className="pf-media">
-              <img src={`${P}/photo-pinkwall.png`} alt="Fashion styling" loading="lazy" />
-              <figcaption className="pcap">
-                <span className="pcap-t">On set</span>
-                <span className="pcap-m">Styling</span>
-              </figcaption>
-            </figure>
+          <div className="ps-head">
+            <span className="ps-eyebrow">01 · Where it started · the runway years</span>
+            <h2 className="ps-title">Fashion Styling</h2>
+            <p className="ps-desc">Before product design, I styled for a living — a fashion-design training, editorial shoots, and a stylist&apos;s eye for fit, fabric, and story. It&apos;s the lens I still design with today.</p>
           </div>
+          <div className="pgrid">
+            {FASHION.map((it) => (
+              <figure className="pcard" key={it.src}>
+                <img src={it.src} alt={it.title} loading="lazy" />
+                <figcaption className="pcap">
+                  <span className="pcap-t">{it.title}</span>
+                  <span className="pcap-m">{it.meta}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <span className="pf-soon">More styling work coming soon</span>
         </div>
       </section>
 
@@ -125,16 +131,34 @@ export default function PlayPage() {
               <p className="ps-desc">{s.desc}</p>
             </div>
             <div className="pgrid">
-              {s.items.map((it) => (
-                <figure className="pcard" key={it.src}>
-                  <img src={it.src} alt={it.title} loading="lazy" />
-                  <figcaption className="pcap">
-                    <span className="pcap-t">{it.title}</span>
-                    <span className="pcap-m">{it.meta}</span>
-                  </figcaption>
-                </figure>
-              ))}
+              {s.items.map((it) =>
+                it.before ? (
+                  <figure className="pcard ba" key={it.src}>
+                    <div className="ba-img">
+                      <img src={it.before} alt="Before" loading="lazy" />
+                      <span className="ba-tag">Before</span>
+                    </div>
+                    <div className="ba-img">
+                      <img src={it.src} alt={it.title} loading="lazy" />
+                      <span className="ba-tag after">After · AI</span>
+                    </div>
+                    <figcaption className="pcap">
+                      <span className="pcap-t">{it.title}</span>
+                      <span className="pcap-m">{it.meta}</span>
+                    </figcaption>
+                  </figure>
+                ) : (
+                  <figure className="pcard" key={it.src}>
+                    <img src={it.src} alt={it.title} loading="lazy" />
+                    <figcaption className="pcap">
+                      <span className="pcap-t">{it.title}</span>
+                      <span className="pcap-m">{it.meta}</span>
+                    </figcaption>
+                  </figure>
+                )
+              )}
             </div>
+            {s.soon && <span className="pf-soon">{s.soon}</span>}
           </div>
         </section>
       ))}
