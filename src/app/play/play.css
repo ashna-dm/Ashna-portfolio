@@ -226,11 +226,12 @@
   width: 100%;
   display: block;
 }
-/* Crop the "before" image to a smaller band so the AI "after" leads */
+/* Crop only the top background off the "before" image; keep all people visible */
 .playpage .pcard.ba .ba-img:first-child img {
-  height: 132px;
+  aspect-ratio: 1 / 1;
+  height: auto;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center bottom;
 }
 .playpage .ba-tag {
   position: absolute;

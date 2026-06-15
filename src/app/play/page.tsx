@@ -49,7 +49,7 @@ const SECTIONS: Section[] = [
       { src: `${P}/ai-still.png`, title: "Still life", meta: "AI · render" },
       { src: `${P}/ai-2.png`, title: "Editorial, in colour", meta: "AI · fashion" },
       { src: `${P}/ai-3.png`, title: "On the water", meta: "AI · scene" },
-      { src: `${P}/ai-crew.png`, before: `${P}/photo-steps.jpg`, title: "The crew, reimagined", meta: "AI · before / after" },
+      { src: `${P}/ai-crew.png`, before: `${P}/photo-steps.jpg`, title: "Personal AI experiment", meta: "AI · before / after" },
     ],
   },
   {
