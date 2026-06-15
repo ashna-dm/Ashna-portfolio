@@ -310,7 +310,9 @@ export default function StoryPage() {
             <span className="d">·</span>
             <a href="https://www.linkedin.com/in/ashnadamani" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <span className="d">·</span>
-            <a href="#">Read.cv</a>
+            <a href="https://www.behance.net/ashnadamani" target="_blank" rel="noopener noreferrer">Behance</a>
+            <span className="d">·</span>
+            <a href="https://medium.com/@ashnadamani" target="_blank" rel="noopener noreferrer">Medium</a>
           </div>
           <div className="footer-meta">
             <span>© 2026 Ashna</span>
