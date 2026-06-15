@@ -303,7 +303,7 @@ export default function Home() {
                 </div>
                 <div className="artboard">
                   <div className="tile-mock sorta-mock">
-                    <div className="tm-phone back"><img src="/assets/images/sorta/screens/session1.png" alt="Sorta sorting session" /></div>
+                    <div className="tm-phone back"><img src="/assets/images/sorta/screens/select-goal-1.png" alt="Sorta select goal" /></div>
                     <div className="tm-phone front"><img src="/assets/images/sorta/screens/home.png" alt="Sorta home" /></div>
                   </div>
                   <span className="dim-chip annot">live beta</span>
