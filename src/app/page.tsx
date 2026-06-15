@@ -392,7 +392,7 @@ export default function Home() {
             <span className="d">·</span>
             <a href="https://www.behance.net/ashnadamani" target="_blank" rel="noopener noreferrer">Behance</a>
             <span className="d">·</span>
-            <a href="https://medium.com/@ashnadamani" target="_blank" rel="noopener noreferrer">Medium</a>
+            <a href="https://medium.com/@ashna2012" target="_blank" rel="noopener noreferrer">Medium</a>
           </div>
           <div className="footer-meta">
             <span>© 2026 Ashna</span>
