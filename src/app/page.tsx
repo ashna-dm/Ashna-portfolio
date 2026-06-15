@@ -23,7 +23,7 @@ export default function Home() {
                   </svg>
                   <span className="lbl">work</span>
                 </a>
-                <a className="np" href="/story#play">
+                <a className="np" href="/play">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="8.5" />
                     <path d="M3.5 12h17" />
