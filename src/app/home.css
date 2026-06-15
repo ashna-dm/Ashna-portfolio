@@ -1033,13 +1033,13 @@
   z-index: 3;
 }
 
-/* greyscale at rest -> colour on hover */
+/* periwinkle duotone at rest -> full natural colour on hover (Anuja-style) */
 .home .tile-mock img {
-  filter: saturate(0.55) contrast(0.97) brightness(1.01);
-  transition: filter 0.5s var(--ease-out);
+  filter: grayscale(1) sepia(0.55) hue-rotate(200deg) saturate(3) brightness(1.04) contrast(0.98);
+  transition: filter 0.55s var(--ease-out);
 }
 .home .frame:hover .tile-mock img {
-  filter: saturate(1) contrast(1) brightness(1);
+  filter: grayscale(0) sepia(0) hue-rotate(0deg) saturate(1) brightness(1) contrast(1);
 }
 
 /* ===================== CRAFT STATEMENT ===================== */
