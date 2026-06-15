@@ -226,6 +226,12 @@
   width: 100%;
   display: block;
 }
+/* Crop the "before" image to a smaller band so the AI "after" leads */
+.playpage .pcard.ba .ba-img:first-child img {
+  height: 132px;
+  object-fit: cover;
+  object-position: center 30%;
+}
 .playpage .ba-tag {
   position: absolute;
   top: 10px;
@@ -240,6 +246,8 @@
   border-radius: 20px;
 }
 .playpage .ba-tag.after {
+  left: auto;
+  right: 10px;
   background: var(--violet);
 }
 
