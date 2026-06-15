@@ -986,15 +986,38 @@
   z-index: 4;
 }
 
-/* --- Sorta: composited two-iPhone mockup image --- */
-.home .sorta-cover img {
-  position: static;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 0;
-  background: transparent;
-  border-radius: 0;
+/* --- Sorta: Movia-style two upright phones + brand wordmark --- */
+.home .movia-mock {
+  background: linear-gradient(165deg, #e9e8fb 0%, #f4f4ff 52%, #ffffff 100%);
+}
+.home .mm-word {
+  position: absolute;
+  top: 7%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  text-align: center;
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: clamp(20px, 2.7vw, 34px);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: color-mix(in srgb, var(--peri) 38%, #fff);
+}
+.home .movia-mock .tm-phone {
+  width: auto;
+  height: 60%;
+  aspect-ratio: 9 / 19.5;
+  top: 50%;
+  left: 50%;
+}
+.home .movia-mock .mm-left {
+  transform: translate(-99%, -32%) rotate(-2.5deg);
+  z-index: 3;
+}
+.home .movia-mock .mm-right {
+  transform: translate(-1%, -44%) rotate(2.5deg);
+  z-index: 2;
 }
 
 /* --- AURA: laptop browser + phone --- */
