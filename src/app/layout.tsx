@@ -5,7 +5,7 @@ import "./globals.css";
 const GOOGLE_FONTS =
   "https://fonts.googleapis.com/css2?" +
   [
-    "family=Poppins:wght@400;500;600;700",
+    "family=Poppins:wght@400;500;600;700;800",
     "family=Baloo+2:wght@500;700;800",
     "family=JetBrains+Mono:wght@400;500",
     "family=Caveat:wght@400;500;600;700",

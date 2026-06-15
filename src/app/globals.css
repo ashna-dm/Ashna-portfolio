@@ -161,6 +161,18 @@ img {
   }
 }
 
+/* case-study feature step numbers (01–04): make them prominent.
+   Higher specificity than the ported `.fnum` so it wins on both Sorta & AURA. */
+.fcanvas .fnum {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--peri);
+  margin-bottom: 2px;
+}
+
 /* design-system carousel frame images — consistent height across slides */
 .ds-img {
   display: block;

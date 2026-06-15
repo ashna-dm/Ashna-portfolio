@@ -11,6 +11,10 @@ import localFont from "next/font/local";
 export const hagrid = localFont({
   variable: "--font-hagrid",
   display: "swap",
+  // The Hagrid TRIAL renders digits as a "ZETAFONTS trial" watermark, so we
+  // exclude 0-9 (U+0030–0039) from its @font-face — digits then fall through
+  // to Poppins in the --font stack. (Matches the handoff's own unicode-range.)
+  declarations: [{ prop: "unicode-range", value: "U+0000-002F,U+003A-10FFFF" }],
   src: [
     { path: "../../public/assets/fonts/hagrid/Hagrid-Regular-trial.ttf", weight: "400", style: "normal" },
     { path: "../../public/assets/fonts/hagrid/Hagrid-Italic-trial.ttf", weight: "400", style: "italic" },
