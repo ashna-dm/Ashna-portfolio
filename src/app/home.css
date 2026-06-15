@@ -1059,9 +1059,9 @@
 /* --- AURA: laptop browser + phone --- */
 .home .aura-mock .tm-laptop {
   position: absolute;
-  width: 72%;
+  width: 73%;
   aspect-ratio: 16 / 10;
-  left: 1%;
+  left: 0%;
   top: 58%;
   transform: translateY(-50%);
   background: #fff;
@@ -1100,7 +1100,7 @@
   width: auto;
   height: 62%;
   aspect-ratio: 9 / 19.5;
-  right: 3%;
+  right: 10%;
   bottom: 5%;
   z-index: 3;
 }
