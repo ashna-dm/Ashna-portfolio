@@ -1,7 +1,26 @@
 import type { Metadata } from "next";
 import ImageSlot from "@/components/ImageSlot";
 import CaseStudyInteractions from "@/components/CaseStudyInteractions";
+import ScreenFlow from "@/components/ScreenFlow";
 import "./aura.css";
+
+const AW = "/assets/images/aura/screens";
+const WEB_FLOW = [
+  { src: `${AW}/web-home.png`, label: "Home dashboard" },
+  { src: `${AW}/web-report.png`, label: "Daily report" },
+  { src: `${AW}/web-calendar.png`, label: "Calendar & planning" },
+  { src: `${AW}/web-sync.png`, label: "Sync guide" },
+];
+const PHONE_FLOW = [
+  { src: `${AW}/welcome.png`, label: "Welcome" },
+  { src: `${AW}/onb1.png`, label: "Skin profile" },
+  { src: `${AW}/scan.png`, label: "Scan a garment" },
+  { src: `${AW}/scan-result.png`, label: "Fabric risk result" },
+  { src: `${AW}/wardrobe.png`, label: "Your wardrobe" },
+  { src: `${AW}/home.png`, label: "Safe outfit" },
+  { src: `${AW}/insights.png`, label: "Insights" },
+  { src: `${AW}/calendar.png`, label: "Skin calendar" },
+];
 
 export const metadata: Metadata = {
   title: "AURA · AI for skin-safe dressing · Ashna Damani",
@@ -82,13 +101,16 @@ export default function AuraPage() {
                   <div className="laptop">
                     <div className="lid">
                       <div className="bar"><div className="dots"><i /><i /><i /></div><div className="url">aura.app / dashboard</div></div>
-                      <div className="scr"><iframe className="web-frame" src="/prototypes/AURA%20Web%20Prototype.html" title="AURA web interactive prototype" scrolling="no" loading="eager" /></div>
+                      <div className="scr"><ScreenFlow frames={WEB_FLOW} fit="cover" objectPosition="center top" /></div>
                     </div>
                     <div className="base" />
                   </div>
                 </div>
                 <div className="combo-phone">
-                  <iframe className="proto-frame" src="/prototypes/AURA%20Prototype.html" title="AURA interactive prototype" scrolling="no" loading="eager" />
+                  <div className="aura-phone">
+                    <div className="aura-phone-scr"><ScreenFlow frames={PHONE_FLOW} fit="cover" objectPosition="center top" /></div>
+                    <span className="aura-phone-island" />
+                  </div>
                 </div>
                 <span className="sticker keep">skin-safe ✓</span>
                 <span className="sticker donate">breathable</span>
