@@ -47,6 +47,23 @@ export default function HomeInteractions() {
     };
   }, []);
 
+  // ---- ID video: autoplays muted (browser policy), unmute on first gesture ----
+  useEffect(() => {
+    const v = document.getElementById("idVideo") as HTMLVideoElement | null;
+    if (!v) return;
+    const unmute = () => {
+      v.muted = false;
+      v.volume = 1;
+      void v.play().catch(() => {});
+      cleanup();
+    };
+    const events = ["pointerdown", "touchstart", "keydown"] as const;
+    const cleanup = () =>
+      events.forEach((e) => window.removeEventListener(e, unmute));
+    events.forEach((e) => window.addEventListener(e, unmute, { once: false, passive: true }));
+    return cleanup;
+  }, []);
+
   // ---- jigsaw puzzle watermark (static render) ----
   useEffect(() => {
     const svg = document.getElementById("puzzleSvg");

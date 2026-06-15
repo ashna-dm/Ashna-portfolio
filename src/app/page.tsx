@@ -77,14 +77,15 @@ export default function Home() {
                   <span>AI Native Product Designer</span>
                 </div>
                 <video
+                  id="idVideo"
                   className="idphoto"
-                  src="/assets/video/ashna-wave.mp4"
+                  src="/assets/video/ashna-id.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
                   preload="auto"
-                  aria-label="Ashna Damani waving"
+                  aria-label="Ashna Damani intro video"
                 />
                 <div className="idname">Ashna Damani</div>
                 <div className="idrole">
