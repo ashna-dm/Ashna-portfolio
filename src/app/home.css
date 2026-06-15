@@ -971,17 +971,20 @@
   border-radius: 13px;
 }
 
-/* --- Sorta: two overlapping tilted phones --- */
+/* --- Sorta: two overlapping tilted phones, centred with margin --- */
 .home .sorta-mock .tm-phone {
-  width: 37%;
+  width: auto;
+  height: 70%;
   aspect-ratio: 9 / 19;
+  left: 50%;
+  top: 50%;
 }
 .home .sorta-mock .tm-phone.back {
-  transform: translate(-32%, 7%) rotate(-9deg);
+  transform: translate(-78%, -50%) rotate(-8deg);
   z-index: 1;
 }
 .home .sorta-mock .tm-phone.front {
-  transform: translate(32%, -3%) rotate(8deg);
+  transform: translate(-22%, -48%) rotate(8deg);
   z-index: 2;
 }
 
