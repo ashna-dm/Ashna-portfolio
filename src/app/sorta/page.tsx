@@ -208,7 +208,7 @@ export default function SortaPage() {
       <section className="block onboarding">
         <div className="wrap">
           <div className="sec-head reveal"><h2 className="sec-title">Onboarding</h2></div>
-          <p className="onb-sub reveal">A calm first run: Sorta learns your space, your goals, and how you like to let go — before the first sort ever begins.</p>
+          <p className="onb-sub reveal">A calm first run: Sorta learns your space, your goals, and how you like to let go, before the first sort ever begins.</p>
           <div className="onb-row reveal">
             {[["sc-onb1", "Welcome"], ["sc-onb2", "Your space"], ["sc-onb3", "Your goal"], ["sc-onb4", "How you let go"], ["sc-onb5", "Ready to sort"]].map(([id, ph]) => (
               <div className="onb-phone" key={id}><span className="onb-pill" /><div className="onb-glass"><ImageSlot id={id} placeholder={ph} /></div></div>
@@ -221,7 +221,7 @@ export default function SortaPage() {
       <section className="block build">
         <div className="wrap">
           <div className="sec-head reveal"><h2 className="sec-title">The build</h2></div>
-          <p className="build-sub reveal">High-fidelity screens from the Sorta prototype — discover, triage, plan a pickup, and find anything in seconds.</p>
+          <p className="build-sub reveal">High-fidelity screens from the Sorta prototype: discover, triage, plan a pickup, and find anything in seconds.</p>
           <div className="buildgrid reveal">
             {[["sc-g1", "sc-g2", "sc-g3"], ["sc-g4", "sc-g5", "sc-g6"], ["sc-g7", "sc-g8"]].map((col, ci) => (
               <div className="buildcol" key={ci}>
@@ -244,14 +244,14 @@ export default function SortaPage() {
               <div className="dscar-track">
                 <div className="dscar-slide">
                   <div className="dscar-card"><div className="bookpage"><span className="bp-deco" />
-                    <div className="bp-main"><div className="bp-num">SECTION 01</div><h3 className="bp-title">1.0<br />Logo</h3><p className="bp-desc">The Sorta cube mark and wordmark — a calm, rounded identity that signals order without feeling clinical.</p></div>
+                    <div className="bp-main"><div className="bp-num">SECTION 01</div><h3 className="bp-title">1.0<br />Logo</h3><p className="bp-desc">The Sorta cube mark and wordmark, a calm, rounded identity that signals order without feeling clinical.</p></div>
                     <div className="bp-content"><div className="bp-frame"><ImageSlot id="ds-logo" className="ds-img" placeholder="Logo" fit="contain" /></div></div>
                     <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">01</span></div>
                   </div></div>
                 </div>
                 <div className="dscar-slide">
                   <div className="dscar-card"><div className="bookpage cream"><span className="bp-deco" />
-                    <div className="bp-main"><div className="bp-num">SECTION 02</div><h3 className="bp-title">2.0<br />Colour</h3><p className="bp-desc">A fresh mint-to-lime system, anchored by a near-black ink, with bright accents for status — energetic, optimistic, unmistakably Sorta.</p></div>
+                    <div className="bp-main"><div className="bp-num">SECTION 02</div><h3 className="bp-title">2.0<br />Colour</h3><p className="bp-desc">A fresh mint-to-lime system, anchored by a near-black ink, with bright accents for status: energetic, optimistic, unmistakably Sorta.</p></div>
                     <div className="bp-content"><div className="bp-swatches">
                       {[["Lime", "#C8F24E"], ["Mint", "#B9FFE9"], ["Aqua", "#64E4CF"], ["Lime soft", "#D8FC85"], ["Red", "#FF5656"], ["Green", "#78E351"], ["Yellow", "#FFEA09"], ["Ink", "#2A2A2A"]].map(([nm, hx]) => (
                         <div className="bp-sw" key={hx}><span className="ch" style={{ background: hx }} /><div><div className="mt">{nm}</div><div className="hx">{hx}</div></div></div>
@@ -262,14 +262,14 @@ export default function SortaPage() {
                 </div>
                 <div className="dscar-slide">
                   <div className="dscar-card"><div className="bookpage"><span className="bp-deco" />
-                    <div className="bp-main"><div className="bp-num">SECTION 03</div><h3 className="bp-title">3.0<br />Compo&shy;nents</h3><p className="bp-desc">The kit behind every screen — status chips (keep / discard / relocate), segmented controls, tags, and option cards, mapped to each state.</p></div>
+                    <div className="bp-main"><div className="bp-num">SECTION 03</div><h3 className="bp-title">3.0<br />Compo&shy;nents</h3><p className="bp-desc">The kit behind every screen: status chips (keep / discard / relocate), segmented controls, tags, and option cards, mapped to each state.</p></div>
                     <div className="bp-content"><div className="bp-frame"><ImageSlot id="ds-components" className="ds-img" placeholder="Components" fit="cover" /></div></div>
                     <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">03</span></div>
                   </div></div>
                 </div>
                 <div className="dscar-slide">
                   <div className="dscar-card"><div className="bookpage cream"><span className="bp-deco" />
-                    <div className="bp-main"><div className="bp-num">SECTION 04</div><h3 className="bp-title">4.0<br />Nav</h3><p className="bp-desc">A four-tab bar — Discover, Connect, Community, Profile — keeps the whole app one thumb-tap away, always calm, never crowded.</p></div>
+                    <div className="bp-main"><div className="bp-num">SECTION 04</div><h3 className="bp-title">4.0<br />Nav</h3><p className="bp-desc">A four-tab bar (Discover, Connect, Community, Profile) keeps the whole app one thumb-tap away, always calm, never crowded.</p></div>
                     <div className="bp-content"><div className="bp-frame is-plain"><ImageSlot id="ds-nav" className="ds-img" placeholder="Navigation bar" fit="contain" /></div></div>
                     <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">04</span></div>
                   </div></div>

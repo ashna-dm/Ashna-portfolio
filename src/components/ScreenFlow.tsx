@@ -6,7 +6,7 @@ import "./ScreenFlow.css";
 export type Frame = { src: string; label: string };
 
 /**
- * A generic tap-through image cycler. Fills its (positioned) parent — the
+ * A generic tap-through image cycler. Fills its (positioned) parent - the
  * device frame (laptop .scr or phone screen) is provided by the caller.
  */
 export default function ScreenFlow({
@@ -30,7 +30,7 @@ export default function ScreenFlow({
       className="screenflow"
       role="button"
       tabIndex={0}
-      aria-label={`Prototype — ${frames[i].label}. Tap to continue.`}
+      aria-label={`Prototype, ${frames[i].label}. Tap to continue.`}
       onClick={advance}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " " || e.key === "ArrowRight") {

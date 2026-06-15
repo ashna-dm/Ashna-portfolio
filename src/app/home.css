@@ -1,5 +1,5 @@
 /* ============================================================
-   HOME (Portfolio landing) — ported from "Ashna Portfolio.html".
+   HOME (Portfolio landing) - ported from "Ashna Portfolio.html".
    All selectors scoped under .home so the global chrome of the
    other surfaces never collides with this page.
    ============================================================ */
@@ -485,7 +485,7 @@
   /* pivot from the top anchor (where the lanyard "hangs" from) */
   transform-origin: top center;
   transform: rotate(2deg);
-  /* gentle pendulum sway — small amplitude, slow, sinusoidal, continuous */
+  /* gentle pendulum sway - small amplitude, slow, sinusoidal, continuous */
   animation: idsway 5.5s ease-in-out infinite;
 }
 @keyframes idsway {
@@ -625,7 +625,7 @@
   align-items: center;
   gap: 9px;
 }
-/* scannable QR — "popped" off the card on a white chip */
+/* scannable QR - "popped" off the card on a white chip */
 .home .idqr {
   display: block;
   width: 78px;
@@ -917,7 +917,7 @@
   gap: 32px;
   position: relative;
 }
-/* jigsaw watermark — the hero's motif — masked to a soft pool behind the text */
+/* jigsaw watermark - the hero's motif - masked to a soft pool behind the text */
 .home .craft::before {
   content: "";
   position: absolute;

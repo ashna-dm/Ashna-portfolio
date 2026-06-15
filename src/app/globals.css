@@ -1,5 +1,5 @@
 /* ============================================================
-   ASHNA — global tokens + reset
+   ASHNA - global tokens + reset
    Ported from the design handoff (tokens.css). Single source of
    truth for the four surfaces. Apply a surface theme by adding a
    class to a page wrapper, e.g. <div class="theme-sorta">.
@@ -453,13 +453,13 @@ img {
   background: var(--sage-deep, #4f7d5e);
 }
 
-/* a design-system frame with no card backing — image blends onto the slide */
+/* a design-system frame with no card backing - image blends onto the slide */
 .bp-frame.is-plain {
   background: transparent;
   box-shadow: none;
 }
 
-/* design-system carousel frame images — consistent height across slides */
+/* design-system carousel frame images - consistent height across slides */
 .ds-img {
   display: block;
   width: 100%;

@@ -8,12 +8,12 @@
 const S = "/assets/images/sorta/screens";
 const A = "/assets/images/aura/screens";
 const SLOT_SRC: Record<string, string> = {
-  // Sorta case study — media
+  // Sorta case study - media
   "sc-journey": "/assets/images/sorta/sc-journey.png",
   "sc-market": "/assets/images/sorta/sc-market.png",
   "sc-opp": "/assets/images/sorta/sc-opp.webp",
   "ds-logo": "/assets/images/sorta/ds-logo.png",
-  // Sorta — solution feature screens (curated UI exports; captions now match)
+  // Sorta - solution feature screens (curated UI exports; captions now match)
   "sc-f1a": `${S}/home.png`, // Scan the mess: home
   "sc-f1b": `${S}/take-photo.png`, // + scan
   "sc-f2a": `${S}/preview.png`, // One decision at a time: keep/relocate/discard plan
@@ -22,13 +22,13 @@ const SLOT_SRC: Record<string, string> = {
   "sc-f3b": `${S}/donate2.png`, // + pickup confirm
   "sc-f4a": `${S}/search.png`, // Never lose it again: item finder
   "sc-f4b": `${S}/after-photo.png`, // + result
-  // Sorta — onboarding (UNCHANGED per request)
+  // Sorta - onboarding (UNCHANGED per request)
   "sc-onb1": `${S}/splash.png`,
   "sc-onb2": `${S}/select-goal-1.png`,
   "sc-onb3": `${S}/select-goal-2.png`,
   "sc-onb4": `${S}/select-time-1.png`,
   "sc-onb5": `${S}/select-time-2.png`,
-  // Sorta — build gallery (screens NOT shown elsewhere, for breadth)
+  // Sorta - build gallery (screens NOT shown elsewhere, for breadth)
   "sc-g1": `${S}/change-plan.png`,
   "sc-g2": `${S}/offer.png`,
   "sc-g3": `${S}/session0.png`,
@@ -37,10 +37,10 @@ const SLOT_SRC: Record<string, string> = {
   "sc-g6": `${S}/loading.png`,
   "sc-g7": `${S}/pattern.png`, // AI "found a pattern" insight
   "sc-g8": `${S}/resell.png`, // resell marketplace
-  // Sorta — design system
+  // Sorta - design system
   "ds-nav": `${S}/navbar.png`,
   "ds-components": `${S}/ds-components.png`,
-  // AURA case study — mobile screens (from the AURA mobile export)
+  // AURA case study - mobile screens (from the AURA mobile export)
   "aura-p1-1": `${A}/onb1.png`, // Your skin profile: skin condition
   "aura-p1-2": `${A}/onb2.png`, // + sensitivities
   "aura-p2-1": `${A}/scan.png`, // AI fabric risk scan
@@ -60,7 +60,7 @@ const SLOT_SRC: Record<string, string> = {
   "aura-b4": `${A}/profile.png`,
   "aura-b5": `${A}/body.png`,
   "aura-b6": `${A}/home.png`,
-  // AURA — companion website (desktop)
+  // AURA - companion website (desktop)
   "aura-web-1": `${A}/web-home.png`,
   "aura-web-2": `${A}/web-report.png`,
   "aura-web-4": `${A}/web-calendar.png`,

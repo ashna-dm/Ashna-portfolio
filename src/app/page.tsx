@@ -126,7 +126,7 @@ export default function Home() {
                   <span className="h br" />
                   <span className="dim">324 × 132</span>
                 </div>
-                <img className="hero-script" src="/assets/images/homepage/ashna-name.png" alt="आशना — Ashna" />
+                <img className="hero-script" src="/assets/images/homepage/ashna-name.png" alt="आशना (Ashna)" />
               </div>
 
               <div className="dict">
@@ -136,7 +136,7 @@ export default function Home() {
                   <span className="rom">a-sh-na</span>
                 </div>
                 <div className="def">
-                  <b>(n.)</b> a familiar one — someone you know by heart.
+                  <b>(n.)</b> a familiar one, someone you know by heart.
                 </div>
               </div>
             </div>
@@ -163,7 +163,7 @@ export default function Home() {
               <span className="ln" />
             </div>
             <div className="work-grid">
-              {/* FRAME 01 — MAPCHAT */}
+              {/* FRAME 01 - MAPCHAT */}
               <a className="frame" href="#">
                 <div className="frame-tab">
                   <span className="n">01</span>
@@ -223,7 +223,7 @@ export default function Home() {
                 </div>
               </a>
 
-              {/* FRAME 02 — AURA */}
+              {/* FRAME 02 - AURA */}
               <a className="frame" href="/aura">
                 <div className="frame-tab">
                   <span className="n">02</span>
@@ -267,7 +267,7 @@ export default function Home() {
                 </div>
               </a>
 
-              {/* FRAME 03 — NDA */}
+              {/* FRAME 03 - NDA */}
               <a className="frame" href="#">
                 <div className="frame-tab">
                   <span className="n">03</span>
@@ -310,7 +310,7 @@ export default function Home() {
                 </div>
               </a>
 
-              {/* FRAME 04 — SORTA */}
+              {/* FRAME 04 - SORTA */}
               <a className="frame" href="/sorta">
                 <div className="frame-tab">
                   <span className="n">04</span>
@@ -369,7 +369,7 @@ export default function Home() {
           <span className="mark cross annot" style={{ top: "64px", left: "14%" }} />
           <span className="mark dash annot" style={{ bottom: "70px", right: "12%", width: "90px", height: "54px" }} />
           <div className="wrap" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "20px" }}>
-            <div className="lead">I design —</div>
+            <div className="lead">I design</div>
             <div className="big">Where the runway meets the roadmap.</div>
           </div>
         </section>

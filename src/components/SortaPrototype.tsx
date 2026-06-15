@@ -36,7 +36,7 @@ export default function SortaPrototype() {
         className="sp-phone"
         role="button"
         tabIndex={0}
-        aria-label={`Sorta prototype — ${FLOW[i].label}. Tap to continue.`}
+        aria-label={`Sorta prototype, ${FLOW[i].label}. Tap to continue.`}
         onClick={advance}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " " || e.key === "ArrowRight") {

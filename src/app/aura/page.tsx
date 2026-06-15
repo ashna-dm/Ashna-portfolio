@@ -248,7 +248,7 @@ export default function AuraPage() {
       <section className="block build">
         <div className="wrap">
           <div className="sec-head reveal"><h2 className="sec-title">The build</h2></div>
-          <p className="build-sub reveal">High-fidelity screens from the AURA prototype — scan, score, wardrobe, and the weekly skin report.</p>
+          <p className="build-sub reveal">High-fidelity screens from the AURA prototype: scan, score, wardrobe, and the weekly skin report.</p>
           <div className="buildgrid reveal">
             {[["aura-b1", "aura-b2"], ["aura-b3", "aura-b4"], ["aura-b5", "aura-b6"]].map((col, ci) => (
               <div className="buildcol" key={ci}>
@@ -350,7 +350,7 @@ export default function AuraPage() {
               <div className="dscar-track">
                 <div className="dscar-slide">
                   <div className="dscar-card"><div className="bookpage"><span className="bp-deco" />
-                    <div className="bp-main"><div className="bp-num">SECTION 01</div><h3 className="bp-title">1.0<br />Colour</h3><p className="bp-desc">A calm, clinical-but-warm palette: sage carries the brand, paper and ink ground it, and three status tints — info, low risk, high risk — power every safety signal.</p></div>
+                    <div className="bp-main"><div className="bp-num">SECTION 01</div><h3 className="bp-title">1.0<br />Colour</h3><p className="bp-desc">A calm, clinical-but-warm palette: sage carries the brand, paper and ink ground it, and three status tints (info, low risk, high risk) power every safety signal.</p></div>
                     <div className="bp-content"><div className="bp-swatches">
                       {[["Sage", "#A8CDB0"], ["Violet", "#5B27E5"], ["Paper", "#FAF7F4"], ["Ink", "#121713"], ["Info", "#DBEAFE"], ["Low risk", "#FEE2E2"], ["High risk", "#BD2828"], ["Neutral", "#EBEFEC"]].map(([nm, hx]) => (
                         <div className="bp-sw" key={nm}><span className="ch" style={{ background: hx }} /><div><div className="mt">{nm}</div><div className="hx">{hx}</div></div></div>
@@ -361,7 +361,7 @@ export default function AuraPage() {
                 </div>
                 <div className="dscar-slide">
                   <div className="dscar-card"><div className="bookpage cream"><span className="bp-deco" />
-                    <div className="bp-main"><div className="bp-num">SECTION 02</div><h3 className="bp-title">2.0<br />Type</h3><p className="bp-desc">Space Grotesk carries AURA — confident headlines, quietly readable body and labels.</p></div>
+                    <div className="bp-main"><div className="bp-num">SECTION 02</div><h3 className="bp-title">2.0<br />Type</h3><p className="bp-desc">Space Grotesk carries AURA: confident headlines, quietly readable body and labels.</p></div>
                     <div className="bp-content">
                       <div className="ds-panel">
                         <div className="dst-fam">Space Grotesk</div>

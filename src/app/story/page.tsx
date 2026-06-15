@@ -5,7 +5,7 @@ import "./story.css";
 
 export const metadata: Metadata = {
   title: "Ashna Damani · Story",
-  description: "Ashna's story — a personal FigJam board: where the runway met the roadmap.",
+  description: "Ashna's story, a personal FigJam board where the runway met the roadmap.",
 };
 
 export default function StoryPage() {
@@ -54,7 +54,7 @@ export default function StoryPage() {
       <div className="stage" id="top">
         <div className="board" id="board">
 
-          {/* FRAME 1 — INTRO */}
+          {/* FRAME 1 - INTRO */}
           <section className="frame">
             <div className="frame-head"><span className="frame-name">About · Ashna</span><span className="frame-dim">1280 × 600</span></div>
             <div className="frame-body" style={{ height: "600px" }}>
@@ -104,7 +104,7 @@ export default function StoryPage() {
             </div>
           </section>
 
-          {/* FRAME 2 — THE JOURNAL */}
+          {/* FRAME 2 - THE JOURNAL */}
           <section className="frame" id="book-frame">
             <div className="frame-head"><span className="frame-name">The Journal · field notes</span><span className="frame-dim">flip-through · 4 spreads</span></div>
             <div className="frame-body" style={{ height: "720px" }}>
@@ -206,7 +206,7 @@ export default function StoryPage() {
             </div>
           </section>
 
-          {/* FRAME 3 — TIMELINE */}
+          {/* FRAME 3 - TIMELINE */}
           <section className="frame">
             <div className="frame-head"><span className="frame-name">The Timeline · minus the fluff</span><span className="frame-dim">2016 → now</span></div>
             <div className="frame-body" style={{ height: "420px" }}>
@@ -236,7 +236,7 @@ export default function StoryPage() {
             </div>
           </section>
 
-          {/* FRAME 4 — OFF THE CLOCK */}
+          {/* FRAME 4 - OFF THE CLOCK */}
           <section className="frame" id="play">
             <div className="frame-head"><span className="frame-name">Off the clock</span><span className="frame-dim">the fun stuff</span></div>
             <div className="frame-body" style={{ height: "840px" }}>

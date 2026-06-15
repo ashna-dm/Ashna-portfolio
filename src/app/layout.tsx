@@ -17,9 +17,9 @@ const GOOGLE_FONTS =
   "&display=swap";
 
 export const metadata: Metadata = {
-  title: "Ashna Damani — Product Designer + Storyteller",
+  title: "Ashna Damani · Product Designer + Storyteller",
   description:
-    "Ashna Damani — AI-native product designer. Where the runway meets the roadmap.",
+    "Ashna Damani, AI-native product designer. Where the runway meets the roadmap.",
 };
 
 export default function RootLayout({
