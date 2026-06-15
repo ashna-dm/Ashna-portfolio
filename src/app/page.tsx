@@ -252,7 +252,7 @@ export default function Home() {
                 <div className="frame-foot">
                   <div>
                     <div className="f-title">AURA</div>
-                    <div className="f-cat">Fashion-skin · UI/UX</div>
+                    <div className="f-cat">AI · Skin-Fashion app</div>
                   </div>
                   <span className="open">open ↗</span>
                 </div>
