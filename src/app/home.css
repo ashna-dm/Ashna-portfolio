@@ -1316,8 +1316,22 @@
   .home .sec-label .t {
     font-size: 21px;
   }
+  /* show the ID as a static card on tablet/mobile (was hidden) */
   .home .idhang {
+    position: static;
+    transform: none;
+    animation: none;
+    margin: 6px auto 30px;
+  }
+  .home .idhang .lanyard,
+  .home .idhang .clip {
     display: none;
+  }
+  /* touch devices have no hover, so keep the unmute pill visible */
+  .home .idsound {
+    opacity: 1;
+    transform: translateX(-50%);
+    pointer-events: auto;
   }
   .home .craft .big {
     font-size: 48px;
