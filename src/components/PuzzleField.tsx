@@ -84,7 +84,7 @@ export default function PuzzleField() {
             key={i}
             className="pc drop"
             d={p.d}
-            style={{ animationDelay: `${0.45 + p.drop * 0.5}s` } as React.CSSProperties}
+            style={{ animationDelay: `${0.5 + p.drop * 0.55}s` } as React.CSSProperties}
           />
         ) : (
           <path key={i} className="pc" d={p.d} />

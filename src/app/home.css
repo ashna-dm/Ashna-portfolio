@@ -229,26 +229,28 @@
 }
 /* the few "missing" pieces: drop in from above and settle into their gap */
 .home .puzzle-assemble .pc.drop {
+  stroke: #6f80e6; /* clearly visible periwinkle, vs the faint grid */
+  stroke-width: 1.7;
   opacity: 0;
-  animation: pc-drop 0.62s cubic-bezier(0.34, 1.45, 0.5, 1) both;
+  animation: pc-drop 0.72s cubic-bezier(0.34, 1.5, 0.5, 1) both;
 }
 @keyframes pc-drop {
   0% {
     opacity: 0;
-    transform: translateY(-58px);
+    transform: translateY(-130px);
   }
-  45% {
-    opacity: 0.5;
+  28% {
+    opacity: 0.95;
   }
   100% {
-    opacity: 0.34;
+    opacity: 0.62;
     transform: translateY(0);
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .home .puzzle-assemble .pc.drop {
     animation: none;
-    opacity: 0.34;
+    opacity: 0.62;
   }
 }
 .home .hero-wrap {
