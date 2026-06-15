@@ -1,6 +1,6 @@
 /* ============================================================
-   REFRESH INTRO - purple screen, sparse small pixels dissolve diagonally,
-   then the purple clears to reveal the homepage.
+   REFRESH INTRO - solid violet clears diagonally as a connected mass;
+   its leading edge breaks into small pixels, revealing the homepage.
    ============================================================ */
 html.intro-lock,
 html.intro-lock body {
@@ -11,30 +11,27 @@ html.intro-lock body {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: var(--violet); /* covers the page (no flash) */
+  background: var(--violet); /* covers the page on first paint (no flash) */
   overflow: hidden;
-  transition: opacity 0.7s ease;
 }
-.intro.leaving {
-  opacity: 0; /* purple clears -> homepage appears */
+.intro.go {
+  background: transparent; /* page shows through cleared pixels */
 }
 
-/* sparse small pixels dissolving on a diagonal delay */
 .intro .cell {
   position: absolute;
-  background: #fff;
-  border-radius: 1px;
-  opacity: 0;
-  animation: px-dissolve 0.5s cubic-bezier(0.4, 0, 0.6, 1) both;
+  background: var(--violet);
+  will-change: opacity, transform;
 }
-@keyframes px-dissolve {
-  0% {
-    opacity: 0.9;
-    transform: scale(1);
-  }
-  100% {
+/* each pixel clears on a diagonal delay (+ jitter) -> a pixelated front that
+   sweeps top-left -> bottom-right while the rest stays a solid mass */
+.intro.go .cell {
+  animation: cell-out 0.42s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+}
+@keyframes cell-out {
+  to {
     opacity: 0;
-    transform: scale(0.35);
+    transform: scale(0.45);
   }
 }
 
