@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 import "./intro.css";
 
 /**
- * Refresh intro: a violet panel with a 0->100% counter + progress line that
- * slides up to reveal the homepage. Adds `intro-done` to <html> when finished
- * so the hero puzzle starts assembling only after the reveal.
+ * Refresh intro: a plain violet screen with a few "pixels" streaking
+ * diagonally from top to bottom, twice, then the panel slides up to reveal
+ * the homepage. Adds `intro-done` to <html> when finished so the hero puzzle
+ * (and the ID video) start only after the reveal.
  */
+const PIXELS = 8;
+
 export default function Intro() {
-  const [pct, setPct] = useState(0);
   const [phase, setPhase] = useState<"run" | "leave" | "done">("run");
 
   useEffect(() => {
@@ -22,29 +24,20 @@ export default function Intro() {
     const root = document.documentElement;
     root.classList.add("intro-lock");
 
-    const DUR = 1500; // count 0 -> 100
-    const t0 = performance.now();
-    let raf = 0;
-    let leaveTimer = 0;
-    const tick = (t: number) => {
-      const p = Math.min(1, (t - t0) / DUR);
-      const eased = 1 - Math.pow(1 - p, 2); // ease-out
-      setPct(Math.round(eased * 100));
-      if (p < 1) {
-        raf = requestAnimationFrame(tick);
-      } else {
-        root.classList.add("intro-done");
-        setPhase("leave");
-        leaveTimer = window.setTimeout(() => {
-          setPhase("done");
-          root.classList.remove("intro-lock");
-        }, 850);
-      }
-    };
-    raf = requestAnimationFrame(tick);
+    const HOLD = 3600; // two diagonal passes
+    const REVEAL = 850; // slide-up duration
+    const leaveTimer = window.setTimeout(() => {
+      root.classList.add("intro-done");
+      setPhase("leave");
+    }, HOLD);
+    const doneTimer = window.setTimeout(() => {
+      setPhase("done");
+      root.classList.remove("intro-lock");
+    }, HOLD + REVEAL);
+
     return () => {
-      cancelAnimationFrame(raf);
       window.clearTimeout(leaveTimer);
+      window.clearTimeout(doneTimer);
       root.classList.remove("intro-lock");
     };
   }, []);
@@ -52,13 +45,10 @@ export default function Intro() {
   if (phase === "done") return null;
   return (
     <div className={"intro" + (phase === "leave" ? " leaving" : "")} aria-hidden="true">
-      <span className="intro-name">Ashna</span>
-      <div className="intro-count">
-        <span className="n">{pct}</span>
-        <span className="pct">%</span>
-      </div>
-      <div className="intro-bar">
-        <i style={{ transform: `scaleX(${pct / 100})` }} />
+      <div className="intro-px">
+        {Array.from({ length: PIXELS }).map((_, i) => (
+          <i key={i} style={{ animationDelay: `${i * 0.06}s` }} />
+        ))}
       </div>
     </div>
   );

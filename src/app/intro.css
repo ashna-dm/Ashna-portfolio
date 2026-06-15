@@ -1,5 +1,5 @@
 /* ============================================================
-   REFRESH INTRO - violet panel, 0->100% counter, slide-up reveal
+   REFRESH INTRO - plain violet, diagonal pixel streak (x2), slide-up reveal
    ============================================================ */
 html.intro-lock,
 html.intro-lock body {
@@ -11,7 +11,7 @@ html.intro-lock body {
   inset: 0;
   z-index: 9999;
   background: var(--violet);
-  color: #fff;
+  overflow: hidden;
   will-change: transform;
   transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
 }
@@ -19,52 +19,50 @@ html.intro-lock body {
   transform: translateY(-100%);
 }
 
-.intro-name {
+/* a few "pixels" trailing each other diagonally from top to bottom */
+.intro-px {
   position: absolute;
-  top: clamp(28px, 5vw, 48px);
-  left: clamp(24px, 5vw, 56px);
-  font-family: var(--font);
-  font-weight: 800;
-  font-size: clamp(18px, 2vw, 24px);
-  letter-spacing: -0.02em;
+  inset: 0;
 }
-
-.intro-count {
+.intro-px i {
   position: absolute;
-  right: clamp(24px, 5vw, 56px);
-  bottom: clamp(34px, 4.5vw, 56px);
-  display: flex;
-  align-items: flex-start;
-  font-family: var(--font);
-  font-weight: 800;
-  line-height: 0.82;
-  letter-spacing: -0.045em;
-}
-.intro-count .n {
-  font-size: clamp(72px, 16vw, 196px);
-}
-.intro-count .pct {
-  font-size: clamp(24px, 4vw, 52px);
-  margin-top: 0.35em;
-  margin-left: 0.08em;
-  opacity: 0.65;
-}
-
-.intro-bar {
-  position: absolute;
-  left: clamp(24px, 5vw, 56px);
-  right: clamp(24px, 5vw, 56px);
-  bottom: clamp(20px, 3vw, 30px);
-  height: 2px;
-  background: rgba(255, 255, 255, 0.22);
-  overflow: hidden;
-}
-.intro-bar i {
-  display: block;
-  height: 100%;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 1.5px;
   background: #fff;
-  transform-origin: left;
-  transform: scaleX(0);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.55);
+  opacity: 0;
+  animation: px-run 1.8s linear 2 both;
+}
+/* a couple of slightly larger/brighter leaders for depth */
+.intro-px i:nth-child(1) {
+  width: 9px;
+  height: 9px;
+}
+.intro-px i:nth-child(4) {
+  width: 5px;
+  height: 5px;
+  opacity: 0;
+  background: #cdd3f7;
+}
+
+@keyframes px-run {
+  0% {
+    transform: translate(14vw, -12vh);
+    opacity: 0;
+  }
+  7% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(74vw, 112vh);
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

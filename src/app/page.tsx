@@ -80,7 +80,6 @@ export default function Home() {
                   id="idVideo"
                   className="idphoto"
                   src="/assets/video/ashna-id.mp4"
-                  autoPlay
                   loop
                   muted
                   playsInline

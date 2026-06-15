@@ -47,21 +47,45 @@ export default function HomeInteractions() {
     };
   }, []);
 
-  // ---- ID video: autoplays muted (browser policy), unmute on first gesture ----
+  // ---- ID video: starts after the intro reveals, unmutes on first gesture ----
   useEffect(() => {
     const v = document.getElementById("idVideo") as HTMLVideoElement | null;
     if (!v) return;
+    const root = document.documentElement;
+
+    // play (muted - browser policy) once the intro is done
+    const start = () => {
+      v.muted = true;
+      void v.play().catch(() => {});
+    };
+    let obs: MutationObserver | null = null;
+    if (root.classList.contains("intro-done")) {
+      start();
+    } else {
+      obs = new MutationObserver(() => {
+        if (root.classList.contains("intro-done")) {
+          start();
+          obs?.disconnect();
+        }
+      });
+      obs.observe(root, { attributes: true, attributeFilter: ["class"] });
+    }
+
+    // turn sound on at the first user interaction
+    const events = ["pointerdown", "touchstart", "keydown"] as const;
+    const cleanup = () => events.forEach((e) => window.removeEventListener(e, unmute));
     const unmute = () => {
       v.muted = false;
       v.volume = 1;
       void v.play().catch(() => {});
       cleanup();
     };
-    const events = ["pointerdown", "touchstart", "keydown"] as const;
-    const cleanup = () =>
-      events.forEach((e) => window.removeEventListener(e, unmute));
-    events.forEach((e) => window.addEventListener(e, unmute, { once: false, passive: true }));
-    return cleanup;
+    events.forEach((e) => window.addEventListener(e, unmute, { passive: true }));
+
+    return () => {
+      obs?.disconnect();
+      cleanup();
+    };
   }, []);
 
   // ---- jigsaw puzzle watermark (static render) ----
