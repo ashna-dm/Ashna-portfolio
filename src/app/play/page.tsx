@@ -33,7 +33,6 @@ const SECTIONS: Section[] = [
       { src: `${P}/marriott-social.png`, title: "Marriott · social posts", meta: "Social design" },
       { src: `${P}/product-mockup.png`, title: "Marriott Bonvoy · Moments", meta: "Product mockup" },
       { src: `${P}/sorta-wireframes.png`, title: "Sorta wireframes", meta: "UX · wireframing" },
-      { src: `${P}/finance-app.png`, title: "Net-worth tracker", meta: "App concept" },
       { src: `${P}/wedding-cover.png`, title: "SOMBL wedding editorial", meta: "Editorial · print" },
       { src: `${P}/da-logo.png`, title: "AD monogram", meta: "Personal mark" },
     ],
