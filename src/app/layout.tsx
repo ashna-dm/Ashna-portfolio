@@ -11,7 +11,7 @@ const GOOGLE_FONTS =
     "family=Caveat:wght@400;500;600;700",
     "family=Nunito+Sans:wght@400;600;700;800",
     "family=Lato:wght@400;700;900",
-    "family=Space+Grotesk:wght@400;500;600;700",
+    "family=Space+Grotesk:wght@300;400;500;600;700",
     "family=Inter:wght@400;500;600;700",
   ].join("&") +
   "&display=swap";

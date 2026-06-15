@@ -360,29 +360,39 @@ export default function AuraPage() {
                   </div></div>
                 </div>
                 <div className="dscar-slide">
-                  <div className="dscar-card"><div className="bookpage cream"><span className="bp-deco" />
-                    <div className="bp-main"><div className="bp-num">SECTION 02</div><h3 className="bp-title">2.0<br />Type</h3><p className="bp-desc">A Hagrid display paired with Poppins for text — confident headlines, quietly readable body.</p></div>
-                    <div className="bp-content">
-                      <div className="ds-panel">
-                        <div className="dst-row"><span className="dst-big">Aa</span><div><div className="dst-name">Hagrid</div><div className="dst-cap">Display · 400 / 800</div></div></div>
-                        <div className="dst-div" />
-                        <div><div className="dst-line" style={{ fontFamily: "var(--font)", fontWeight: 800, fontSize: "clamp(22px,2.4vw,28px)", letterSpacing: "-0.02em", lineHeight: 1.05 }}>Know your fabrics</div><div className="dst-cap">Display · Hagrid Extrabold</div></div>
-                        <div><div className="dst-line" style={{ fontFamily: "var(--pop)", fontWeight: 600, fontSize: "16px" }}>A skin-safe outfit, planned for you</div><div className="dst-cap">UI · Poppins SemiBold</div></div>
-                        <div><div className="dst-line" style={{ fontFamily: "var(--pop)", fontWeight: 400, fontSize: "13.5px", lineHeight: 1.55, color: "#3a4740" }}>AURA reads every fabric against your skin profile and explains the why in plain, calm language.</div><div className="dst-cap">Body · Poppins Regular</div></div>
-                        <div><div className="dst-line" style={{ fontFamily: "var(--mono)", fontSize: "12px", letterSpacing: "0.16em", textTransform: "uppercase", color: "#5b6b60" }}>Chemical safety</div><div className="dst-cap">Label · JetBrains Mono</div></div>
-                      </div>
+                  <div className="dscar-card"><div className="bookpage cream ds-full"><span className="bp-deco" />
+                    <div className="ds-head"><div><div className="bp-num">SECTION 02</div><div className="ds-h">Typography</div></div><div className="ds-sub">Space Grotesk · the AURA typeface</div></div>
+                    <div className="ds-typ">
+                      <div className="row"><span className="tag">H1</span><span className="samp" style={{ fontWeight: 700, fontSize: "clamp(24px,2.8vw,32px)" }}>Space Grotesk Bold</span><span className="meta">Bold · 32pt</span></div>
+                      <div className="row"><span className="tag">H2</span><span className="samp" style={{ fontWeight: 600, fontSize: "clamp(20px,2.2vw,24px)" }}>Space Grotesk Semibold</span><span className="meta">Semibold · 24pt</span></div>
+                      <div className="row"><span className="tag">H3</span><span className="samp" style={{ fontWeight: 500, fontSize: "18px" }}>Space Grotesk Medium</span><span className="meta">Medium · 18pt</span></div>
+                      <div className="row"><span className="tag">Body</span><span className="samp" style={{ fontWeight: 400, fontSize: "14px" }}>Space Grotesk Regular — calm, readable copy</span><span className="meta">Regular · 14pt</span></div>
+                      <div className="row"><span className="tag">Caption</span><span className="samp" style={{ fontWeight: 300, fontSize: "12px" }}>Space Grotesk Light caption text</span><span className="meta">Light · 12pt</span></div>
                     </div>
                     <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">02</span></div>
                   </div></div>
                 </div>
                 <div className="dscar-slide">
-                  <div className="dscar-card"><div className="bookpage"><span className="bp-deco" />
-                    <div className="bp-main"><div className="bp-num">SECTION 03</div><h3 className="bp-title">3.0<br />Compo&shy;nents</h3><p className="bp-desc">A small kit does the heavy lifting: the sage pill button, risk-status badges, and tag chips — every state mapped to the status palette.</p></div>
-                    <div className="bp-content">
-                      <div className="ds-panel">
-                        <div className="dsc-group"><span className="dsc-lbl">Buttons</span><div className="dsc-row"><span className="dsc-btn primary">Let&apos;s start →</span><span className="dsc-btn ghost">Scan again</span></div></div>
-                        <div className="dsc-group"><span className="dsc-lbl">Risk status</span><div className="dsc-row"><span className="dsc-pill safe">Safe</span><span className="dsc-pill low">Low risk</span><span className="dsc-pill high">High risk</span><span className="dsc-pill info">Info</span></div></div>
-                        <div className="dsc-group"><span className="dsc-lbl">Tags &amp; chips</span><div className="dsc-row"><span className="dsc-chip">Breathable</span><span className="dsc-chip">Cotton</span><span className="dsc-chip">Hypoallergenic</span></div></div>
+                  <div className="dscar-card"><div className="bookpage cream ds-full"><span className="bp-deco" />
+                    <div className="ds-head"><div><div className="bp-num">SECTION 03</div><div className="ds-h">Components</div></div><div className="ds-sub">Extracted from the AURA screens</div></div>
+                    <div className="ds-board">
+                      <div className="dsb">
+                        <div className="dsb-lbl">Buttons</div>
+                        <div className="dsb-row"><span className="dsc-btn primary">Primary</span><span className="dsc-btn primary hover">Hover</span><span className="dsc-btn disabled">Disabled</span></div>
+                        <div className="dsb-row"><span className="dsc-btn ghost">Alternative</span><span className="dsc-btn ghost disabled">Disabled</span></div>
+                      </div>
+                      <div className="dsb">
+                        <div className="dsb-lbl">Forms</div>
+                        <div className="dsf-field">Search your wardrobe…</div>
+                        <div className="dsb-row"><span className="dsf-item"><span className="dsf-check" />Sensitive skin</span><span className="dsf-item"><span className="dsf-radio" />Daily log</span></div>
+                      </div>
+                      <div className="dsb">
+                        <div className="dsb-lbl">Risk status</div>
+                        <div className="dsb-row"><span className="dsc-pill safe">Safe</span><span className="dsc-pill low">Low</span><span className="dsc-pill high">High</span><span className="dsc-pill info">Info</span></div>
+                      </div>
+                      <div className="dsb">
+                        <div className="dsb-lbl">Tags &amp; chips</div>
+                        <div className="dsb-row"><span className="dsc-chip">Breathable</span><span className="dsc-chip">Cotton</span><span className="dsc-chip">Hypoallergenic</span></div>
                       </div>
                     </div>
                     <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">03</span></div>

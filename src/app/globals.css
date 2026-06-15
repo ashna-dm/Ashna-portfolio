@@ -301,6 +301,151 @@ img {
   border-radius: 30px;
   padding: 6px 12px;
 }
+.dsc-btn.primary.hover {
+  background: var(--sage-2, #8fbf9c);
+}
+.dsc-btn.disabled {
+  background: #e4eae5;
+  color: #a6b1a8;
+}
+.dsc-btn.ghost.disabled {
+  background: #fff;
+  border-color: #dfe6e0;
+  color: #c2ccc4;
+}
+
+/* full-width design-system board slides (typography + components) */
+.bookpage.ds-full {
+  grid-template-columns: 1fr;
+  align-content: start;
+  gap: clamp(16px, 2vw, 24px);
+  padding: clamp(30px, 3.6vw, 50px) clamp(34px, 4.2vw, 58px) clamp(60px, 5.6vw, 82px);
+}
+.ds-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.ds-h {
+  font-family: var(--round);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(30px, 3.6vw, 46px);
+  line-height: 0.95;
+  margin-top: 6px;
+}
+.ds-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+.ds-typ {
+  display: flex;
+  flex-direction: column;
+}
+.ds-typ .row {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: clamp(7px, 1vw, 13px) 0;
+  border-top: 1px solid color-mix(in srgb, var(--violet) 13%, transparent);
+}
+.ds-typ .row:first-child {
+  border-top: none;
+}
+.ds-typ .tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: color-mix(in srgb, var(--violet) 55%, #fff);
+  width: 62px;
+  flex: none;
+}
+.ds-typ .samp {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  color: var(--ink);
+  line-height: 1.04;
+}
+.ds-typ .meta {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: color-mix(in srgb, var(--violet) 50%, #fff);
+  margin-left: auto;
+  white-space: nowrap;
+  align-self: center;
+}
+.ds-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2.2vw, 26px) clamp(22px, 3vw, 42px);
+}
+.dsb {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.dsb-lbl {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--violet) 50%, #fff);
+}
+.dsb-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  align-items: center;
+}
+.dsf-field {
+  font-family: var(--pop);
+  font-size: 13px;
+  color: #9aa89e;
+  background: #fff;
+  border: 1.5px solid color-mix(in srgb, var(--sage, #a8cdb0) 55%, #dfe6e0);
+  border-radius: 12px;
+  padding: 11px 14px;
+}
+.dsf-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--pop);
+  font-size: 13px;
+  color: var(--ink);
+}
+.dsf-check,
+.dsf-radio {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  background: var(--sage-deep, #4f7d5e);
+}
+.dsf-check {
+  border-radius: 5px;
+}
+.dsf-check::after {
+  content: "✓";
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+.dsf-radio {
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--sage-deep, #4f7d5e);
+}
+.dsf-radio::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sage-deep, #4f7d5e);
+}
 
 /* a design-system frame with no card backing — image blends onto the slide */
 .bp-frame.is-plain {

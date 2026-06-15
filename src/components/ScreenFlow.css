@@ -65,6 +65,21 @@
   aspect-ratio: 9 / 19.5;
   background: #fff;
 }
+/* push the right-side AURA hero stickers off the phone screen
+   (higher specificity than aura.css's .combo .sticker.* rules) */
+.hero-stage .combo .sticker.donate {
+  right: -142px;
+  top: 150px;
+  left: auto;
+  bottom: auto;
+}
+.hero-stage .combo .sticker.relocate {
+  right: -130px;
+  bottom: 44px;
+  top: auto;
+  left: auto;
+}
+
 .aura-phone-island {
   position: absolute;
   top: 30px;
