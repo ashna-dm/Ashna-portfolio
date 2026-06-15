@@ -1,12 +1,13 @@
 /**
- * Minimalist jigsaw backdrop that assembles piece-by-piece on load.
- * Pure CSS animation (staggered per-piece fade/settle) - no JS, no hydration
- * cost. Interlocking tabs are deterministic so SSR and client render match.
+ * Minimalist jigsaw backdrop that assembles like a real puzzle: pieces slide
+ * in one at a time (snake order) and snap onto the piece already placed next
+ * to them, until the whole grid is connected. Pure CSS animation.
  */
-const COLS = 6;
-const ROWS = 4;
+const COLS = 5;
+const ROWS = 3;
 const S = 100; // piece size in viewBox units
 const BH = 22; // tab bump height
+const STEP = 0.16; // seconds between pieces (sequential feel)
 
 // deterministic +/-1 per shared edge, so adjacent pieces interlock
 const sgn = (a: number, b: number, salt: number) =>
@@ -31,30 +32,47 @@ function vEdge(x: number, y0: number, y1: number, sign: number) {
   return `L ${x} ${ay} C ${k} ${c1} ${k} ${c2} ${x} ${by} L ${x} ${y1}`;
 }
 
+function pieceD(c: number, r: number) {
+  const x = c * S;
+  const y = r * S;
+  const top = r === 0 ? 0 : sgn(c, r - 1, 1);
+  const right = c === COLS - 1 ? 0 : sgn(c, r, 2);
+  const bottom = r === ROWS - 1 ? 0 : sgn(c, r, 1);
+  const left = c === 0 ? 0 : sgn(c - 1, r, 2);
+  return (
+    `M ${x} ${y} ` +
+    hEdge(x, y, x + S, top) +
+    " " +
+    vEdge(x + S, y, y + S, right) +
+    " " +
+    hEdge(x + S, y + S, x, bottom) +
+    " " +
+    vEdge(x, y + S, y, left) +
+    " Z"
+  );
+}
+
 export default function PuzzleField() {
-  const pieces: { d: string; delay: number }[] = [];
+  // snake order so every next piece is adjacent to the previous one
+  const order: { c: number; r: number }[] = [];
   for (let r = 0; r < ROWS; r++) {
-    for (let c = 0; c < COLS; c++) {
-      const x = c * S;
-      const y = r * S;
-      const top = r === 0 ? 0 : sgn(c, r - 1, 1);
-      const right = c === COLS - 1 ? 0 : sgn(c, r, 2);
-      const bottom = r === ROWS - 1 ? 0 : sgn(c, r, 1);
-      const left = c === 0 ? 0 : sgn(c - 1, r, 2);
-      const d =
-        `M ${x} ${y} ` +
-        hEdge(x, y, x + S, top) +
-        " " +
-        vEdge(x + S, y, y + S, right) +
-        " " +
-        hEdge(x + S, y + S, x, bottom) +
-        " " +
-        vEdge(x, y + S, y, left) +
-        " Z";
-      // diagonal sweep, top-left -> bottom-right
-      pieces.push({ d, delay: (c + r) * 0.09 });
-    }
+    const cols = r % 2 === 0 ? [...Array(COLS).keys()] : [...Array(COLS).keys()].reverse();
+    for (const c of cols) order.push({ c, r });
   }
+
+  const OFF = 108; // slide-in distance (~one piece) toward the placed neighbour
+  const pieces = order.map(({ c, r }, i) => {
+    const prev = order[i - 1];
+    // enter from the side away from the already-placed neighbour, then snap in
+    let dx = 0;
+    let dy = -OFF; // first piece drops from above
+    if (prev) {
+      dx = Math.sign(c - prev.c) * OFF;
+      dy = Math.sign(r - prev.r) * OFF;
+    }
+    return { d: pieceD(c, r), dx, dy, delay: i * STEP };
+  });
+
   return (
     <svg
       className="puzzle-assemble"
@@ -63,7 +81,18 @@ export default function PuzzleField() {
       aria-hidden="true"
     >
       {pieces.map((p, i) => (
-        <path key={i} className="pc" d={p.d} style={{ animationDelay: `${p.delay}s` }} />
+        <path
+          key={i}
+          className="pc"
+          d={p.d}
+          style={
+            {
+              animationDelay: `${p.delay}s`,
+              "--dx": `${p.dx}px`,
+              "--dy": `${p.dy}px`,
+            } as React.CSSProperties
+          }
+        />
       ))}
     </svg>
   );
