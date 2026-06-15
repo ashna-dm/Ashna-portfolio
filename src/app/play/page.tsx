@@ -17,6 +17,7 @@ const FASHION: Item[] = [
   { src: `${P}/photo-pinkwall.png`, title: "Editorial look", meta: "Styling" },
   { src: `${P}/photo-coffee.jpg`, title: "Coffee run", meta: "Styling" },
   { src: `${P}/photo-sitting.jpg`, title: "On location", meta: "Styling" },
+  { src: `${P}/styling-3.jpg`, title: "MahaBachat preview", meta: "Retail · styling" },
 ];
 
 const SECTIONS: Section[] = [
@@ -27,6 +28,7 @@ const SECTIONS: Section[] = [
     desc: "Posters, social campaigns, a personal mark, and the odd product mockup — design purely for the joy of it.",
     items: [
       { src: `${P}/bingo.png`, title: "Financial-literacy Bingo Night", meta: "Event flyer" },
+      { src: `${P}/trivia.png`, title: "Retirement Planning trivia", meta: "Game design" },
       { src: `${P}/pause-edition.png`, title: "The Pause · masterclass week", meta: "Campaign" },
       { src: `${P}/fashion-post.png`, title: "New-collection drop", meta: "Social design" },
       { src: `${P}/da-logo.png`, title: "AD monogram", meta: "Personal mark" },
@@ -44,6 +46,8 @@ const SECTIONS: Section[] = [
       { src: `${P}/ai-orange-bag.png`, title: "Street editorial", meta: "AI · fashion" },
       { src: `${P}/ai-dome.png`, title: "Worldbuilding", meta: "AI · scene" },
       { src: `${P}/ai-still.png`, title: "Still life", meta: "AI · render" },
+      { src: `${P}/ai-2.png`, title: "Editorial, in colour", meta: "AI · fashion" },
+      { src: `${P}/ai-3.png`, title: "On the water", meta: "AI · scene" },
       { src: `${P}/ai-crew.png`, before: `${P}/photo-steps.jpg`, title: "The crew, reimagined", meta: "AI · before / after" },
     ],
   },
