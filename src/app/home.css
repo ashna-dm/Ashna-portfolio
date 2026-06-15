@@ -931,15 +931,15 @@
   line-height: 1.05;
 }
 .home .f-cat {
-  font-family: var(--mono);
-  font-size: 11.5px;
+  font-family: var(--font);
+  font-size: 15px;
   color: color-mix(in srgb, var(--violet) 62%, #fff);
-  margin-top: 7px;
-  letter-spacing: 0.04em;
+  margin-top: 8px;
+  letter-spacing: -0.005em;
 }
 .home .open {
-  font-family: var(--mono);
-  font-size: 12px;
+  font-family: var(--font);
+  font-size: 15px;
   color: var(--peri);
   display: inline-flex;
   align-items: center;
