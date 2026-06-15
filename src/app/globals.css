@@ -181,6 +181,12 @@ img {
   object-position: center top;
 }
 
+/* a design-system frame with no card backing — image blends onto the slide */
+.bp-frame.is-plain {
+  background: transparent;
+  box-shadow: none;
+}
+
 /* design-system carousel frame images — consistent height across slides */
 .ds-img {
   display: block;

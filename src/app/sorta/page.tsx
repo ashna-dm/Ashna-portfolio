@@ -270,7 +270,7 @@ export default function SortaPage() {
                 <div className="dscar-slide">
                   <div className="dscar-card"><div className="bookpage cream"><span className="bp-deco" />
                     <div className="bp-main"><div className="bp-num">SECTION 04</div><h3 className="bp-title">4.0<br />Nav</h3><p className="bp-desc">A four-tab bar — Discover, Connect, Community, Profile — keeps the whole app one thumb-tap away, always calm, never crowded.</p></div>
-                    <div className="bp-content"><div className="bp-frame"><ImageSlot id="ds-nav" className="ds-img" placeholder="Navigation bar" fit="contain" /></div></div>
+                    <div className="bp-content"><div className="bp-frame is-plain"><ImageSlot id="ds-nav" className="ds-img" placeholder="Navigation bar" fit="contain" /></div></div>
                     <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">04</span></div>
                   </div></div>
                 </div>
