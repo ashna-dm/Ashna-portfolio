@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ImageSlot from "@/components/ImageSlot";
 import CaseStudyInteractions from "@/components/CaseStudyInteractions";
+import SortaPrototype from "@/components/SortaPrototype";
 import "./sorta.css";
 
 export const metadata: Metadata = {
@@ -80,7 +81,7 @@ export default function SortaPage() {
             <span className="try-note"><span className="dot" />This is the real product, tap through it ↓</span>
           </div>
           <div className="hero-stage">
-            <iframe className="proto-frame" src="/prototypes/Sorta%20Prototype.html" title="Sorta interactive prototype" scrolling="no" loading="eager" />
+            <SortaPrototype />
             <span className="sticker keep">keep</span>
             <span className="sticker donate">donate ♻</span>
             <span className="sticker sell">sell ✦</span>

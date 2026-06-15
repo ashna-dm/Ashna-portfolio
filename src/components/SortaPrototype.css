@@ -1,0 +1,134 @@
+/* Interactive Sorta hero prototype — a tappable phone walk-through. */
+.sorta-proto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.sp-phone {
+  position: relative;
+  width: 430px;
+  max-width: 86vw;
+  background: #0e0f0a;
+  border-radius: 56px;
+  padding: 12px;
+  box-shadow: 0 50px 90px -44px rgba(20, 23, 15, 0.55),
+    0 8px 24px -12px rgba(20, 23, 15, 0.35);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sp-phone:hover {
+  transform: translateY(-4px);
+}
+.sp-phone:focus-visible {
+  outline: 3px solid var(--peri);
+  outline-offset: 6px;
+}
+
+.sp-screen {
+  position: relative;
+  border-radius: 46px;
+  overflow: hidden;
+  aspect-ratio: 402 / 874;
+  background: #cfe8d0;
+}
+.sp-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+.sp-img.on {
+  opacity: 1;
+}
+
+/* dynamic island */
+.sp-island {
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 104px;
+  height: 30px;
+  background: #0e0f0a;
+  border-radius: 16px;
+  z-index: 3;
+}
+
+/* tap affordance */
+.sp-hint {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+  font-family: var(--pop);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  color: #fff;
+  background: rgba(14, 15, 10, 0.72);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  padding: 9px 16px;
+  border-radius: 30px;
+  white-space: nowrap;
+  animation: spPulse 1.8s ease-in-out infinite;
+}
+.sp-hint.dim {
+  opacity: 0.62;
+  animation: none;
+}
+@keyframes spPulse {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-3px);
+    opacity: 0.8;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sp-img {
+    transition: none;
+  }
+  .sp-hint {
+    animation: none;
+  }
+}
+
+.sp-caption {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--leaf, #3a7d2e);
+}
+
+.sp-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.sp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: color-mix(in srgb, var(--violet, #5b27e5) 28%, transparent);
+  transition: width 0.25s ease, background 0.25s ease;
+}
+.sp-dot.on {
+  width: 22px;
+  border-radius: 5px;
+  background: var(--violet, #5b27e5);
+}
