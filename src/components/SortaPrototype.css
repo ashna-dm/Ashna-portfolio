@@ -132,3 +132,26 @@
   border-radius: 5px;
   background: var(--violet, #5b27e5);
 }
+
+/* Re-seat the floating stickers OUTSIDE the new phone so they don't cover the
+   screen UI (this file only loads on the Sorta page, so it won't touch AURA). */
+.hero-stage .sticker.keep {
+  top: 72px;
+  left: -54px;
+  right: auto;
+}
+.hero-stage .sticker.donate {
+  top: 286px;
+  right: -66px;
+  left: auto;
+}
+.hero-stage .sticker.sell {
+  bottom: 318px;
+  left: -54px;
+  right: auto;
+}
+.hero-stage .sticker.relocate {
+  bottom: 138px;
+  right: -58px;
+  left: auto;
+}
