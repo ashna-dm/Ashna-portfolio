@@ -1,5 +1,5 @@
 /* ============================================================
-   REFRESH INTRO - plain violet, diagonal pixel streak (x2), slide-up reveal
+   REFRESH INTRO - solid violet that pixel-dissolves diagonally to reveal
    ============================================================ */
 html.intro-lock,
 html.intro-lock body {
@@ -10,58 +10,27 @@ html.intro-lock body {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: var(--violet);
+  background: var(--violet); /* covers the page on first paint (no flash) */
   overflow: hidden;
-  will-change: transform;
-  transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
 }
-.intro.leaving {
-  transform: translateY(-100%);
-}
-
-/* a few "pixels" trailing each other diagonally from top to bottom */
-.intro-px {
-  position: absolute;
-  inset: 0;
-}
-.intro-px i {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 7px;
-  height: 7px;
-  border-radius: 1.5px;
-  background: #fff;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.55);
-  opacity: 0;
-  animation: px-run 1.8s linear 2 both;
-}
-/* a couple of slightly larger/brighter leaders for depth */
-.intro-px i:nth-child(1) {
-  width: 9px;
-  height: 9px;
-}
-.intro-px i:nth-child(4) {
-  width: 5px;
-  height: 5px;
-  opacity: 0;
-  background: #cdd3f7;
+/* once dissolving, the page shows through cleared pixels */
+.intro.go {
+  background: transparent;
 }
 
-@keyframes px-run {
-  0% {
-    transform: translate(14vw, -12vh);
+.intro .cell {
+  position: absolute;
+  background: var(--violet);
+  will-change: opacity, transform;
+}
+/* each pixel clears on a diagonal delay (+ jitter) -> scattered dissolving edge */
+.intro.go .cell {
+  animation: cell-out 0.44s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+}
+@keyframes cell-out {
+  to {
     opacity: 0;
-  }
-  7% {
-    opacity: 1;
-  }
-  93% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(74vw, 112vh);
-    opacity: 0;
+    transform: scale(0.6);
   }
 }
 

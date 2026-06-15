@@ -47,7 +47,7 @@ export default function HomeInteractions() {
     };
   }, []);
 
-  // ---- ID video: starts after the intro reveals, unmutes on first gesture ----
+  // ---- ID video: plays muted after the intro reveals, unmutes on first gesture ----
   useEffect(() => {
     const v = document.getElementById("idVideo") as HTMLVideoElement | null;
     if (!v) return;
@@ -71,7 +71,7 @@ export default function HomeInteractions() {
       obs.observe(root, { attributes: true, attributeFilter: ["class"] });
     }
 
-    // turn sound on at the first user interaction
+    // turn sound on at the first user interaction (browsers block audio until then)
     const events = ["pointerdown", "touchstart", "keydown"] as const;
     const cleanup = () => events.forEach((e) => window.removeEventListener(e, unmute));
     const unmute = () => {
