@@ -17,9 +17,22 @@ const GOOGLE_FONTS =
   "&display=swap";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.ashnadamani.com"),
   title: "Ashna Damani · Product Designer + Storyteller",
   description:
     "Ashna Damani, AI-native product designer. Where the runway meets the roadmap.",
+  openGraph: {
+    title: "Ashna Damani · Product Designer + Storyteller",
+    description: "AI-native product designer. Where the runway meets the roadmap.",
+    url: "https://www.ashnadamani.com",
+    siteName: "Ashna Damani",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ashna Damani · Product Designer + Storyteller",
+    description: "AI-native product designer. Where the runway meets the roadmap.",
+  },
 };
 
 export default function RootLayout({
