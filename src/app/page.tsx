@@ -231,11 +231,13 @@ export default function Home() {
                 </div>
                 <div className="artboard">
                   <div className="tile-mock aura-mock">
-                    <div className="tm-laptop">
-                      <span className="tm-bar"><i /><i /><i /></span>
-                      <div className="tm-screen"><img src="/assets/images/aura/screens/web-home.png" alt="AURA web dashboard" /></div>
+                    <div className="mm-stage">
+                      <div className="tm-laptop">
+                        <span className="tm-bar"><i /><i /><i /></span>
+                        <div className="tm-screen"><img src="/assets/images/aura/screens/web-home.png" alt="AURA web dashboard" /></div>
+                      </div>
+                      <div className="tm-phone"><span className="tm-isle" /><img src="/assets/images/aura/screens/home.png" alt="AURA app" /></div>
                     </div>
-                    <div className="tm-phone"><span className="tm-isle" /><img src="/assets/images/aura/screens/home.png" alt="AURA app" /></div>
                   </div>
                   <span className="dim-chip annot">web + app</span>
                   <span className="hh tl" />
@@ -303,9 +305,14 @@ export default function Home() {
                 </div>
                 <div className="artboard">
                   <div className="tile-mock movia-mock">
-                    <span className="mm-word">Sorta</span>
-                    <div className="iphone mm-right"><span className="ip-island" /><div className="ip-screen"><img src="/assets/images/sorta/screens/home.png" alt="Sorta home" /></div></div>
-                    <div className="iphone mm-left"><span className="ip-island" /><div className="ip-screen"><img src="/assets/images/sorta/screens/select-goal-2.png" alt="Sorta onboarding, your goal" /></div></div>
+                    <div className="mm-head">
+                      <span className="mm-eyebrow">UX Researcher</span>
+                      <span className="mm-word">Sorta</span>
+                    </div>
+                    <div className="mm-stage">
+                      <div className="iphone mm-right"><span className="ip-island" /><div className="ip-screen"><img src="/assets/images/sorta/screens/home.png" alt="Sorta home" /></div></div>
+                      <div className="iphone mm-left"><span className="ip-island" /><div className="ip-screen"><img src="/assets/images/sorta/screens/select-goal-2.png" alt="Sorta onboarding, your goal" /></div></div>
+                    </div>
                   </div>
                   <span className="dim-chip annot">live beta</span>
                   <span className="hh tl" />
