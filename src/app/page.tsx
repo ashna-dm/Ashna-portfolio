@@ -378,6 +378,12 @@ export default function Home() {
           <div className="footer-meta">
             <span>© 2026 Ashna</span>
             <span>Product Designer + Storyteller</span>
+            <span className="font-credit">
+              Typeface{" "}
+              <a href="https://www.zetafonts.com/collection/3760" target="_blank" rel="noopener noreferrer">
+                Hagrid by Zetafonts
+              </a>
+            </span>
           </div>
         </div>
       </footer>
