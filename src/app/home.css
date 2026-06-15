@@ -1061,7 +1061,7 @@
   position: absolute;
   width: 73%;
   aspect-ratio: 16 / 10;
-  left: 0%;
+  left: 5%;
   top: 58%;
   transform: translateY(-50%);
   background: #fff;
@@ -1100,7 +1100,7 @@
   width: auto;
   height: 62%;
   aspect-ratio: 9 / 19.5;
-  right: 10%;
+  right: 5%;
   bottom: 5%;
   z-index: 3;
 }
