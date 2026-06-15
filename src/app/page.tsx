@@ -164,7 +164,7 @@ export default function Home() {
             </div>
             <div className="work-grid">
               {/* FRAME 01 - MAPCHAT */}
-              <a className="frame" href="#">
+              <a className="frame is-soon">
                 <div className="frame-tab">
                   <span className="n">01</span>
                 </div>
@@ -208,6 +208,7 @@ export default function Home() {
                     <i style={{ background: "#5067EB" }} />
                     <i style={{ background: "#cdddec" }} />
                   </span>
+                  <span className="coming"><b>Coming soon</b></span>
                   <span className="dim-chip annot">390 × 844</span>
                   <span className="hh tl" />
                   <span className="hh tr" />
@@ -219,7 +220,7 @@ export default function Home() {
                     <div className="f-title">MapChat</div>
                     <div className="f-cat">Social · maps × messaging</div>
                   </div>
-                  <span className="open">open ↗</span>
+                  <span className="open">Coming soon</span>
                 </div>
               </a>
 
@@ -268,7 +269,7 @@ export default function Home() {
               </a>
 
               {/* FRAME 03 - NDA */}
-              <a className="frame" href="#">
+              <a className="frame is-soon">
                 <div className="frame-tab">
                   <span className="n">03</span>
                 </div>
@@ -295,6 +296,7 @@ export default function Home() {
                     <i style={{ background: "#cdd3f7" }} />
                     <i style={{ background: "#1A1430" }} />
                   </span>
+                  <span className="coming"><b>Coming soon</b></span>
                   <span className="dim-chip annot">under nda</span>
                   <span className="hh tl" />
                   <span className="hh tr" />
@@ -306,7 +308,7 @@ export default function Home() {
                     <div className="f-title">Moonshot idea</div>
                     <div className="f-cat">Real client · Product</div>
                   </div>
-                  <span className="open">open ↗</span>
+                  <span className="open">Coming soon</span>
                 </div>
               </a>
 
