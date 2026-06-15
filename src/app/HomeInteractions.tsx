@@ -71,20 +71,25 @@ export default function HomeInteractions() {
       obs.observe(root, { attributes: true, attributeFilter: ["class"] });
     }
 
-    // turn sound on at the first user interaction (browsers block audio until then)
-    const events = ["pointerdown", "touchstart", "keydown"] as const;
-    const cleanup = () => events.forEach((e) => window.removeEventListener(e, unmute));
-    const unmute = () => {
-      v.muted = false;
-      v.volume = 1;
-      void v.play().catch(() => {});
-      cleanup();
+    // hover hint button toggles sound on/off
+    const btn = document.getElementById("idSound") as HTMLButtonElement | null;
+    const label = btn?.querySelector(".t");
+    const onToggle = () => {
+      v.muted = !v.muted;
+      if (!v.muted) {
+        v.volume = 1;
+        void v.play().catch(() => {});
+      }
+      btn?.classList.toggle("on", !v.muted);
+      btn?.setAttribute("aria-pressed", String(!v.muted));
+      btn?.setAttribute("aria-label", v.muted ? "Unmute video" : "Mute video");
+      if (label) label.textContent = v.muted ? "unmute me" : "mute";
     };
-    events.forEach((e) => window.addEventListener(e, unmute, { passive: true }));
+    btn?.addEventListener("click", onToggle);
 
     return () => {
       obs?.disconnect();
-      cleanup();
+      btn?.removeEventListener("click", onToggle);
     };
   }, []);
 

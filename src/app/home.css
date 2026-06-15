@@ -624,6 +624,52 @@
   background: #f5f4fc;
   border: 1px solid color-mix(in srgb, var(--violet) 9%, transparent);
 }
+/* hover hint over the video to signal it has sound */
+.home .idvid {
+  position: relative;
+}
+.home .idsound {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%, 6px);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: color-mix(in srgb, var(--violet) 78%, #000 10%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 6px 11px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.home .idvid:hover .idsound,
+.home .idsound:focus-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+.home .idsound svg {
+  width: 13px;
+  height: 13px;
+  flex: none;
+}
+.home .idsound .ic-on {
+  display: none;
+}
+.home .idsound.on .ic-off {
+  display: none;
+}
+.home .idsound.on .ic-on {
+  display: block;
+}
 .home .idname {
   font-family: var(--font);
   font-weight: 800;

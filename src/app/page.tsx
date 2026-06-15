@@ -76,16 +76,23 @@ export default function Home() {
                 <div className="idlabel-top">
                   <span>AI Native Product Designer</span>
                 </div>
-                <video
-                  id="idVideo"
-                  className="idphoto"
-                  src="/assets/video/ashna-id.mp4"
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  aria-label="Ashna Damani intro video"
-                />
+                <div className="idvid">
+                  <video
+                    id="idVideo"
+                    className="idphoto"
+                    src="/assets/video/ashna-id.mp4"
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    aria-label="Ashna Damani intro video"
+                  />
+                  <button id="idSound" className="idsound" type="button" aria-pressed="false" aria-label="Unmute video">
+                    <svg className="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M11 5 6 9H3v6h3l5 4Z" /><path d="m22 9-6 6" /><path d="m16 9 6 6" /></svg>
+                    <svg className="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M11 5 6 9H3v6h3l5 4Z" /><path d="M16 8.5a5 5 0 0 1 0 7" /><path d="M19 6a9 9 0 0 1 0 12" /></svg>
+                    <span className="t">unmute me</span>
+                  </button>
+                </div>
                 <div className="idname">Ashna Damani</div>
                 <div className="idrole">
                   <span className="live" />
