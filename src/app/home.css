@@ -1009,19 +1009,20 @@
 .home .movia-mock .iphone {
   position: absolute;
   width: auto;
-  height: 66%;
+  height: 64%;
   aspect-ratio: 9 / 19.5;
   top: 50%;
   left: 50%;
   background: #0b0b0d;
-  padding: 2.4%;
-  border-radius: 17% / 8%;
+  padding: 1.3%;
+  border-radius: 16% / 7.4%;
   box-shadow: 0 26px 46px -22px rgba(26, 20, 48, 0.5);
 }
 .home .movia-mock .ip-screen {
   position: relative;
+  width: 100%;
   height: 100%;
-  border-radius: 13.5% / 6.3%;
+  border-radius: 14% / 6.5%;
   overflow: hidden;
   background: #fff;
 }
@@ -1036,22 +1037,22 @@
 }
 .home .movia-mock .ip-island {
   position: absolute;
-  top: 3%;
+  top: 2.4%;
   left: 50%;
   transform: translateX(-50%);
-  width: 30%;
-  height: 3.6%;
+  width: 26%;
+  height: 3.2%;
   min-height: 5px;
   border-radius: 999px;
   background: #0b0b0d;
   z-index: 4;
 }
 .home .movia-mock .mm-left {
-  transform: translate(-101%, -26%);
+  transform: translate(-102%, -22%) rotate(-7deg);
   z-index: 3;
 }
 .home .movia-mock .mm-right {
-  transform: translate(1%, -56%);
+  transform: translate(2%, -58%) rotate(6deg);
   z-index: 2;
 }
 
