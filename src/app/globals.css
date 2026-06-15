@@ -181,6 +181,127 @@ img {
   object-position: center top;
 }
 
+/* AURA design-system sample panels (typography + components in the carousel) */
+.ds-panel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 30px 60px -40px rgba(0, 0, 0, 0.35);
+}
+.dst-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.dst-big {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 52px;
+  line-height: 1;
+  color: var(--sage-deep, #4f7d5e);
+}
+.dst-name {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--ink, #121713);
+}
+.dst-cap {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9aa89e;
+  margin-top: 3px;
+}
+.dst-div {
+  height: 1px;
+  background: #e7ece8;
+}
+.dst-line {
+  color: var(--ink, #121713);
+}
+.dsc-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.dsc-lbl {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9aa89e;
+}
+.dsc-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  align-items: center;
+}
+.dsc-btn {
+  font-family: var(--pop);
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+}
+.dsc-btn.primary {
+  background: var(--sage, #a8cdb0);
+  color: var(--ink, #121713);
+}
+.dsc-btn.ghost {
+  background: #fff;
+  border: 1.5px solid var(--sage, #a8cdb0);
+  color: var(--sage-deep, #4f7d5e);
+}
+.dsc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--pop);
+  font-weight: 600;
+  font-size: 12.5px;
+  padding: 7px 13px;
+  border-radius: 20px;
+}
+.dsc-pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.dsc-pill.safe {
+  background: var(--sage-soft, #e7f0e9);
+  color: #3a9d5e;
+}
+.dsc-pill.low {
+  background: var(--pink, #fee2e2);
+  color: #c06a6a;
+}
+.dsc-pill.high {
+  background: var(--red, #bd2828);
+  color: #fff;
+}
+.dsc-pill.info {
+  background: var(--blue, #dbeafe);
+  color: #4f7bc0;
+}
+.dsc-chip {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #4f5b52;
+  background: #eef2ee;
+  border: 1px solid #dfe6e0;
+  border-radius: 30px;
+  padding: 6px 12px;
+}
+
 /* a design-system frame with no card backing — image blends onto the slide */
 .bp-frame.is-plain {
   background: transparent;
