@@ -1,6 +1,7 @@
 /* ============================================================
-   REFRESH INTRO - violet screen, sparse white pixels dissolving diagonally,
-   then slide-up reveal.
+   REFRESH INTRO - two diagonal passes on purple:
+   (1) sparse white pixels flow top->bottom, (2) violet cover dissolves
+   diagonally into pixels to reveal the homepage.
    ============================================================ */
 html.intro-lock,
 html.intro-lock body {
@@ -11,31 +12,51 @@ html.intro-lock body {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: var(--violet);
+  background: var(--violet); /* covers the page (no flash) until the dissolve */
   overflow: hidden;
-  will-change: transform;
-  transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
 }
-.intro.leaving {
-  transform: translateY(-100%);
+.intro.go {
+  background: transparent; /* dissolve reveals the page through cleared pixels */
 }
 
-/* sparse small white pixels that dissolve out on a diagonal delay */
-.intro .cell {
+/* pass 1: sparse white pixels flowing diagonally top -> bottom */
+.intro .flow {
   position: absolute;
   background: #fff;
-  opacity: 0;
   border-radius: 1px;
-  animation: px-dissolve 0.55s cubic-bezier(0.4, 0, 0.6, 1) both;
+  opacity: 0;
+  animation: px-flow 1.6s linear both;
 }
-@keyframes px-dissolve {
+@keyframes px-flow {
   0% {
+    transform: translate(0, -12vh);
+    opacity: 0;
+  }
+  12% {
     opacity: 0.9;
-    transform: scale(1);
+  }
+  85% {
+    opacity: 0.9;
   }
   100% {
+    transform: translate(22vw, 112vh);
     opacity: 0;
-    transform: scale(0.35);
+  }
+}
+
+/* pass 2: full-cover violet pixels dissolving on a diagonal delay */
+.intro .cell {
+  position: absolute;
+  background: var(--violet);
+  will-change: opacity, transform;
+}
+.intro.go .cell {
+  animation: cell-out 0.45s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+}
+@keyframes cell-out {
+  to {
+    opacity: 0;
+    transform: scale(0.4);
   }
 }
 

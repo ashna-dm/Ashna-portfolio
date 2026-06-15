@@ -4,18 +4,20 @@ import { useEffect, useState } from "react";
 import "./intro.css";
 
 /**
- * Refresh intro: a solid violet screen with a SPARSE scatter of small white
- * pixels (lots of blank between them) that dissolve away diagonally, then the
- * panel slides up to reveal the homepage. Adds `intro-done` to <html> when the
- * reveal starts so the hero puzzle and ID video begin as the page appears.
+ * Refresh intro, two diagonal passes on a purple screen:
+ *  1) a sparse stream of small white pixels flows top -> bottom diagonally;
+ *  2) the violet cover dissolves diagonally into small pixels, revealing the
+ *     homepage.
+ * `intro-done` is added to <html> only once the page has fully appeared, so the
+ * hero puzzle + ID video start after the reveal.
  */
 type Cell = { x: number; y: number; s: number; delay: number };
-
-const DENSITY = 0.07; // fraction of grid cells that get a pixel (sparse, lots of blank)
+type Flow = { x: number; s: number; delay: number };
 
 export default function Intro() {
   const [cells, setCells] = useState<Cell[]>([]);
-  const [phase, setPhase] = useState<"run" | "leave" | "done">("run");
+  const [flow, setFlow] = useState<Flow[]>([]);
+  const [phase, setPhase] = useState<"flow" | "go" | "done">("flow");
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -32,31 +34,37 @@ export default function Intro() {
     const size = Math.ceil(W / 48); // small pixels
     const cols = Math.ceil(W / size);
     const rows = Math.ceil(H / size);
-    const SWEEP = 1300; // ms across the diagonal
-    const JITTER = 520;
+    const SWEEP = 1300;
+    const JITTER = 460;
 
-    const arr: Cell[] = [];
+    // full-cover cells for the dissolve (pass 2)
+    const cArr: Cell[] = [];
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
-        if (Math.random() > DENSITY) continue; // keep it sparse -> lots of blank
         const d = (c / Math.max(1, cols - 1) + r / Math.max(1, rows - 1)) / 2;
-        arr.push({ x: c * size, y: r * size, s: size, delay: d * SWEEP + Math.random() * JITTER });
+        cArr.push({ x: c * size, y: r * size, s: size + 1, delay: d * SWEEP + Math.random() * JITTER });
       }
     }
-    setCells(arr);
-    const maxDelay = arr.reduce((m, a) => Math.max(m, a.delay), 0);
+    setCells(cArr);
+    const coverMax = cArr.reduce((m, a) => Math.max(m, a.delay), 0);
 
-    const leaveT = window.setTimeout(() => {
-      setPhase("leave");
-      root.classList.add("intro-done");
-    }, maxDelay + 520);
+    // sparse stream of pixels for the flow (pass 1)
+    const fArr: Flow[] = [];
+    for (let i = 0; i < 44; i++) {
+      fArr.push({ x: Math.random() * W, s: size, delay: Math.random() * 700 });
+    }
+    setFlow(fArr);
+
+    const GO = 2050; // start the dissolving pass after the flow pass
+    const goT = window.setTimeout(() => setPhase("go"), GO);
     const doneT = window.setTimeout(() => {
+      root.classList.add("intro-done"); // page has appeared -> puzzle + video start
       setPhase("done");
       root.classList.remove("intro-lock");
-    }, maxDelay + 520 + 850);
+    }, GO + coverMax + 470);
 
     return () => {
-      window.clearTimeout(leaveT);
+      window.clearTimeout(goT);
       window.clearTimeout(doneT);
       root.classList.remove("intro-lock");
     };
@@ -64,12 +72,19 @@ export default function Intro() {
 
   if (phase === "done") return null;
   return (
-    <div className={"intro" + (phase === "leave" ? " leaving" : "")} aria-hidden="true">
+    <div className={"intro" + (phase === "go" ? " go" : "")} aria-hidden="true">
       {cells.map((c, i) => (
         <span
-          key={i}
+          key={"c" + i}
           className="cell"
           style={{ left: c.x, top: c.y, width: c.s, height: c.s, animationDelay: `${c.delay}ms` }}
+        />
+      ))}
+      {flow.map((f, i) => (
+        <span
+          key={"f" + i}
+          className="flow"
+          style={{ left: f.x, top: 0, width: f.s, height: f.s, animationDelay: `${f.delay}ms` }}
         />
       ))}
     </div>
