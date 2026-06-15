@@ -173,6 +173,14 @@ img {
   margin-bottom: 2px;
 }
 
+/* App screens in phone frames: anchor to the TOP so headers/avatars are never
+   cropped from the top (tall screens crop their bottom overflow instead). */
+.glass img,
+.ip-screen img,
+.onb-glass img {
+  object-position: center top;
+}
+
 /* design-system carousel frame images — consistent height across slides */
 .ds-img {
   display: block;
