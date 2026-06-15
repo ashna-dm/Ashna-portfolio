@@ -802,7 +802,7 @@
   border: 1px solid var(--faint);
   border-radius: 3px;
   aspect-ratio: 4 / 3;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 24px 44px -30px color-mix(in srgb, var(--peri) 60%, transparent);
   transition: border-color 0.2s ease, box-shadow 0.35s ease, transform 0.45s var(--ease-out);
   transform-origin: center 60%;
@@ -1000,7 +1000,7 @@
   color: #5fae2e; /* Sorta lime-green */
 }
 .home .frame:hover .aura-mock .mm-word {
-  color: #5b27e5; /* AURA violet */
+  color: #3a7d2e; /* AURA sage/leaf green (project --leaf) */
 }
 /* Real thin-bezel iPhone frame (same look as the case-study build section,
    scaled proportionally so the bezel stays thin at thumbnail size). */
@@ -1059,10 +1059,10 @@
 /* --- AURA: laptop browser + phone --- */
 .home .aura-mock .tm-laptop {
   position: absolute;
-  width: 68%;
+  width: 72%;
   aspect-ratio: 16 / 10;
-  left: 4%;
-  top: 57%;
+  left: 1%;
+  top: 58%;
   transform: translateY(-50%);
   background: #fff;
   border: 1px solid color-mix(in srgb, var(--violet) 16%, transparent);
@@ -1098,10 +1098,10 @@
 }
 .home .aura-mock .aura-phone {
   width: auto;
-  height: 58%;
+  height: 62%;
   aspect-ratio: 9 / 19.5;
   right: 3%;
-  bottom: 7%;
+  bottom: 5%;
   z-index: 3;
 }
 
