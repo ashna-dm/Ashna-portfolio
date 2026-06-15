@@ -992,14 +992,14 @@
 }
 .home .mm-word {
   position: absolute;
-  top: 7%;
+  top: 5%;
   left: 0;
   right: 0;
   z-index: 1;
   text-align: center;
   font-family: var(--font);
   font-weight: 800;
-  font-size: clamp(20px, 2.7vw, 34px);
+  font-size: clamp(18px, 2.3vw, 30px);
   letter-spacing: -0.03em;
   line-height: 1;
   color: color-mix(in srgb, var(--peri) 38%, #fff);
@@ -1009,7 +1009,7 @@
 .home .movia-mock .iphone {
   position: absolute;
   width: auto;
-  height: 64%;
+  height: 60%;
   aspect-ratio: 9 / 19.5;
   top: 50%;
   left: 50%;
@@ -1048,11 +1048,11 @@
   z-index: 4;
 }
 .home .movia-mock .mm-left {
-  transform: translate(-102%, -22%) rotate(-7deg);
+  transform: translate(-104%, -32%) rotate(-7deg);
   z-index: 3;
 }
 .home .movia-mock .mm-right {
-  transform: translate(2%, -58%) rotate(6deg);
+  transform: translate(4%, -50%) rotate(6deg);
   z-index: 2;
 }
 
