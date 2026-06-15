@@ -804,11 +804,20 @@
   aspect-ratio: 4 / 3;
   overflow: hidden;
   box-shadow: 0 24px 44px -30px color-mix(in srgb, var(--peri) 60%, transparent);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.35s ease, transform 0.45s var(--ease-out);
+  transform-origin: center 60%;
+  will-change: transform;
 }
 .home .frame:hover .artboard {
   border-color: var(--peri);
-  box-shadow: 0 28px 50px -28px color-mix(in srgb, var(--peri) 70%, transparent);
+  box-shadow: 0 40px 70px -30px color-mix(in srgb, var(--peri) 75%, transparent);
+  transform: scale(1.04);
+}
+.home .frame {
+  transition: z-index 0s;
+}
+.home .frame:hover {
+  z-index: 5;
 }
 .home .artboard svg {
   position: absolute;
@@ -930,6 +939,107 @@
 .home .frame:hover .open {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* ============================================================
+   DEVICE MOCKUP COVERS  (Sorta = 2 phones · AURA = laptop + phone)
+   Greyscale at rest, full colour + scale on hover (Anuja-style).
+   ============================================================ */
+.home .tile-mock {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(120% 100% at 50% -10%, color-mix(in srgb, var(--peri) 18%, #fff), #fbfbff 72%);
+}
+.home .tm-phone {
+  position: absolute;
+  background: #fff;
+  padding: 3px;
+  border: 1px solid color-mix(in srgb, var(--violet) 16%, transparent);
+  border-radius: 16px;
+  box-shadow: 0 20px 38px -18px color-mix(in srgb, var(--violet) 55%, transparent);
+  overflow: hidden;
+}
+.home .tm-phone img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 13px;
+}
+
+/* --- Sorta: two overlapping tilted phones --- */
+.home .sorta-mock .tm-phone {
+  width: 37%;
+  aspect-ratio: 9 / 19;
+}
+.home .sorta-mock .tm-phone.back {
+  transform: translate(-32%, 7%) rotate(-9deg);
+  z-index: 1;
+}
+.home .sorta-mock .tm-phone.front {
+  transform: translate(32%, -3%) rotate(8deg);
+  z-index: 2;
+}
+
+/* --- AURA: laptop browser + phone --- */
+.home .aura-mock .tm-laptop {
+  position: absolute;
+  width: 72%;
+  aspect-ratio: 16 / 10;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--violet) 16%, transparent);
+  border-radius: 10px;
+  box-shadow: 0 22px 40px -20px color-mix(in srgb, var(--violet) 50%, transparent);
+  overflow: hidden;
+}
+.home .aura-mock .tm-bar {
+  display: flex;
+  gap: 4px;
+  padding: 6px 9px;
+  background: #f3f3fb;
+  border-bottom: 1px solid color-mix(in srgb, var(--violet) 9%, transparent);
+}
+.home .aura-mock .tm-bar i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d7d7e6;
+}
+.home .aura-mock .tm-bar i:nth-child(1) { background: #ff5f57; }
+.home .aura-mock .tm-bar i:nth-child(2) { background: #febc2e; }
+.home .aura-mock .tm-bar i:nth-child(3) { background: #28c840; }
+.home .aura-mock .tm-screen {
+  height: calc(100% - 21px);
+  overflow: hidden;
+}
+.home .aura-mock .tm-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.home .aura-mock .tm-phone {
+  width: 25%;
+  aspect-ratio: 9 / 19;
+  right: 4%;
+  bottom: 7%;
+  z-index: 3;
+}
+
+/* greyscale at rest -> colour on hover */
+.home .tile-mock img {
+  filter: saturate(0.55) contrast(0.97) brightness(1.01);
+  transition: filter 0.5s var(--ease-out);
+}
+.home .frame:hover .tile-mock img {
+  filter: saturate(1) contrast(1) brightness(1);
 }
 
 /* ===================== CRAFT STATEMENT ===================== */

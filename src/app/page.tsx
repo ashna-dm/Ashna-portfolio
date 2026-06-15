@@ -230,30 +230,14 @@ export default function Home() {
                   <span className="n">02</span>
                 </div>
                 <div className="artboard">
-                  <svg viewBox="0 0 280 210" preserveAspectRatio="xMidYMid slice">
-                    <rect width="280" height="210" fill="#f3f1fb" />
-                    <rect x="20" y="26" width="170" height="158" rx="8" fill="#fff" stroke="#e0d9f6" />
-                    <rect x="20" y="26" width="170" height="20" rx="8" fill="#efeafb" />
-                    <rect x="34" y="58" width="142" height="74" rx="6" fill="#cdbdf3" />
-                    <rect x="34" y="58" width="71" height="74" fill="#b49ef0" />
-                    <rect x="34" y="142" width="60" height="8" rx="4" fill="#cac0ef" />
-                    <rect x="34" y="156" width="40" height="8" rx="4" fill="#ddd6f4" />
-                    <rect x="118" y="142" width="14" height="22" rx="2" fill="#7B2D8B" />
-                    <rect x="136" y="142" width="14" height="22" rx="2" fill="#C9A227" />
-                    <rect x="154" y="142" width="14" height="22" rx="2" fill="#1A1430" />
-                    <rect x="176" y="64" width="84" height="124" rx="16" fill="#fff" stroke="#d8cef4" strokeWidth="2" />
-                    <rect x="184" y="74" width="68" height="104" rx="10" fill="#5067EB" />
-                    <rect x="194" y="86" width="48" height="40" rx="7" fill="#fff" opacity="0.9" />
-                    <rect x="194" y="134" width="34" height="7" rx="3.5" fill="#fff" opacity="0.85" />
-                    <rect x="194" y="146" width="48" height="7" rx="3.5" fill="#fff" opacity="0.5" />
-                    <rect x="194" y="162" width="48" height="9" rx="4.5" fill="#C9A227" />
-                  </svg>
-                  <span className="tok-chip annot">
-                    <i style={{ background: "#7B2D8B" }} />
-                    <i style={{ background: "#C9A227" }} />
-                    <i style={{ background: "#5067EB" }} />
-                  </span>
-                  <span className="dim-chip annot">390 × 844</span>
+                  <div className="tile-mock aura-mock">
+                    <div className="tm-laptop">
+                      <span className="tm-bar"><i /><i /><i /></span>
+                      <div className="tm-screen"><img src="/assets/images/aura/screens/web-home.png" alt="AURA web dashboard" /></div>
+                    </div>
+                    <div className="tm-phone"><img src="/assets/images/aura/screens/home.png" alt="AURA app" /></div>
+                  </div>
+                  <span className="dim-chip annot">web + app</span>
                   <span className="hh tl" />
                   <span className="hh tr" />
                   <span className="hh bl" />
@@ -318,35 +302,10 @@ export default function Home() {
                   <span className="n">04</span>
                 </div>
                 <div className="artboard">
-                  <svg viewBox="0 0 280 210" preserveAspectRatio="xMidYMid slice">
-                    <rect width="280" height="210" fill="#ECEBFB" />
-                    <rect x="92" y="22" width="96" height="180" rx="18" fill="#fff" stroke="#5067EB" strokeWidth="2" />
-                    <rect x="100" y="30" width="80" height="40" rx="10" fill="#5B27E5" />
-                    <rect x="110" y="42" width="40" height="6" rx="3" fill="#fff" opacity="0.9" />
-                    <rect x="110" y="54" width="28" height="5" rx="2.5" fill="#fff" opacity="0.55" />
-                    <rect x="100" y="82" width="80" height="20" rx="6" fill="#F2F1FC" />
-                    <rect x="106" y="89" width="34" height="6" rx="3" fill="#5B27E5" opacity="0.55" />
-                    <rect x="150" y="86" width="24" height="12" rx="6" fill="#5067EB" />
-                    <rect x="100" y="108" width="80" height="20" rx="6" fill="#F2F1FC" />
-                    <rect x="106" y="115" width="30" height="6" rx="3" fill="#5B27E5" opacity="0.55" />
-                    <rect x="150" y="112" width="24" height="12" rx="6" fill="#5B27E5" />
-                    <rect x="100" y="134" width="80" height="20" rx="6" fill="#F2F1FC" />
-                    <rect x="106" y="141" width="26" height="6" rx="3" fill="#5B27E5" opacity="0.55" />
-                    <rect x="150" y="138" width="24" height="12" rx="6" fill="#5B27E5" opacity="0.2" />
-                    <g fontFamily="JetBrains Mono, monospace" fontSize="8" fontWeight="500">
-                      <rect x="18" y="64" width="40" height="16" rx="8" fill="#fff" stroke="#5067EB" />
-                      <text x="38" y="75" fill="#5067EB" textAnchor="middle">keep</text>
-                      <rect x="210" y="92" width="54" height="16" rx="8" fill="#5B27E5" />
-                      <text x="237" y="103" fill="#fff" textAnchor="middle">relocate</text>
-                      <rect x="22" y="150" width="50" height="16" rx="8" fill="#fff" stroke="#5B27E5" strokeOpacity="0.3" />
-                      <text x="47" y="161" fill="#5B27E5" textAnchor="middle">discard</text>
-                    </g>
-                  </svg>
-                  <span className="tok-chip annot">
-                    <i style={{ background: "#5B27E5" }} />
-                    <i style={{ background: "#5067EB" }} />
-                    <i style={{ background: "#ECEBFB" }} />
-                  </span>
+                  <div className="tile-mock sorta-mock">
+                    <div className="tm-phone back"><img src="/assets/images/sorta/screens/session1.png" alt="Sorta sorting session" /></div>
+                    <div className="tm-phone front"><img src="/assets/images/sorta/screens/home.png" alt="Sorta home" /></div>
+                  </div>
                   <span className="dim-chip annot">live beta</span>
                   <span className="hh tl" />
                   <span className="hh tr" />

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const P = "/assets/images/play";
 
-type Item = { src: string; title: string; meta: string };
+type Item = { src: string; title: string; meta: string; before?: string };
 type Section = { n: string; eyebrow: string; title: string; desc: string; items: Item[]; soon?: string };
 
 const FASHION: Item[] = [
