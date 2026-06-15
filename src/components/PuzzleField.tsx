@@ -1,20 +1,29 @@
 /**
- * Minimalist jigsaw backdrop: a faint, near-complete puzzle with a few gaps.
- * Only ~5 "missing" pieces animate - they fall in and settle into their slots,
- * one after another. Everything else is static. Pure CSS animation.
+ * Minimalist jigsaw backdrop: a near-complete puzzle missing a few pieces.
+ * The ~5 missing pieces fly in one by one from different sides (top, right,
+ * bottom, left) and settle into their slots, then blend with the rest.
+ * Pure CSS animation.
  */
 const COLS = 8;
 const ROWS = 5;
 const S = 100; // piece size in viewBox units
 const BH = 22; // tab bump height
 
-// the handful of pieces that start missing and fall into place
-const DROPS: { c: number; r: number }[] = [
-  { c: 3, r: 0 },
-  { c: 6, r: 1 },
-  { c: 1, r: 2 },
-  { c: 5, r: 3 },
-  { c: 2, r: 4 },
+type Dir = "top" | "right" | "bottom" | "left";
+const OFFSET: Record<Dir, [number, number]> = {
+  top: [0, -230],
+  right: [230, 0],
+  bottom: [0, 230],
+  left: [-230, 0],
+};
+
+// the handful of pieces that start missing, each flying in from a side
+const DROPS: { c: number; r: number; dir: Dir }[] = [
+  { c: 3, r: 0, dir: "top" },
+  { c: 6, r: 2, dir: "right" },
+  { c: 1, r: 1, dir: "left" },
+  { c: 5, r: 4, dir: "bottom" },
+  { c: 2, r: 3, dir: "left" },
 ];
 
 // deterministic +/-1 per shared edge, so adjacent pieces interlock
@@ -61,13 +70,12 @@ function pieceD(c: number, r: number) {
 }
 
 export default function PuzzleField() {
-  const dropIndex = (c: number, r: number) =>
-    DROPS.findIndex((d) => d.c === c && d.r === r);
+  const dropAt = (c: number, r: number) => DROPS.findIndex((d) => d.c === c && d.r === r);
 
   const pieces: { d: string; drop: number }[] = [];
   for (let r = 0; r < ROWS; r++) {
     for (let c = 0; c < COLS; c++) {
-      pieces.push({ d: pieceD(c, r), drop: dropIndex(c, r) });
+      pieces.push({ d: pieceD(c, r), drop: dropAt(c, r) });
     }
   }
 
@@ -78,18 +86,24 @@ export default function PuzzleField() {
       preserveAspectRatio="xMidYMid slice"
       aria-hidden="true"
     >
-      {pieces.map((p, i) =>
-        p.drop >= 0 ? (
+      {pieces.map((p, i) => {
+        if (p.drop < 0) return <path key={i} className="pc" d={p.d} />;
+        const [dx, dy] = OFFSET[DROPS[p.drop].dir];
+        return (
           <path
             key={i}
             className="pc drop"
             d={p.d}
-            style={{ animationDelay: `${0.5 + p.drop * 0.55}s` } as React.CSSProperties}
+            style={
+              {
+                animationDelay: `${0.5 + p.drop * 0.6}s`,
+                "--dx": `${dx}px`,
+                "--dy": `${dy}px`,
+              } as React.CSSProperties
+            }
           />
-        ) : (
-          <path key={i} className="pc" d={p.d} />
-        )
-      )}
+        );
+      })}
     </svg>
   );
 }

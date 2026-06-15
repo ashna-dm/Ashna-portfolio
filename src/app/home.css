@@ -223,34 +223,33 @@
   transform-box: fill-box;
   transform-origin: center;
   fill: none;
-  stroke: #c3cbf0; /* one soft periwinkle for the whole puzzle */
-  stroke-width: 1.2;
-  opacity: 0.4; /* near-complete puzzle sits still */
+  stroke: #8593e6; /* visible soft periwinkle for the whole puzzle */
+  stroke-width: 1.3;
+  opacity: 0.42; /* near-complete puzzle sits still */
 }
-/* the few "missing" pieces are set into their gap: a piece is lowered, a soft
-   highlight as it seats, then it eases flush and blends with the rest */
+/* the few "missing" pieces fly in from a side and settle into their gap,
+   then ease flush so they blend with the rest of the puzzle */
 .home .puzzle-assemble .pc.drop {
   opacity: 0;
-  animation: pc-place 0.9s cubic-bezier(0.22, 0.9, 0.28, 1) both;
+  animation: pc-place 0.85s cubic-bezier(0.26, 1.04, 0.32, 1) both;
 }
 @keyframes pc-place {
   0% {
     opacity: 0;
-    transform: scale(1.14);
+    transform: translate(var(--dx, 0), var(--dy, 0));
   }
-  55% {
-    opacity: 0.85; /* brief soft highlight as it seats */
-    transform: scale(0.99);
+  35% {
+    opacity: 0.92; /* clearly visible as it travels in */
   }
   100% {
-    opacity: 0.4; /* settles to match the rest -> blends in */
-    transform: scale(1);
+    opacity: 0.42; /* settles to match the rest -> blends in */
+    transform: translate(0, 0);
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .home .puzzle-assemble .pc.drop {
     animation: none;
-    opacity: 0.4;
+    opacity: 0.42;
   }
 }
 .home .hero-wrap {
