@@ -986,21 +986,15 @@
   z-index: 4;
 }
 
-/* --- Sorta: two overlapping tilted phones, centred with margin --- */
-.home .sorta-mock .tm-phone {
-  width: auto;
-  height: 70%;
-  aspect-ratio: 9 / 19;
-  left: 50%;
-  top: 50%;
-}
-.home .sorta-mock .tm-phone.back {
-  transform: translate(-78%, -50%) rotate(-8deg);
-  z-index: 1;
-}
-.home .sorta-mock .tm-phone.front {
-  transform: translate(-22%, -48%) rotate(8deg);
-  z-index: 2;
+/* --- Sorta: composited two-iPhone mockup image --- */
+.home .sorta-cover img {
+  position: static;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6% 8%;
+  background: transparent;
+  border-radius: 0;
 }
 
 /* --- AURA: laptop browser + phone --- */

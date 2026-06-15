@@ -302,9 +302,8 @@ export default function Home() {
                   <span className="n">04</span>
                 </div>
                 <div className="artboard">
-                  <div className="tile-mock sorta-mock">
-                    <div className="tm-phone back"><span className="tm-isle" /><img src="/assets/images/sorta/screens/select-goal-1.png" alt="Sorta select goal" /></div>
-                    <div className="tm-phone front"><span className="tm-isle" /><img src="/assets/images/sorta/screens/home.png" alt="Sorta home" /></div>
+                  <div className="tile-mock sorta-cover">
+                    <img src="/assets/images/sorta/cover-mock.png" alt="Sorta app shown on two iPhones" />
                   </div>
                   <span className="dim-chip annot">live beta</span>
                   <span className="hh tl" />
