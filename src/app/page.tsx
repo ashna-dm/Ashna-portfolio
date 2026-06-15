@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import HomeInteractions from "./HomeInteractions";
+import PuzzleField from "@/components/PuzzleField";
 import "./home.css";
 
 export default function Home() {
@@ -57,7 +58,7 @@ export default function Home() {
 
         {/* ===================== HERO ===================== */}
         <section className="hero" id="top">
-          <svg className="puzzle-assemble" id="puzzleSvg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" />
+          <PuzzleField />
           <div className="wrap hero-wrap">
             {/* hero glow is off by default in the handoff (tweaks default glow:false) */}
 
