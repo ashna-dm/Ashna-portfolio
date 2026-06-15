@@ -225,27 +225,30 @@
   fill: none;
   stroke: #dfe3fb;
   stroke-width: 1.1;
-  opacity: 0;
-  /* slides in from --dx/--dy and snaps into place (slight overshoot = "click") */
-  animation: pc-join 0.42s cubic-bezier(0.32, 1.35, 0.5, 1) both;
+  opacity: 0.34; /* faint, near-complete puzzle sits still */
 }
-@keyframes pc-join {
+/* the few "missing" pieces: drop in from above and settle into their gap */
+.home .puzzle-assemble .pc.drop {
+  opacity: 0;
+  animation: pc-drop 0.62s cubic-bezier(0.34, 1.45, 0.5, 1) both;
+}
+@keyframes pc-drop {
   0% {
     opacity: 0;
-    transform: translate(var(--dx, 0), var(--dy, 0));
+    transform: translateY(-58px);
   }
-  35% {
-    opacity: 0.7;
+  45% {
+    opacity: 0.5;
   }
   100% {
-    opacity: 0.7;
-    transform: translate(0, 0);
+    opacity: 0.34;
+    transform: translateY(0);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .home .puzzle-assemble .pc {
+  .home .puzzle-assemble .pc.drop {
     animation: none;
-    opacity: 0.6;
+    opacity: 0.34;
   }
 }
 .home .hero-wrap {

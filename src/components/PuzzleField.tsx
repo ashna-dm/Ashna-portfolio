@@ -1,13 +1,21 @@
 /**
- * Minimalist jigsaw backdrop that assembles like a real puzzle: pieces slide
- * in one at a time (snake order) and snap onto the piece already placed next
- * to them, until the whole grid is connected. Pure CSS animation.
+ * Minimalist jigsaw backdrop: a faint, near-complete puzzle with a few gaps.
+ * Only ~5 "missing" pieces animate - they fall in and settle into their slots,
+ * one after another. Everything else is static. Pure CSS animation.
  */
-const COLS = 10;
-const ROWS = 6;
+const COLS = 8;
+const ROWS = 5;
 const S = 100; // piece size in viewBox units
 const BH = 22; // tab bump height
-const STEP = 0.045; // seconds between pieces (connecting cascade)
+
+// the handful of pieces that start missing and fall into place
+const DROPS: { c: number; r: number }[] = [
+  { c: 3, r: 0 },
+  { c: 6, r: 1 },
+  { c: 1, r: 2 },
+  { c: 5, r: 3 },
+  { c: 2, r: 4 },
+];
 
 // deterministic +/-1 per shared edge, so adjacent pieces interlock
 const sgn = (a: number, b: number, salt: number) =>
@@ -53,25 +61,15 @@ function pieceD(c: number, r: number) {
 }
 
 export default function PuzzleField() {
-  // snake order so every next piece is adjacent to the previous one
-  const order: { c: number; r: number }[] = [];
-  for (let r = 0; r < ROWS; r++) {
-    const cols = r % 2 === 0 ? [...Array(COLS).keys()] : [...Array(COLS).keys()].reverse();
-    for (const c of cols) order.push({ c, r });
-  }
+  const dropIndex = (c: number, r: number) =>
+    DROPS.findIndex((d) => d.c === c && d.r === r);
 
-  const OFF = 70; // slide-in distance toward the placed neighbour
-  const pieces = order.map(({ c, r }, i) => {
-    const prev = order[i - 1];
-    // enter from the side away from the already-placed neighbour, then snap in
-    let dx = 0;
-    let dy = -OFF; // first piece drops from above
-    if (prev) {
-      dx = Math.sign(c - prev.c) * OFF;
-      dy = Math.sign(r - prev.r) * OFF;
+  const pieces: { d: string; drop: number }[] = [];
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      pieces.push({ d: pieceD(c, r), drop: dropIndex(c, r) });
     }
-    return { d: pieceD(c, r), dx, dy, delay: i * STEP };
-  });
+  }
 
   return (
     <svg
@@ -80,20 +78,18 @@ export default function PuzzleField() {
       preserveAspectRatio="xMidYMid slice"
       aria-hidden="true"
     >
-      {pieces.map((p, i) => (
-        <path
-          key={i}
-          className="pc"
-          d={p.d}
-          style={
-            {
-              animationDelay: `${p.delay}s`,
-              "--dx": `${p.dx}px`,
-              "--dy": `${p.dy}px`,
-            } as React.CSSProperties
-          }
-        />
-      ))}
+      {pieces.map((p, i) =>
+        p.drop >= 0 ? (
+          <path
+            key={i}
+            className="pc drop"
+            d={p.d}
+            style={{ animationDelay: `${0.45 + p.drop * 0.5}s` } as React.CSSProperties}
+          />
+        ) : (
+          <path key={i} className="pc" d={p.d} />
+        )
+      )}
     </svg>
   );
 }
