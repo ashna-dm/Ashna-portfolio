@@ -235,7 +235,7 @@ export default function Home() {
                       <span className="tm-bar"><i /><i /><i /></span>
                       <div className="tm-screen"><img src="/assets/images/aura/screens/web-home.png" alt="AURA web dashboard" /></div>
                     </div>
-                    <div className="tm-phone"><img src="/assets/images/aura/screens/home.png" alt="AURA app" /></div>
+                    <div className="tm-phone"><span className="tm-isle" /><img src="/assets/images/aura/screens/home.png" alt="AURA app" /></div>
                   </div>
                   <span className="dim-chip annot">web + app</span>
                   <span className="hh tl" />
@@ -303,8 +303,8 @@ export default function Home() {
                 </div>
                 <div className="artboard">
                   <div className="tile-mock sorta-mock">
-                    <div className="tm-phone back"><img src="/assets/images/sorta/screens/select-goal-1.png" alt="Sorta select goal" /></div>
-                    <div className="tm-phone front"><img src="/assets/images/sorta/screens/home.png" alt="Sorta home" /></div>
+                    <div className="tm-phone back"><span className="tm-isle" /><img src="/assets/images/sorta/screens/select-goal-1.png" alt="Sorta select goal" /></div>
+                    <div className="tm-phone front"><span className="tm-isle" /><img src="/assets/images/sorta/screens/home.png" alt="Sorta home" /></div>
                   </div>
                   <span className="dim-chip annot">live beta</span>
                   <span className="hh tl" />
