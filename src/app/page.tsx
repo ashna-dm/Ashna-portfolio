@@ -244,10 +244,10 @@ export default function Home() {
                 </div>
                 <div className="frame-foot">
                   <div>
-                    <div className="f-title">Confidential Project</div>
-                    <div className="f-cat">FAANG R&amp;D lab · health-tech</div>
+                    <div className="f-title">FAANG R&amp;D lab</div>
+                    <div className="f-cat">Health-tech · AI · Robotics</div>
                   </div>
-                  <span className="open">Under NDA</span>
+                  <span className="open">under NDA</span>
                 </div>
               </a>
 
