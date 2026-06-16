@@ -88,7 +88,7 @@ export default function StoryPage() {
                 <p>coffee &gt; everything.<br />non&#8209;negotiable.</p>
               </div>
               <div className="sticky sm s-coral" style={{ left: "728px", top: "296px", transform: "rotate(3deg)" }}>
-                <p>ENFP, and<br />yes, it shows.</p>
+                <p>INFJ, and<br />yes, it shows.</p>
               </div>
               <div className="sticky sm s-lav" style={{ left: "1002px", top: "250px", transform: "rotate(-4deg)" }}>
                 <p>fluent in Figma<br />&amp; light sarcasm.</p>
