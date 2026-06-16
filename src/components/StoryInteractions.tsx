@@ -110,6 +110,64 @@ export default function StoryInteractions() {
       };
     }
 
+    // ---------- DRAGGABLE STICKIES (session-only; reset on refresh) ----------
+    const boardEl = document.getElementById("board");
+    // current on-screen scale of the zoomable board (so drag tracks the cursor)
+    const scaleNow = () => {
+      if (!boardEl || !boardEl.offsetWidth) return 1;
+      return boardEl.getBoundingClientRect().width / boardEl.offsetWidth;
+    };
+    const stickyCleanups: Array<() => void> = [];
+    let zTop = 60;
+    document.querySelectorAll<HTMLElement>(".sticky").forEach((el) => {
+      const base = el.style.transform || ""; // keep the original rotate
+      let ox = 0,
+        oy = 0,
+        sx = 0,
+        sy = 0,
+        bx = 0,
+        by = 0,
+        dragging = false;
+      el.classList.add("draggable");
+      const onDown = (e: PointerEvent) => {
+        dragging = true;
+        bx = ox;
+        by = oy;
+        sx = e.clientX;
+        sy = e.clientY;
+        el.classList.add("dragging");
+        el.style.zIndex = String(++zTop);
+        try {
+          el.setPointerCapture(e.pointerId);
+        } catch {}
+      };
+      const onMove = (e: PointerEvent) => {
+        if (!dragging) return;
+        const s = scaleNow();
+        ox = bx + (e.clientX - sx) / s;
+        oy = by + (e.clientY - sy) / s;
+        el.style.transform = `translate(${ox}px, ${oy}px) ${base}`;
+      };
+      const onUp = (e: PointerEvent) => {
+        if (!dragging) return;
+        dragging = false;
+        el.classList.remove("dragging");
+        try {
+          el.releasePointerCapture(e.pointerId);
+        } catch {}
+      };
+      el.addEventListener("pointerdown", onDown);
+      el.addEventListener("pointermove", onMove);
+      el.addEventListener("pointerup", onUp);
+      el.addEventListener("pointercancel", onUp);
+      stickyCleanups.push(() => {
+        el.removeEventListener("pointerdown", onDown);
+        el.removeEventListener("pointermove", onMove);
+        el.removeEventListener("pointerup", onUp);
+        el.removeEventListener("pointercancel", onUp);
+      });
+    });
+
     // ---------- frosted nav on scroll ----------
     const headerEl = document.querySelector("header");
     const onNavScroll = () =>
@@ -120,6 +178,7 @@ export default function StoryInteractions() {
     return () => {
       bookCleanup();
       zoomCleanup();
+      stickyCleanups.forEach((fn) => fn());
       window.removeEventListener("scroll", onNavScroll);
     };
   }, []);

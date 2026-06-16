@@ -214,7 +214,7 @@ export default function StoryPage() {
                 <path d="M150 150 C 240 230, 300 250, 380 250 C 470 250, 520 150, 630 150 C 740 150, 770 250, 880 250 C 980 250, 1010 160, 1130 150" />
               </svg>
               <div className="tlcard" style={{ left: "46px", top: "70px", transform: "rotate(-2deg)" }}>
-                <span className="yr">2016</span><div className="h">Enrolled · fashion + B.Com</div>
+                <span className="yr">2016</span><div className="h">Graduated · fashion + B.Com</div>
                 <div className="d">Started a dual undergraduate degree: Fashion Design and a B.Com. Two worlds, one very full timetable.</div>
               </div>
               <div className="tlcard" style={{ left: "296px", top: "190px", transform: "rotate(2deg)" }}>
