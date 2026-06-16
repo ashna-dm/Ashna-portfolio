@@ -235,8 +235,8 @@ export default function Home() {
                     <i style={{ background: "#cdd3f7" }} />
                     <i style={{ background: "#1A1430" }} />
                   </span>
-                  <span className="coming"><b>Coming soon</b></span>
-                  <span className="dim-chip annot">under nda</span>
+                  <span className="coming"><b>Under NDA</b></span>
+                  <span className="dim-chip annot">confidential</span>
                   <span className="hh tl" />
                   <span className="hh tr" />
                   <span className="hh bl" />
@@ -244,10 +244,10 @@ export default function Home() {
                 </div>
                 <div className="frame-foot">
                   <div>
-                    <div className="f-title">Moonshot idea</div>
-                    <div className="f-cat">Health care · Health-tech product</div>
+                    <div className="f-title">Confidential Project</div>
+                    <div className="f-cat">FAANG R&amp;D lab · health-tech</div>
                   </div>
-                  <span className="open">Coming soon</span>
+                  <span className="open">Under NDA</span>
                 </div>
               </a>
 
