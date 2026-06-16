@@ -331,7 +331,7 @@ export default function AuraPage() {
                 <div className="bw-d">Designed &amp; prototyped with AI-assisted ideation, screen generation, and rapid iteration.</div>
               </div>
               <div className="tool-chips">
-                {["Google Gemini", "Google Stitch", "Claude", "Figma"].map((t) => (
+                {["Google Gemini", "Google Stitch", "Claude", "Figma", "Figma Make", "Perplexity"].map((t) => (
                   <span className="toolchip" key={t}><span className="td" />{t}</span>
                 ))}
               </div>
@@ -344,7 +344,7 @@ export default function AuraPage() {
       <section className="block designsys" id="system">
         <div className="wrap">
           <div className="sec-head reveal"><h2 className="sec-title">Design system</h2></div>
-          <p className="ds-intro reveal">Calm, clinical-but-warm, and built to be trusted: AURA&apos;s sage palette, a Hagrid / Poppins type scale, and a small kit of risk components.</p>
+          <p className="ds-intro reveal">Calm, clinical-but-warm, and built to be trusted: AURA&apos;s sage palette, a Space Grotesk / Arial type scale, and a small kit of risk components.</p>
           <div className="dscar bookcar" data-dscar>
             <div className="dscar-viewport">
               <div className="dscar-track">
