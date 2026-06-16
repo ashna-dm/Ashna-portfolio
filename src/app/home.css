@@ -1192,14 +1192,7 @@
   z-index: 3;
 }
 
-/* periwinkle duotone at rest -> full natural colour on hover (Anuja-style) */
-.home .tile-mock img {
-  filter: grayscale(1) sepia(0.55) hue-rotate(200deg) saturate(3) brightness(1.04) contrast(0.98);
-  transition: filter 0.55s var(--ease-out);
-}
-.home .frame:hover .tile-mock img {
-  filter: grayscale(0) sepia(0) hue-rotate(0deg) saturate(1) brightness(1) contrast(1);
-}
+/* thumbnails stay in full colour; only the mockup zooms on hover */
 
 /* ===================== CRAFT STATEMENT ===================== */
 .home .craft {

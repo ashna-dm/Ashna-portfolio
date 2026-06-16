@@ -13,6 +13,18 @@ html.intro-lock body {
   z-index: 9999;
   background: var(--violet); /* covers the page on first paint (no flash) */
   overflow: hidden;
+  /* SAFETY NET: if JS fails/doesn't hydrate (e.g. on some browsers), the
+     overlay would otherwise stay forever and look like a blocking popup.
+     This auto-clears it. JS normally unmounts the overlay ~2.8s, well before
+     this fires, so it never affects the normal reveal. */
+  animation: intro-failsafe 0.7s ease 5s forwards;
+}
+@keyframes intro-failsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 .intro.go {
   background: transparent; /* page shows through cleared pixels */
