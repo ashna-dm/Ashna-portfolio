@@ -459,13 +459,15 @@ footer{background:var(--violet);color:#fff;position:relative;z-index:1;margin-to
   border:none;cursor:pointer;padding:0;transition:width .25s,background .25s;}
 .dscar-dot.on{width:24px;border-radius:5px;background:#fff;}
 @media (max-width:880px){
-  /* let each carousel slide grow to fit its stacked content instead of being
-     clipped by a fixed-height card */
-  .bookpage{grid-template-columns:1fr;gap:22px;align-content:start;position:relative;inset:auto;}
+  /* all carousel slides equal height = the tallest content (no crop); shorter
+     slides centre their content */
+  .dscar-track{align-items:stretch;}
+  .dscar-slide{display:flex;align-self:auto;}
+  .dscar-card{height:auto;flex:1;display:flex;}
+  .bookpage{grid-template-columns:1fr;gap:22px;align-content:center;
+    position:relative;inset:auto;flex:1;}
   .bp-title{font-size:clamp(40px,12vw,60px);}
   .bp-desc{max-width:none;}
-  .dscar-card{height:auto;}
-  .dscar-slide{align-self:flex-start;}
 }
 
 
