@@ -9,7 +9,7 @@ const S = "/assets/images/sorta/screens";
 const A = "/assets/images/aura/screens";
 const SLOT_SRC: Record<string, string> = {
   // Sorta case study - media
-  "sc-journey": "/assets/images/sorta/sc-journey.png",
+  "sc-journey": "/assets/images/sorta/sc-journey.jpg",
   "sc-market": "/assets/images/sorta/sc-market.png",
   "sc-opp": "/assets/images/sorta/sc-opp.webp",
   "ds-logo": "/assets/images/sorta/ds-logo.png",
