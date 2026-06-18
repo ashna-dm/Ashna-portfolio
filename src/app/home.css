@@ -1310,12 +1310,17 @@
   .home .sec-label .t {
     font-size: 21px;
   }
-  /* show the ID as a static card on tablet/mobile (was hidden) */
+  /* show the ID as a static card on tablet/mobile (was hidden), and place it
+     AFTER the hero name but before the tagline */
   .home .idhang {
+    order: 2;
     position: static;
     transform: none;
     animation: none;
-    margin: 6px auto 30px;
+    margin: 16px auto 30px;
+  }
+  .home .hero-corners {
+    order: 3;
   }
   .home .idhang .lanyard,
   .home .idhang .clip {
