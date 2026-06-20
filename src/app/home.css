@@ -615,13 +615,13 @@
 .home .idphoto {
   display: block;
   width: 100%;
-  /* 16:9 so the full (landscape) clip shows - the wave isn't cropped */
-  aspect-ratio: 16 / 9;
-  height: auto;
+  height: 186px;
   border-radius: 8px;
   overflow: hidden;
   object-fit: cover;
-  object-position: center;
+  /* landscape clip in a portrait frame - bias the crop right so the hand
+     wave (on the right of the frame) stays in view */
+  object-position: 64% 40%;
   background: #f5f4fc;
   border: 1px solid color-mix(in srgb, var(--violet) 9%, transparent);
 }
