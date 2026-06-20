@@ -615,12 +615,13 @@
 .home .idphoto {
   display: block;
   width: 100%;
-  height: 186px;
+  /* 16:9 so the full (landscape) clip shows - the wave isn't cropped */
+  aspect-ratio: 16 / 9;
+  height: auto;
   border-radius: 8px;
   overflow: hidden;
   object-fit: cover;
-  /* portrait clip → frame the face near the top, not the sweater */
-  object-position: 50% 12%;
+  object-position: center;
   background: #f5f4fc;
   border: 1px solid color-mix(in srgb, var(--violet) 9%, transparent);
 }
