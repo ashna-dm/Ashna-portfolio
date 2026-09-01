@@ -246,7 +246,7 @@ export default function GutsyPage() {
         <section className="block designsys" data-screen-label="Design system">
           <div className="wrap">
             <div className="sec-head reveal"><h2 className="sec-title">Design system</h2></div>
-            <p className="ds-intro reveal">A small system carries the bioluminescent brand: GUTSY&apos;s deep-navy base, lavender-and-violet with bio-cyan &amp; bio-green accents, a Hagrid / Poppins type scale, and a kit of sensor &amp; risk components.</p>
+            <p className="ds-intro reveal">A small system carries the bioluminescent brand: GUTSY&apos;s deep-navy base, lavender-and-violet with bio-cyan &amp; bio-green accents, a Playfair / Poppins / JetBrains Mono type scale, and a kit of sensor &amp; risk components.</p>
             <div className="dscar bookcar" data-dscar>
               <div className="dscar-viewport">
                 <div className="dscar-track">
@@ -312,7 +312,7 @@ export default function GutsyPage() {
                         <div className="bp-main">
                           <div className="bp-num">SECTION 04</div>
                           <h3 className="bp-title">4.0<br />Type</h3>
-                          <p className="bp-desc">A Hagrid display paired with Poppins for body and JetBrains Mono for data labels — confident headlines, quietly readable text, technical precision.</p>
+                          <p className="bp-desc">Three speakers, one scale. Playfair for the product’s own voice, Poppins for the interface explaining itself, and JetBrains Mono for everything the sensors measure.</p>
                         </div>
                         <div className="bp-content"><div className="bp-frame"><ImageSlot id="gutsy-ds-type" placeholder="Typography · drop from Figma" /></div></div>
                         <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">04</span></div>

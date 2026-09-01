@@ -70,6 +70,7 @@ const SLOT_SRC: Record<string, string> = {
   "gutsy-hero": "/assets/images/moonshot/gutsy-cover.png",
   "gutsy-ds-logo": "/assets/images/moonshot/gutsy-brand-board.png",
   "gutsy-ds-mood": "/assets/images/moonshot/brand-moodboard.png",
+  "gutsy-ds-type": "/assets/images/moonshot/type-specimen.png",
   "gutsy-foresight-1": "/assets/images/moonshot/scenario-map-2x2.png",
   // dashboard wireframes - three lo-fi layout options
   "gutsy-wf-a": `${G}/wf-a-as-built.png`,
