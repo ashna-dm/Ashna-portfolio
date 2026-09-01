@@ -64,6 +64,9 @@ const SLOT_SRC: Record<string, string> = {
   "aura-web-1": `${A}/web-home.png`,
   "aura-web-2": `${A}/web-report.png`,
   "aura-web-4": `${A}/web-calendar.png`,
+  // Gutsy (FAANG R&D moonshot) - only the brand/product shot is exported so far;
+  // every other gutsy-* slot intentionally falls through to a labelled placeholder.
+  "gutsy-hero": "/assets/images/moonshot/gutsy-cover.png",
   // Story board
   "story-portrait": "/assets/images/story/story-portrait.webp",
   "story-snap-1": "/assets/images/story/offduty.jpg", // "me, off duty"

@@ -432,7 +432,7 @@ export default function AuraPage() {
           <div className="more-list reveal">
             <a className="more-item" href="/sorta"><span className="mt">Sorta</span><span className="mc">AI home organizing · Product</span><span className="mar"><ArrowUpRight /></span></a>
             <a className="more-item" href="/#work"><span className="mt">MapChat</span><span className="mc">Social · maps × messaging</span><span className="mar"><ArrowUpRight /></span></a>
-            <a className="more-item" href="/#work"><span className="mt">Moonshot idea</span><span className="mc">Real client · Product</span><span className="mar"><ArrowUpRight /></span></a>
+            <a className="more-item" href="/gutsy"><span className="mt">Gutsy</span><span className="mc">FAANG R&amp;D · health-tech moonshot</span><span className="mar"><ArrowUpRight /></span></a>
           </div>
         </div>
       </section>

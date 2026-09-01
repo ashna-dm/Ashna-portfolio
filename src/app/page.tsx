@@ -207,8 +207,8 @@ export default function Home() {
                 </div>
               </a>
 
-              {/* FRAME 02 - NDA */}
-              <a className="frame is-soon">
+              {/* FRAME 02 - NDA (client unnamed; the case study itself is NDA-safe) */}
+              <a className="frame" href="/gutsy">
                 <div className="frame-tab">
                   <span className="n">02</span>
                 </div>
@@ -247,7 +247,7 @@ export default function Home() {
                     <div className="f-title">FAANG R&amp;D lab</div>
                     <div className="f-cat">Health-tech · AI · Robotics</div>
                   </div>
-                  <span className="open">under NDA</span>
+                  <span className="open">open ↗</span>
                 </div>
               </a>
 

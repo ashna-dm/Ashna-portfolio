@@ -319,7 +319,7 @@ export default function SortaPage() {
           <div className="more-list reveal">
             <a className="more-item" href="/#work"><span className="mt">MapChat</span><span className="mc">Social · maps × messaging</span><span className="mar"><ArrowUpRight /></span></a>
             <a className="more-item" href="/aura"><span className="mt">AURA</span><span className="mc">Fashion-skin · UI/UX</span><span className="mar"><ArrowUpRight /></span></a>
-            <a className="more-item" href="/#work"><span className="mt">Moonshot idea</span><span className="mc">Real client · Product</span><span className="mar"><ArrowUpRight /></span></a>
+            <a className="more-item" href="/gutsy"><span className="mt">Gutsy</span><span className="mc">FAANG R&amp;D · health-tech moonshot</span><span className="mar"><ArrowUpRight /></span></a>
           </div>
         </div>
       </section>
