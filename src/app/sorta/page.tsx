@@ -317,7 +317,6 @@ export default function SortaPage() {
         <div className="wrap">
           <div className="sec-head reveal"><h2 className="sec-title">More projects</h2></div>
           <div className="more-list reveal">
-            <a className="more-item" href="/#work"><span className="mt">MapChat</span><span className="mc">Social · maps × messaging</span><span className="mar"><ArrowUpRight /></span></a>
             <a className="more-item" href="/aura"><span className="mt">AURA</span><span className="mc">Fashion-skin · UI/UX</span><span className="mar"><ArrowUpRight /></span></a>
             <a className="more-item" href="/gutsy"><span className="mt">Gutsy</span><span className="mc">FAANG R&amp;D · health-tech moonshot</span><span className="mar"><ArrowUpRight /></span></a>
           </div>
