@@ -177,7 +177,7 @@
 .gutsy .hero h1{font-family:var(--font);font-weight:800;font-size:clamp(58px,9vw,128px);line-height:.84;letter-spacing:-.045em;
   color:var(--text);margin-top:26px;}
 .gutsy .hero h1 .o{color:var(--cyan);text-shadow:0 0 40px color-mix(in srgb,var(--cyan) 55%,transparent);}
-.gutsy .hero-tag{font-family:var(--font);font-weight:400;font-style:italic;font-size:clamp(20px,2.3vw,30px);
+.gutsy .hero-tag{font-family:var(--font);font-weight:800;font-size:clamp(20px,2.3vw,30px);
   line-height:1.18;letter-spacing:-.02em;color:var(--lav);margin-top:26px;max-width:18ch;text-wrap:balance;}
 .gutsy .hero-sub{font-size:16.5px;line-height:1.62;color:var(--mist);max-width:42ch;margin-top:20px;}
 .gutsy .hero-media{position:relative;}
