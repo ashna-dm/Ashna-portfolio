@@ -1,0 +1,10 @@
+import { chromium } from "playwright";
+const b = await chromium.launch({ channel: "chrome" });
+const p = await b.newPage({ viewport: { width: 900, height: 528 }, deviceScaleFactor: 3 });
+await p.goto("file://" + process.argv[2], { waitUntil: "networkidle" });
+await p.evaluate(() => document.fonts && document.fonts.ready);
+await p.waitForTimeout(2200);
+console.log("card bottom", await p.evaluate(() => Math.round(document.querySelector('.card').getBoundingClientRect().bottom)), "of 528");
+console.log("foot present:", await p.evaluate(() => !!document.querySelector('.foot')));
+await p.screenshot({ path: process.argv[3], clip: { x: 0, y: 0, width: 900, height: 528 } });
+await b.close();

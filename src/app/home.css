@@ -923,6 +923,16 @@
   width: 100%;
   height: 100%;
 }
+/* a work tile can carry a real cover shot instead of a wireframe SVG */
+.home .artboard img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
 .home .artboard .hh {
   position: absolute;
   width: 8px;

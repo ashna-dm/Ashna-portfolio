@@ -213,30 +213,14 @@ export default function Home() {
                   <span className="n">02</span>
                 </div>
                 <div className="artboard">
-                  <svg viewBox="0 0 280 210" preserveAspectRatio="xMidYMid slice">
-                    <rect width="280" height="210" fill="#f5f6fe" />
-                    <rect x="26" y="24" width="228" height="162" rx="9" fill="#fff" stroke="#dfe2fb" />
-                    <rect x="26" y="24" width="228" height="26" rx="9" fill="#eef0fd" />
-                    <circle cx="42" cy="37" r="3.2" fill="#c7cdf4" />
-                    <circle cx="53" cy="37" r="3.2" fill="#c7cdf4" />
-                    <circle cx="64" cy="37" r="3.2" fill="#c7cdf4" />
-                    <rect x="44" y="66" width="120" height="13" rx="4" fill="#cdd3f7" />
-                    <rect x="44" y="86" width="190" height="13" rx="4" fill="#dfe3fb" />
-                    <rect x="44" y="106" width="150" height="13" rx="4" fill="#dfe3fb" />
-                    <rect x="44" y="132" width="86" height="13" rx="4" fill="#cdd3f7" />
-                    <rect x="44" y="152" width="120" height="13" rx="4" fill="#dfe3fb" />
-                    <circle cx="200" cy="138" r="30" fill="#5B27E5" />
-                    <rect x="189" y="135" width="22" height="17" rx="3" fill="#fff" />
-                    <path d="M193 135 v-4 a7 7 0 0 1 14 0 v4" fill="none" stroke="#fff" strokeWidth="2.6" />
-                    <circle cx="200" cy="143" r="2.6" fill="#5B27E5" />
-                  </svg>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/assets/images/moonshot/gutsy-cover.png" alt="Gutsy brand and product shot" />
                   <span className="tok-chip annot">
-                    <i style={{ background: "#5B27E5" }} />
-                    <i style={{ background: "#cdd3f7" }} />
-                    <i style={{ background: "#1A1430" }} />
+                    <i style={{ background: "#43E8D8" }} />
+                    <i style={{ background: "#C6B6F4" }} />
+                    <i style={{ background: "#070A14" }} />
                   </span>
-                  <span className="coming"><b>Under NDA</b></span>
-                  <span className="dim-chip annot">confidential</span>
+                  <span className="dim-chip annot">under NDA</span>
                   <span className="hh tl" />
                   <span className="hh tr" />
                   <span className="hh bl" />
