@@ -263,7 +263,11 @@
 .gutsy .fgrid{display:grid;gap:22px;margin-top:44px;}
 .gutsy .fgrid.c2{grid-template-columns:repeat(2,1fr);}
 .gutsy .fgrid.c3{grid-template-columns:repeat(3,1fr);}
-.gutsy .fgrid.c1{grid-template-columns:minmax(0,620px);}
+.gutsy .fgrid.c1{grid-template-columns:minmax(0,860px);}
+/* the scenario map is recoloured to this surface's ground, so match the
+   frame to the artwork's aspect and let it sit edge to edge */
+.gutsy .fgrid.c1 .frame .fbox{aspect-ratio:2400/1666;}
+.gutsy .fgrid .frame .fbox img{object-fit:contain!important;}
 .gutsy .fgrid .frame .fbox{aspect-ratio:4/3;}
 .gutsy .fgrid.phones .frame .fbox{aspect-ratio:9/19.3;border-radius:30px;}
 .gutsy .fcap{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--mist);margin-top:14px;}
@@ -646,6 +650,11 @@ html.reveal-ready .gutsy .reveal.in{opacity:1;transform:none;}
    the design depends on (and cropping to the middle of the dashboard). Let the
    screenshot render at its own aspect so it overflows and scrolls again. */
 .gutsy .lt-view img{height:auto!important;aspect-ratio:auto!important;object-fit:fill!important;}
+
+/* The brand board is a wide 1920x950 sheet; let it keep its aspect inside the
+   book page rather than being stretched to the frame's clamped height (the
+   inline height:100% ImageSlot sets would otherwise win). */
+.gutsy .bp-frame img{height:auto!important;max-height:clamp(240px,30vw,400px);object-fit:contain!important;}
 
 /* The lo-fi wireframes are full sheets of differing heights, so show each one
    whole rather than cropping it to the card's 16/10 - and sit them on paper,

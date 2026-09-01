@@ -68,6 +68,9 @@ const SLOT_SRC: Record<string, string> = {
   // Gutsy (FAANG R&D moonshot). The research artefacts and design-system
   // spreads are still unexported, so those slots fall through to placeholders.
   "gutsy-hero": "/assets/images/moonshot/gutsy-cover.png",
+  "gutsy-ds-logo": "/assets/images/moonshot/gutsy-brand-board.png",
+  "gutsy-ds-mood": "/assets/images/moonshot/brand-moodboard.png",
+  "gutsy-foresight-1": "/assets/images/moonshot/scenario-map-2x2.png",
   // dashboard wireframes - three lo-fi layout options
   "gutsy-wf-a": `${G}/wf-a-as-built.png`,
   "gutsy-wf-b": `${G}/wf-b-split-status.png`,

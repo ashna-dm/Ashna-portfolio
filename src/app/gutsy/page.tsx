@@ -258,7 +258,7 @@ export default function GutsyPage() {
                         <div className="bp-main">
                           <div className="bp-num">SECTION 01</div>
                           <h3 className="bp-title">1.0<br />Brand</h3>
-                          <p className="bp-desc">The GUTSY mark and bioluminescent identity — a living, glowing read on a body no one usually sees.</p>
+                          <p className="bp-desc">The GUTSY mark and the bioluminescent world it came from — bacterial colonies, floating cultures, chemical ecology — a living, glowing read on a body no one usually sees.</p>
                         </div>
                         <div className="bp-content"><div className="bp-frame"><ImageSlot id="gutsy-ds-logo" placeholder="Logo · drop from Figma" /></div></div>
                         <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">01</span></div>
@@ -266,13 +266,28 @@ export default function GutsyPage() {
                     </div>
                   </div>
 
-                  {/* 2.0 COLOUR */}
+                  {/* 2.0 MOODBOARD */}
                   <div className="dscar-slide">
                     <div className="dscar-card">
                       <div className="bookpage cream"><span className="bp-deco" />
                         <div className="bp-main">
                           <div className="bp-num">SECTION 02</div>
-                          <h3 className="bp-title">2.0<br />Colour</h3>
+                          <h3 className="bp-title">2.0<br />Moodboard</h3>
+                          <p className="bp-desc">The aesthetic of ambient care. Calm intelligence, dignified technology: deep indigo confidence, soft lavender warmth, and material elegance — never clinical, always human.</p>
+                        </div>
+                        <div className="bp-content"><div className="bp-frame"><ImageSlot id="gutsy-ds-mood" placeholder="Moodboard · ambient care" /></div></div>
+                        <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">02</span></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 3.0 COLOUR */}
+                  <div className="dscar-slide">
+                    <div className="dscar-card">
+                      <div className="bookpage"><span className="bp-deco" />
+                        <div className="bp-main">
+                          <div className="bp-num">SECTION 03</div>
+                          <h3 className="bp-title">3.0<br />Colour</h3>
                           <p className="bp-desc">A deep-navy base lets bioluminescent accents glow: lavender and violet for depth, bio-cyan and bio-green for live signal, warm linen for editorial calm.</p>
                         </div>
                         <div className="bp-content">
@@ -285,7 +300,7 @@ export default function GutsyPage() {
                             ))}
                           </div>
                         </div>
-                        <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">02</span></div>
+                        <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">03</span></div>
                       </div>
                     </div>
                   </div>
@@ -293,14 +308,14 @@ export default function GutsyPage() {
                   {/* 3.0 TYPE */}
                   <div className="dscar-slide">
                     <div className="dscar-card">
-                      <div className="bookpage"><span className="bp-deco" />
+                      <div className="bookpage cream"><span className="bp-deco" />
                         <div className="bp-main">
-                          <div className="bp-num">SECTION 03</div>
-                          <h3 className="bp-title">3.0<br />Type</h3>
+                          <div className="bp-num">SECTION 04</div>
+                          <h3 className="bp-title">4.0<br />Type</h3>
                           <p className="bp-desc">A Hagrid display paired with Poppins for body and JetBrains Mono for data labels — confident headlines, quietly readable text, technical precision.</p>
                         </div>
                         <div className="bp-content"><div className="bp-frame"><ImageSlot id="gutsy-ds-type" placeholder="Typography · drop from Figma" /></div></div>
-                        <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">03</span></div>
+                        <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">04</span></div>
                       </div>
                     </div>
                   </div>
@@ -308,14 +323,14 @@ export default function GutsyPage() {
                   {/* 4.0 COMPONENTS */}
                   <div className="dscar-slide">
                     <div className="dscar-card">
-                      <div className="bookpage cream"><span className="bp-deco" />
+                      <div className="bookpage"><span className="bp-deco" />
                         <div className="bp-main">
-                          <div className="bp-num">SECTION 04</div>
-                          <h3 className="bp-title">4.0<br />{"Compo­nents"}</h3>
+                          <div className="bp-num">SECTION 05</div>
+                          <h3 className="bp-title">5.0<br />{"Compo­nents"}</h3>
                           <p className="bp-desc">A small kit does the heavy lifting: sensor read-outs, risk badges, and the timeline card — every state mapped to the bioluminescent signal palette.</p>
                         </div>
                         <div className="bp-content"><div className="bp-frame"><ImageSlot id="gutsy-ds-comp" placeholder="Components · drop from Figma" /></div></div>
-                        <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">04</span></div>
+                        <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">05</span></div>
                       </div>
                     </div>
                   </div>
