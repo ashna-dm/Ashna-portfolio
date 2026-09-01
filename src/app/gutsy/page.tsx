@@ -148,18 +148,10 @@ export default function GutsyPage() {
               </div>
             </div>
 
-            <div className="fgrid c3 reveal">
+            <div className="fgrid c1 reveal">
               <div className="frame">
                 <span className="ftab"><b>2×2_scenarios ·</b> foresight</span>
                 <div className="fbox"><ImageSlot id="gutsy-foresight-1" fit="cover" placeholder="2×2 FUTURE-SCENARIO MAP" /></div>
-              </div>
-              <div className="frame">
-                <span className="ftab"><b>affinity_wall ·</b> synthesis</span>
-                <div className="fbox"><ImageSlot id="gutsy-research-1" fit="cover" placeholder="AFFINITY WALL + QUOTE CARDS" /></div>
-              </div>
-              <div className="frame">
-                <span className="ftab"><b>competitive_2×2 ·</b> landscape</span>
-                <div className="fbox"><ImageSlot id="gutsy-opp-1" fit="cover" placeholder="COMPETITIVE 2×2" /></div>
               </div>
             </div>
 
@@ -211,7 +203,7 @@ export default function GutsyPage() {
               <div className="laptop2">
                 <div className="lt-lid">
                   <div className="lt-screen">
-                    <div className="lt-chrome"><span className="tl" /><span className="tl" /><span className="tl" /><div className="lt-url">gutsy.health / practitioner</div></div>
+                    <div className="lt-chrome"><span className="tl" /><span className="tl" /><span className="tl" /><div className="lt-url">gutsy.health / clinician · patient panel</div></div>
                     {/* deliberate: the dashboard is taller than the frame and scrolls inside the screen */}
                     <div className="lt-view"><ImageSlot id="gutsy-d1" fit="cover" placeholder="PRACTITIONER DASHBOARD — drop a desktop screenshot" /></div>
                   </div>
@@ -224,21 +216,21 @@ export default function GutsyPage() {
                     <div className="mbar"><div className="mdots"><i /><i /><i /></div><div className="murl">gutsy.health / today</div></div>
                     <div className="mscr"><ImageSlot id="gutsy-p1" fit="cover" placeholder="Patient · today" /></div>
                   </div>
-                  <div className="dash-lab"><b>Patient · today</b> — the daily read</div>
+                  <div className="dash-lab"><b>Patient dashboard</b> — today&apos;s read</div>
                 </div>
                 <div>
                   <div className="minibr">
                     <div className="mbar"><div className="mdots"><i /><i /><i /></div><div className="murl">gutsy.health / trends</div></div>
                     <div className="mscr"><ImageSlot id="gutsy-p2" fit="cover" placeholder="Patient · trends & triggers" /></div>
                   </div>
-                  <div className="dash-lab"><b>Trends &amp; triggers</b> — what moved the gut</div>
+                  <div className="dash-lab"><b>Patient dashboard</b> — trends &amp; triggers</div>
                 </div>
                 <div>
                   <div className="minibr">
                     <div className="mbar"><div className="mdots"><i /><i /><i /></div><div className="murl">gutsy.health / chart</div></div>
                     <div className="mscr"><ImageSlot id="gutsy-d2" fit="cover" placeholder="Clinician · patient chart" /></div>
                   </div>
-                  <div className="dash-lab"><b>Patient chart</b> — one patient across specialists</div>
+                  <div className="dash-lab"><b>Clinician dashboard</b> — patient chart</div>
                 </div>
               </div>
             </div>
@@ -360,7 +352,6 @@ export default function GutsyPage() {
             <div className="more-list reveal">
               <a className="more-item" href="/aura"><span className="mt">AURA</span><span className="mc">AI · fashion × skin health</span><span className="mar"><ArrowUpRight /></span></a>
               <a className="more-item" href="/sorta"><span className="mt">Sorta</span><span className="mc">AI home organizing · Product</span><span className="mar"><ArrowUpRight /></span></a>
-              <a className="more-item" href="/#work"><span className="mt">MapChat</span><span className="mc">Social · maps × messaging</span><span className="mar"><ArrowUpRight /></span></a>
             </div>
           </div>
         </section>

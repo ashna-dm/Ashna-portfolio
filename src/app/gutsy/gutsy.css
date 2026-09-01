@@ -263,6 +263,7 @@
 .gutsy .fgrid{display:grid;gap:22px;margin-top:44px;}
 .gutsy .fgrid.c2{grid-template-columns:repeat(2,1fr);}
 .gutsy .fgrid.c3{grid-template-columns:repeat(3,1fr);}
+.gutsy .fgrid.c1{grid-template-columns:minmax(0,620px);}
 .gutsy .fgrid .frame .fbox{aspect-ratio:4/3;}
 .gutsy .fgrid.phones .frame .fbox{aspect-ratio:9/19.3;border-radius:30px;}
 .gutsy .fcap{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;color:var(--mist);margin-top:14px;}
@@ -515,7 +516,7 @@ html.reveal-ready .gutsy .reveal.in{opacity:1;transform:none;}
 
 
 .gutsy .deskstage{margin-top:38px;display:flex;flex-direction:column;align-items:center;gap:34px;}
-.gutsy .laptop2{width:100%;max-width:960px;display:flex;flex-direction:column;align-items:center;}
+.gutsy .laptop2{width:100%;max-width:1120px;display:flex;flex-direction:column;align-items:center;}
 .gutsy .lt-lid{width:100%;background:linear-gradient(#1b2440,#0d1322);border-radius:22px;padding:13px;box-sizing:border-box;
   box-shadow:0 64px 120px -56px #000, inset 0 0 0 1px rgba(255,255,255,.06);}
 .gutsy .lt-screen{border-radius:9px;overflow:hidden;background:var(--deep);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05);}
@@ -538,7 +539,7 @@ html.reveal-ready .gutsy .reveal.in{opacity:1;transform:none;}
 .gutsy .lt-deck::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:rgba(255,255,255,.07);}
 .gutsy .lt-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:150px;height:9px;
   background:#0e1426;border-radius:0 0 11px 11px;}
-.gutsy .dash-mini{width:100%;max-width:960px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;}
+.gutsy .dash-mini{width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start;}
 .gutsy .minibr{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--panel);
   box-shadow:0 32px 58px -42px #000;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s;}
 .gutsy .minibr:hover{transform:translateY(-8px);box-shadow:0 46px 70px -44px #000;}
@@ -547,7 +548,7 @@ html.reveal-ready .gutsy .reveal.in{opacity:1;transform:none;}
 .gutsy .minibr .mdots i{width:9px;height:9px;border-radius:50%;background:var(--fog);opacity:.5;}
 .gutsy .minibr .murl{flex:1;height:22px;border-radius:6px;background:var(--navy);display:flex;align-items:center;
   padding:0 11px;font-family:var(--mono);font-size:10.5px;color:var(--mist);}
-.gutsy .minibr .mscr{position:relative;aspect-ratio:16/11;background:var(--deep);}
+.gutsy .minibr .mscr{position:relative;aspect-ratio:4/3;background:var(--deep);}
 .gutsy .minibr .mscr img,.gutsy .minibr .mscr .imgslot-ph{position:absolute;inset:0;width:100%;height:100%;display:block;}
 .gutsy .dash-phone{align-self:stretch;}
 .gutsy .dash-phone .pf{position:relative;border-radius:30px;overflow:hidden;background:#05080f;padding:8px;
@@ -556,7 +557,7 @@ html.reveal-ready .gutsy .reveal.in{opacity:1;transform:none;}
   border-radius:999px;background:#05080f;z-index:4;}
 .gutsy .dash-phone .pf-scr{position:relative;border-radius:24px;overflow:hidden;height:100%;min-height:230px;background:var(--deep);}
 .gutsy .dash-phone .pf-scr img,.gutsy .dash-phone .pf-scr .imgslot-ph{position:absolute;inset:0;width:100%;height:100%;display:block;}
-.gutsy .dash-lab{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--mist);margin-top:11px;text-align:center;}
+.gutsy .dash-lab{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--mist);margin-top:11px;text-align:center;}
 .gutsy .dash-lab b{color:var(--text);font-weight:400;}/* ===================== DESIGN SYSTEM · brand-book carousel (dark) ===================== */
 
 
