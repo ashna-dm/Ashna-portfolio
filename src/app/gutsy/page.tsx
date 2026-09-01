@@ -15,14 +15,11 @@ const ArrowUpRight = () => (
   </svg>
 );
 
-/* Lo-fi website wireframes: the full web flow before a single hi-fi screen. */
+/* Three lo-fi layouts for the practitioner dashboard, explored before any hi-fi. */
 const WIREFRAMES = [
-  { n: "01", url: "gutsy.health", id: "gutsy-wf-1", ph: "WIREFRAME · landing page" },
-  { n: "02", url: "gutsy.health / dashboard", id: "gutsy-wf-2", ph: "WIREFRAME · practitioner dashboard" },
-  { n: "03", url: "gutsy.health / patient", id: "gutsy-wf-3", ph: "WIREFRAME · patient timeline" },
-  { n: "04", url: "gutsy.health / sensor", id: "gutsy-wf-4", ph: "WIREFRAME · sensor stream" },
-  { n: "05", url: "gutsy.health / results", id: "gutsy-wf-5", ph: "WIREFRAME · results & report" },
-  { n: "06", url: "gutsy.health / messages", id: "gutsy-wf-6", ph: "WIREFRAME · message care team" },
+  { n: "A", url: "as-built", id: "gutsy-wf-a", ph: "WIREFRAME · as-built" },
+  { n: "B", url: "split status column", id: "gutsy-wf-b", ph: "WIREFRAME · split status column" },
+  { n: "C", url: "triage first", id: "gutsy-wf-c", ph: "WIREFRAME · triage first" },
 ];
 
 const COLOURS = [
@@ -167,7 +164,7 @@ export default function GutsyPage() {
             </div>
 
             <div className="wf-block reveal">
-              <div className="wf-head"><span className="wf-k">website wireframes · <b>lo-fi → flow</b></span></div>
+              <div className="wf-head"><span className="wf-k">dashboard wireframes · <b>lo-fi → 3 options</b></span></div>
               <div className="wf-row">
                 {WIREFRAMES.map((w) => (
                   <div className="wf" key={w.n}>
@@ -176,7 +173,7 @@ export default function GutsyPage() {
                   </div>
                 ))}
               </div>
-              <div className="wf-step"><b>Lo-fi website wireframes</b> mapped the full web flow before a single hi-fi screen.</div>
+              <div className="wf-step"><b>Three lo-fi layouts</b> for the practitioner dashboard, weighed against each other before a single hi-fi screen.</div>
             </div>
           </div>
         </section>
@@ -216,7 +213,7 @@ export default function GutsyPage() {
                   <div className="lt-screen">
                     <div className="lt-chrome"><span className="tl" /><span className="tl" /><span className="tl" /><div className="lt-url">gutsy.health / practitioner</div></div>
                     {/* deliberate: the dashboard is taller than the frame and scrolls inside the screen */}
-                    <div className="lt-view"><ImageSlot id="gutsy-ux-5" fit="cover" placeholder="PRACTITIONER DASHBOARD — drop a desktop screenshot" /></div>
+                    <div className="lt-view"><ImageSlot id="gutsy-d1" fit="cover" placeholder="PRACTITIONER DASHBOARD — drop a desktop screenshot" /></div>
                   </div>
                 </div>
                 <div className="lt-deck"><span className="lt-notch" /></div>
@@ -224,24 +221,24 @@ export default function GutsyPage() {
               <div className="dash-mini">
                 <div>
                   <div className="minibr">
-                    <div className="mbar"><div className="mdots"><i /><i /><i /></div><div className="murl">gutsy.health / patient-timeline</div></div>
-                    <div className="mscr"><ImageSlot id="gutsy-web-2" fit="cover" placeholder="Patient timeline" /></div>
+                    <div className="mbar"><div className="mdots"><i /><i /><i /></div><div className="murl">gutsy.health / today</div></div>
+                    <div className="mscr"><ImageSlot id="gutsy-p1" fit="cover" placeholder="Patient · today" /></div>
                   </div>
-                  <div className="dash-lab"><b>Timeline</b> — one patient across specialists</div>
+                  <div className="dash-lab"><b>Patient · today</b> — the daily read</div>
                 </div>
                 <div>
                   <div className="minibr">
-                    <div className="mbar"><div className="mdots"><i /><i /><i /></div><div className="murl">gutsy.health / sensor-stream</div></div>
-                    <div className="mscr"><ImageSlot id="gutsy-web-3" fit="cover" placeholder="Live sensor stream" /></div>
+                    <div className="mbar"><div className="mdots"><i /><i /><i /></div><div className="murl">gutsy.health / trends</div></div>
+                    <div className="mscr"><ImageSlot id="gutsy-p2" fit="cover" placeholder="Patient · trends & triggers" /></div>
                   </div>
-                  <div className="dash-lab"><b>Sensor stream</b> — continuous gut read</div>
+                  <div className="dash-lab"><b>Trends &amp; triggers</b> — what moved the gut</div>
                 </div>
                 <div>
-                  <div className="dash-phone">
-                    <span className="pf-island" />
-                    <div className="pf"><div className="pf-scr"><ImageSlot id="gutsy-ux-4" fit="cover" placeholder="PATIENT APP — log · results · messaging" /></div></div>
+                  <div className="minibr">
+                    <div className="mbar"><div className="mdots"><i /><i /><i /></div><div className="murl">gutsy.health / chart</div></div>
+                    <div className="mscr"><ImageSlot id="gutsy-d2" fit="cover" placeholder="Clinician · patient chart" /></div>
                   </div>
-                  <div className="dash-lab"><b>Patient app</b> — log · results · messaging</div>
+                  <div className="dash-lab"><b>Patient chart</b> — one patient across specialists</div>
                 </div>
               </div>
             </div>
@@ -371,7 +368,6 @@ export default function GutsyPage() {
 
       {/* FOOTER */}
       <footer id="contact">
-        <span className="bloom" style={{ width: 440, height: 440, background: "var(--violet)", top: -120, right: "10%", opacity: 0.25 }} />
         <div className="footer-inner">
           <a className="back-to-work" href="/#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M11 18l-6-6 6-6" /></svg>Back to all work</a>
           <div className="footer-huge">REAL-TIME<br />GUT-HEALTH, <span className="g">FINALLY.</span></div>

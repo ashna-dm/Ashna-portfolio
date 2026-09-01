@@ -7,6 +7,7 @@
  */
 const S = "/assets/images/sorta/screens";
 const A = "/assets/images/aura/screens";
+const G = "/assets/images/moonshot/screens";
 const SLOT_SRC: Record<string, string> = {
   // Sorta case study - media
   "sc-journey": "/assets/images/sorta/sc-journey.jpg",
@@ -64,9 +65,18 @@ const SLOT_SRC: Record<string, string> = {
   "aura-web-1": `${A}/web-home.png`,
   "aura-web-2": `${A}/web-report.png`,
   "aura-web-4": `${A}/web-calendar.png`,
-  // Gutsy (FAANG R&D moonshot) - only the brand/product shot is exported so far;
-  // every other gutsy-* slot intentionally falls through to a labelled placeholder.
+  // Gutsy (FAANG R&D moonshot). The research artefacts and design-system
+  // spreads are still unexported, so those slots fall through to placeholders.
   "gutsy-hero": "/assets/images/moonshot/gutsy-cover.png",
+  // dashboard wireframes - three lo-fi layout options
+  "gutsy-wf-a": `${G}/wf-a-as-built.png`,
+  "gutsy-wf-b": `${G}/wf-b-split-status.png`,
+  "gutsy-wf-c": `${G}/wf-c-triage-first.png`,
+  // hi-fi desktop screens
+  "gutsy-d1": `${G}/d1-clinician-panel.png`, // laptop: clinician patient panel
+  "gutsy-p1": `${G}/p1-patient-today.png`,
+  "gutsy-p2": `${G}/p2-patient-trends.png`,
+  "gutsy-d2": `${G}/d2-clinician-chart.png`,
   // Story board
   "story-portrait": "/assets/images/story/story-portrait.webp",
   "story-snap-1": "/assets/images/story/offduty.jpg", // "me, off duty"

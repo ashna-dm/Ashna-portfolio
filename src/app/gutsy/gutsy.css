@@ -538,7 +538,7 @@ html.reveal-ready .gutsy .reveal.in{opacity:1;transform:none;}
 .gutsy .lt-deck::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:rgba(255,255,255,.07);}
 .gutsy .lt-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:150px;height:9px;
   background:#0e1426;border-radius:0 0 11px 11px;}
-.gutsy .dash-mini{width:100%;max-width:960px;display:grid;grid-template-columns:1fr 1fr .78fr;gap:20px;align-items:start;}
+.gutsy .dash-mini{width:100%;max-width:960px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;}
 .gutsy .minibr{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--panel);
   box-shadow:0 32px 58px -42px #000;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s;}
 .gutsy .minibr:hover{transform:translateY(-8px);box-shadow:0 46px 70px -44px #000;}
@@ -639,6 +639,47 @@ html.reveal-ready .gutsy .reveal.in{opacity:1;transform:none;}
 .gutsy .minibr .mscr .imgslot-ph,
 .gutsy .dash-phone .pf-scr .imgslot-ph,
 .gutsy .bp-frame .imgslot-ph{display:flex;}
+
+/* ImageSlot sets height:100% inline, which beat the stylesheet's height:auto
+   and made the dashboard exactly fill .lt-view - killing the in-screen scroll
+   the design depends on (and cropping to the middle of the dashboard). Let the
+   screenshot render at its own aspect so it overflows and scrolls again. */
+.gutsy .lt-view img{height:auto!important;aspect-ratio:auto!important;object-fit:fill!important;}
+
+/* The lo-fi wireframes are full sheets of differing heights, so show each one
+   whole rather than cropping it to the card's 16/10 - and sit them on paper,
+   which is what a wireframe reads as. */
+.gutsy .wf-scr img{object-fit:contain!important;background:#f6f7fb;}
+
+/* ============================================================
+   CHROME PARITY with the other case studies (Sorta / AURA).
+   The prototype gave this surface its own dark nav pills and a
+   near-black footer; the site reads as one system when the nav
+   and footer match everywhere, so these carry Sorta's values.
+   The header's frosted backdrop stays dark - it sits over a navy
+   page, and a light frost would haze the hero.
+   Footer violet is --violet-deep (#5B27E5, the portfolio primary)
+   because --violet is remapped to the lighter Gutsy purple here.
+   ============================================================ */
+.gutsy .brand{color:#26233a;background:#fff;border:1px solid #e4e3ea;
+  -webkit-backdrop-filter:none;backdrop-filter:none;}
+.gutsy .brand:hover{border-color:#cfccda;box-shadow:0 5px 16px -10px rgba(26,20,48,.4);}
+.gutsy .np{color:#2b2838;background:#fff;border:1px solid #e4e3ea;
+  -webkit-backdrop-filter:none;backdrop-filter:none;}
+.gutsy .np:hover{border-color:#cfccda;color:#2b2838;box-shadow:0 5px 16px -10px rgba(26,20,48,.45);}
+.gutsy .np.active{background:var(--nav-blue);border-color:var(--nav-blue);color:#fff;}
+.gutsy .np.active:hover{color:#fff;box-shadow:0 7px 20px -9px color-mix(in srgb,var(--nav-blue) 65%,transparent);}
+
+.gutsy footer{background:var(--violet-deep);color:#fff;margin-top:108px;border-top:none;}
+.gutsy .footer-inner{padding:84px 56px 50px;}
+.gutsy .back-to-work{color:rgba(255,255,255,.66);margin-bottom:38px;}
+.gutsy .back-to-work:hover{color:var(--cyan);}
+.gutsy .footer-huge{font-size:clamp(38px,5.2vw,78px);line-height:.96;letter-spacing:-.02em;color:#fff;}
+.gutsy .footer-huge .g{color:var(--cyan);text-shadow:none;}
+.gutsy .footer-links{margin-top:42px;padding-top:28px;border-top:1px solid rgba(255,255,255,.2);}
+.gutsy .footer-links a{color:#fff;}
+.gutsy .footer-links a::after{background:var(--cyan);}
+.gutsy .footer-meta{margin-top:56px;font-size:12.5px;color:rgba(255,255,255,.6);}
 
 /* The page background must reach past the content box so overscroll and
    short viewports stay navy instead of flashing the global white. */
