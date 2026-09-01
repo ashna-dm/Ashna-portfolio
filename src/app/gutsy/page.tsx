@@ -85,7 +85,7 @@ export default function GutsyPage() {
               <div className="hero-media reveal">
                 <div className="frame">
                   <div className="fbox">
-                    <ImageSlot id="gutsy-hero" fit="cover" placeholder="HERO PRODUCT / BRAND SHOT — Sofia's photography" />
+                    <ImageSlot id="gutsy-hero" fit="cover" placeholder="HERO PRODUCT / BRAND SHOT · Sofia's photography" />
                   </div>
                   <span className="pill-credit">Photography · <b>Sofia Nuñez Morales</b></span>
                 </div>
@@ -116,7 +116,7 @@ export default function GutsyPage() {
             <div className="pullquote reveal">
               <div className="qm">“</div>
               <div className="qt">I track everything and still get blindsided between appointments.</div>
-              <div className="qby">— Interviewee, anonymized · 1 of 5</div>
+              <div className="qby">Interviewee, anonymized · 1 of 5</div>
             </div>
           </div>
         </section>
@@ -175,7 +175,7 @@ export default function GutsyPage() {
           <span className="bloom" style={{ width: 480, height: 480, background: "var(--bio)", top: 60, left: -160, opacity: 0.3 }} />
           <div className="wrap">
             <div className="sec-head reveal"><h2 className="sec-title">The solution</h2></div>
-            <h2 className="phase-title reveal" style={{ maxWidth: "20ch" }}>GUTSY — sense, test, steward.</h2>
+            <h2 className="phase-title reveal" style={{ maxWidth: "20ch" }}>GUTSY: sense, test, steward.</h2>
             <p className="lead reveal">One system in three moves. <b>AI synthesizes the data; humans steward the body.</b> A 5-screen practitioner dashboard, paired with a patient companion app.</p>
 
             <div className="triad reveal">
@@ -189,7 +189,7 @@ export default function GutsyPage() {
                 <span className="tdot" />
                 <div className="tnum">02 · TEST</div>
                 <div className="tname">Test</div>
-                <div className="tdesc">At-home kits add the <b>depth</b> a wearable can&apos;t — on the patient&apos;s schedule.</div>
+                <div className="tdesc">At-home kits add the <b>depth</b> a wearable can&apos;t, on the patient&apos;s schedule.</div>
               </div>
               <div className="tcard">
                 <span className="tdot" />
@@ -205,7 +205,7 @@ export default function GutsyPage() {
                   <div className="lt-screen">
                     <div className="lt-chrome"><span className="tl" /><span className="tl" /><span className="tl" /><div className="lt-url">gutsy.health / clinician · patient panel</div></div>
                     {/* deliberate: the dashboard is taller than the frame and scrolls inside the screen */}
-                    <div className="lt-view"><ImageSlot id="gutsy-d1" fit="cover" placeholder="PRACTITIONER DASHBOARD — drop a desktop screenshot" /></div>
+                    <div className="lt-view"><ImageSlot id="gutsy-d1" fit="cover" placeholder="PRACTITIONER DASHBOARD · drop a desktop screenshot" /></div>
                   </div>
                 </div>
                 <div className="lt-deck"><span className="lt-notch" /></div>
@@ -216,21 +216,21 @@ export default function GutsyPage() {
                     <div className="mbar"><div className="mdots"><i /><i /><i /></div><div className="murl">gutsy.health / today</div></div>
                     <div className="mscr"><ImageSlot id="gutsy-p1" fit="cover" placeholder="Patient · today" /></div>
                   </div>
-                  <div className="dash-lab"><b>Patient dashboard</b> — today&apos;s read</div>
+                  <div className="dash-lab"><b>Patient dashboard</b> · today&apos;s read</div>
                 </div>
                 <div>
                   <div className="minibr">
                     <div className="mbar"><div className="mdots"><i /><i /><i /></div><div className="murl">gutsy.health / trends</div></div>
                     <div className="mscr"><ImageSlot id="gutsy-p2" fit="cover" placeholder="Patient · trends & triggers" /></div>
                   </div>
-                  <div className="dash-lab"><b>Patient dashboard</b> — trends &amp; triggers</div>
+                  <div className="dash-lab"><b>Patient dashboard</b> · trends &amp; triggers</div>
                 </div>
                 <div>
                   <div className="minibr">
                     <div className="mbar"><div className="mdots"><i /><i /><i /></div><div className="murl">gutsy.health / chart</div></div>
                     <div className="mscr"><ImageSlot id="gutsy-d2" fit="cover" placeholder="Clinician · patient chart" /></div>
                   </div>
-                  <div className="dash-lab"><b>Clinician dashboard</b> — patient chart</div>
+                  <div className="dash-lab"><b>Clinician dashboard</b> · patient chart</div>
                 </div>
               </div>
             </div>
@@ -258,7 +258,7 @@ export default function GutsyPage() {
                         <div className="bp-main">
                           <div className="bp-num">SECTION 01</div>
                           <h3 className="bp-title">1.0<br />Brand</h3>
-                          <p className="bp-desc">The GUTSY mark and the bioluminescent world it came from — bacterial colonies, floating cultures, chemical ecology — a living, glowing read on a body no one usually sees.</p>
+                          <p className="bp-desc">The GUTSY mark and the bioluminescent world it came from: bacterial colonies, floating cultures, chemical ecology. A living, glowing read on a body no one usually sees.</p>
                         </div>
                         <div className="bp-content"><div className="bp-frame"><ImageSlot id="gutsy-ds-logo" placeholder="Logo · drop from Figma" /></div></div>
                         <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">01</span></div>
@@ -327,7 +327,7 @@ export default function GutsyPage() {
                         <div className="bp-main">
                           <div className="bp-num">SECTION 05</div>
                           <h3 className="bp-title">5.0<br />{"Compo­nents"}</h3>
-                          <p className="bp-desc">A small kit does the heavy lifting: sensor read-outs, risk badges, and the timeline card — every state mapped to the bioluminescent signal palette.</p>
+                          <p className="bp-desc">A small kit does the heavy lifting: sensor read-outs, risk badges, and the timeline card, every state mapped to the bioluminescent signal palette.</p>
                         </div>
                         <div className="bp-content"><div className="bp-frame"><ImageSlot id="gutsy-ds-comp" placeholder="Components · drop from Figma" /></div></div>
                         <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">05</span></div>
@@ -354,7 +354,7 @@ export default function GutsyPage() {
             <h2 className="phase-title reveal" style={{ maxWidth: "22ch" }}>An open prompt → a <em>fundable</em> direction in six weeks.</h2>
             <div className="recog reveal" style={{ marginTop: 40 }}>
               <div className="rg"><span className="rg-n">4</span><span className="rg-t"><b>Lab leaders</b> endorsed advancing to clinical validation</span></div>
-              <div className="rg"><span className="rg-n">Top 9</span><span className="rg-t"><b>Impact Awards finalist</b> — pitched to a panel of 3 judges</span></div>
+              <div className="rg"><span className="rg-n">Top 9</span><span className="rg-t"><b>Impact Awards finalist</b>, pitched to a panel of 3 judges</span></div>
               <div className="rg"><span className="rg-n">9/10</span><span className="rg-t"><b>Usability rating</b> across 5 iterations</span></div>
             </div>
           </div>
