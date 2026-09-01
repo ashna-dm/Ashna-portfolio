@@ -246,7 +246,7 @@ export default function GutsyPage() {
         <section className="block designsys" data-screen-label="Design system">
           <div className="wrap">
             <div className="sec-head reveal"><h2 className="sec-title">Design system</h2></div>
-            <p className="ds-intro reveal">A small system carries the bioluminescent brand: GUTSY&apos;s deep-navy base, lavender-and-violet with bio-cyan &amp; bio-green accents, a Playfair / Poppins / JetBrains Mono type scale, and a kit of sensor &amp; risk components.</p>
+            <p className="ds-intro reveal">A small system carries the bioluminescent brand: GUTSY&apos;s deep-navy base, lavender-and-violet with bio-cyan &amp; bio-green accents, and a Playfair / Poppins / JetBrains Mono type scale.</p>
             <div className="dscar bookcar" data-dscar>
               <div className="dscar-viewport">
                 <div className="dscar-track">
@@ -316,21 +316,6 @@ export default function GutsyPage() {
                         </div>
                         <div className="bp-content"><div className="bp-frame"><ImageSlot id="gutsy-ds-type" placeholder="Typography · drop from Figma" /></div></div>
                         <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">04</span></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* 4.0 COMPONENTS */}
-                  <div className="dscar-slide">
-                    <div className="dscar-card">
-                      <div className="bookpage"><span className="bp-deco" />
-                        <div className="bp-main">
-                          <div className="bp-num">SECTION 05</div>
-                          <h3 className="bp-title">5.0<br />{"Compo­nents"}</h3>
-                          <p className="bp-desc">A small kit does the heavy lifting: sensor read-outs, risk badges, and the timeline card, every state mapped to the bioluminescent signal palette.</p>
-                        </div>
-                        <div className="bp-content"><div className="bp-frame"><ImageSlot id="gutsy-ds-comp" placeholder="Components · drop from Figma" /></div></div>
-                        <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">05</span></div>
                       </div>
                     </div>
                   </div>
