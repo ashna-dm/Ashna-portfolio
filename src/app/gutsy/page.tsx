@@ -308,7 +308,7 @@ export default function GutsyPage() {
                   {/* 3.0 TYPE */}
                   <div className="dscar-slide">
                     <div className="dscar-card">
-                      <div className="bookpage cream"><span className="bp-deco" />
+                      <div className="bookpage cream wide"><span className="bp-deco" />
                         <div className="bp-main">
                           <div className="bp-num">SECTION 04</div>
                           <h3 className="bp-title">4.0<br />Type</h3>
