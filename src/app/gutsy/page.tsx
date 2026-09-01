@@ -273,7 +273,7 @@ export default function GutsyPage() {
                         <div className="bp-main">
                           <div className="bp-num">SECTION 02</div>
                           <h3 className="bp-title">2.0<br />Moodboard</h3>
-                          <p className="bp-desc">The aesthetic of ambient care. Calm intelligence, dignified technology: deep indigo confidence, soft lavender warmth, and material elegance — never clinical, always human.</p>
+                          <p className="bp-desc">The reference world the interface came from: ambient wearables worn without ceremony, soft materials against skin, and the indigo-and-lavender palette the product inherited.</p>
                         </div>
                         <div className="bp-content"><div className="bp-frame"><ImageSlot id="gutsy-ds-mood" placeholder="Moodboard · ambient care" /></div></div>
                         <div className="bp-foot"><span className="lbl">Design system</span><span className="pg">02</span></div>
