@@ -263,7 +263,7 @@
 .gutsy .fgrid{display:grid;gap:22px;margin-top:44px;}
 .gutsy .fgrid.c2{grid-template-columns:repeat(2,1fr);}
 .gutsy .fgrid.c3{grid-template-columns:repeat(3,1fr);}
-.gutsy .fgrid.c1{grid-template-columns:minmax(0,860px);}
+.gutsy .fgrid.c1{grid-template-columns:minmax(0,660px);justify-content:center;}
 /* the scenario map is recoloured to this surface's ground, so match the
    frame to the artwork's aspect and let it sit edge to edge */
 .gutsy .fgrid.c1 .frame .fbox{aspect-ratio:2400/1420;}
